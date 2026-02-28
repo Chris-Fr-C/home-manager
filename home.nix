@@ -2,7 +2,8 @@
 let
   shellAliases = {
     find = "fd";
-    cd = "z";
+    z="zoxide";
+    # cd = "zoxide";
     c = "yazi";
     ls = "eza --icons=always";
     lsl = "ls -l";
@@ -11,6 +12,12 @@ let
     refresh = "home-manager switch";
     vim="nvim";
     lg="lazygit";
+    hm="home-manager";
+    hme="nvim ~/.config/home-manager/home.nix";
+    f="pay-respects";
+  };
+  sessionVariables={
+    EDITOR = "nvim";
   };
 in
 {
@@ -22,7 +29,7 @@ in
   home.homeDirectory = "/home/christophe";
 
   home.stateVersion = "25.11";
-      # Let Home Manager install and manage itself.
+  # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
   
   home.packages = with pkgs; [
@@ -31,6 +38,8 @@ in
     git
     lazygit
     htop
+    # Press f to pay respect when you miss a command.
+    pay-respects
     # Dev tools
     zsh # Classic shell.
     xonsh # Python + bash, best of both worlds.
@@ -50,8 +59,8 @@ in
     gnumake
     python313Packages.cmake
     go-task
-  ] ;
 
+  ];
   programs.git = {
     enable = true;
     settings.user.name = "Chris-Fr-C";
@@ -72,7 +81,8 @@ in
     eval "$(starship init xonsh)"
   '';
 
-
+  
+  # You can set as default with chsh -s $(which xonsh)
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -81,11 +91,16 @@ in
 
     history.size = 10000;
     inherit shellAliases;
+    inherit sessionVariables;
     oh-my-zsh = { # "ohMyZsh" without Home Manager
       enable = true;
-      plugins = [ "git" "thefuck" ];
+      plugins = [ "git" ];
       theme = "agnoster";
     };
+    initExtra = ''
+    rm ~/.zcompdump*; compinit
+    eval "$(zoxide init zsh)"
+    '';
   };
 
   # Let chezmoi point to dotfiles here.
@@ -94,10 +109,23 @@ in
     onChange="echo 'Updating dot files...'; ${pkgs.chezmoi} apply";
   };
 
+  # Using one of the shells.
+  home.shell.enableZshIntegration=true;
+
   programs.bash = {
     enable=true;     # handles the bashrc
-
+    inherit sessionVariables;
     inherit shellAliases;
+    initExtra = ''
+      # include .profile if it exists
+      [[ -f ~/.profile ]] && . ~/.profile
+      # https://unix.stackexchange.com/questions/136423/making-zsh-default-shell-without-root-access
+      export SHELL="${pkgs.zsh}"
+      [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
+      eval "$(pay-respects bash --alias)"
+      eval "$(pay-respects zsh --alias)"
+      eval "$(zoxide init bash)"
+    '';
   };
   # =======================================
   # =          Development setup          =
