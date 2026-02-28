@@ -1,4 +1,18 @@
 { config, pkgs, ... }:
+let
+  shellAliases = {
+    find = "fd";
+    cd = "z";
+    c = "yazi";
+    ls = "eza --icons=always";
+    lsl = "ls -l";
+    lsls = "lsl --total-size";
+    bench = "hyperfine";
+    refresh = "home-manager switch";
+    vim="nvim";
+    lg="lazygit";
+  };
+in
 {
   # Not using nix
   targets.genericLinux.enable = true;
@@ -11,25 +25,31 @@
       # Let Home Manager install and manage itself.
   programs.home-manager.enable = true; 
   
-  programs.bash.enable = true; # handles the bashrc
-  programs.zsh.enable = false; # and the zshrc
   home.packages = with pkgs; [
     # https://search.nixos.org/packages?channel=unstable&query=xonsh
     neovim 
     git
+    lazygit
     htop
     # Dev tools
+    zsh # Classic shell.
     xonsh # Python + bash, best of both worlds.
     neovim # Best editor.
     zoxide # A better cmd.
     fzf # Fuzzy search.
     yazi # File manager.;
     starship # Make Shell bioutifoul again.
-  
+    zellij # Multiplexer. 
     # Code tooling
     # python:
     python313
     uv
+    chezmoi
+    powerline
+    
+    gnumake
+    python313Packages.cmake
+    go-task
   ] ;
 
   programs.git = {
@@ -38,7 +58,7 @@
     settings.user.email = "christophe.fr.corsi@gmail.com";
   };
 
-
+  
   # =======================================
   # =           Shell setup               =
   # =======================================
@@ -50,9 +70,37 @@
   home.file.".config/xonsh/rc.xsh".text = ''
     # Initialize Starship prompt
     eval "$(starship init xonsh)"
-
-    # Load xontribs
-    xontrib load term_integration prompt_starship powerline3 jupyter
-    xontrib load coreutils nakefile_complete cd kitty onepath
   '';
+
+
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
+    history.size = 10000;
+    inherit shellAliases;
+    oh-my-zsh = { # "ohMyZsh" without Home Manager
+      enable = true;
+      plugins = [ "git" "thefuck" ];
+      theme = "agnoster";
+    };
+  };
+
+  # Let chezmoi point to dotfiles here.
+  home.file.".local/share/chezmoi/.chezmoi" = {
+    source=./dotfiles;
+    onChange="echo 'Updating dot files...'; ${pkgs.chezmoi} apply";
+  };
+
+  programs.bash = {
+    enable=true;     # handles the bashrc
+
+    inherit shellAliases;
+  };
+  # =======================================
+  # =          Development setup          =
+  # =======================================
+  
 }
