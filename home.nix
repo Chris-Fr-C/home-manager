@@ -15,6 +15,7 @@ let
     hm="home-manager";
     hme="nvim ~/.config/home-manager/home.nix";
     f="pay-respects";
+    cz="commitizen";
   };
   sessionVariables={
     EDITOR = "nvim";
@@ -34,9 +35,14 @@ in
   
   home.packages = with pkgs; [
     # https://search.nixos.org/packages?channel=unstable&query=xonsh
+    # Ide
     neovim 
+
+    # Git related tools
     git
     lazygit
+    commitizen 
+
     htop
     # Press f to pay respect when you miss a command.
     pay-respects
@@ -120,7 +126,7 @@ in
       # include .profile if it exists
       [[ -f ~/.profile ]] && . ~/.profile
       # https://unix.stackexchange.com/questions/136423/making-zsh-default-shell-without-root-access
-      export SHELL="${pkgs.zsh}"
+      export SHELL="${pkgs.zsh}/bin/zsh"
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
       eval "$(pay-respects bash --alias)"
       eval "$(pay-respects zsh --alias)"
