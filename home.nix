@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 let
   shellAliases = {
+    nixcfg="nvim ~/.config/home-manager/home.nix";
     find = "fd";
     z="zoxide";
     # cd = "zoxide";
@@ -20,6 +21,30 @@ let
   sessionVariables={
     EDITOR = "nvim";
   };
+  sharedShellInit=''
+      # For management of suspended processes.
+      fgf() {
+        local job
+        job=$(jobs -l | fzf --ansi | awk '{print $1}' | tr -d '[]')
+        if [ -n "$job" ]; then
+          fg %"$job"
+        fi
+      }
+      # Or with gum 
+      fgg() {
+        # List jobs with job number + command
+        local job
+        job=$(jobs -l | awk '{print "[" $1 "] " substr($0, index($0,$3)) }' \
+              | gum choose --height 10)
+
+        if [ -n "$job" ]; then
+          # Extract job number between brackets
+          local job_num=$(echo "$job" | grep -oP '\[\K[0-9]+')
+          fg %"$job_num"
+        fi
+      }
+
+  '';
 in
 {
   # Not using nix
@@ -37,13 +62,26 @@ in
     # https://search.nixos.org/packages?channel=unstable&query=xonsh
     # Ide
     neovim 
-
+    
     # Git related tools
     git
     lazygit
     commitizen 
 
+    # Cli tools
     htop
+    entr # Exec on file changes.
+    lazysql # Database viewer.
+    k9s # Kubernetes viewer.
+    kubectl # Kubernetes operator.
+    doggo # Dns viewer.
+    nmap # Network scanner.
+    visidata # Data wrangler (alias is vd).
+    helm # Helm on kubernetes.
+    goaccess # For TUI + Web logs.
+    mprocs # To vizualise concurrent processes.
+    gum # Beautiful prints. 
+
     # Press f to pay respect when you miss a command.
     pay-respects
     # Dev tools
@@ -60,7 +98,9 @@ in
     python313
     uv
     chezmoi
+    zsh-powerlevel10k
     powerline
+    powerline-fonts
     
     gnumake
     python313Packages.cmake
@@ -101,16 +141,29 @@ in
     oh-my-zsh = { # "ohMyZsh" without Home Manager
       enable = true;
       plugins = [ "git" ];
-      theme = "agnoster";
+      # theme = "powerlevel10k/powerlevel10k";
     };
-    initExtra = ''
-    rm ~/.zcompdump*; compinit
-    eval "$(zoxide init zsh)"
+    initContent = ''
+      eval "$(zoxide init zsh)"
+      ${sharedShellInit}
+      source ${./dotfiles/.p10k.zsh}
     '';
+    plugins=[
+        {
+          name = "powerlevel10k-config";
+          src = ./dotfiles/.p10k.zsh;
+          file = ".p10k.zsh";
+        }
+        {
+          name = "zsh-powerlevel10k";
+          src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
+          file = "powerlevel10k.zsh-theme";
+        }
+      ];
   };
 
   # Let chezmoi point to dotfiles here.
-  home.file.".local/share/chezmoi/.chezmoi" = {
+  home.file.".local/share/chezmoi" = {
     source=./dotfiles;
     onChange="echo 'Updating dot files...'; ${pkgs.chezmoi} apply";
   };
@@ -131,6 +184,7 @@ in
       eval "$(pay-respects bash --alias)"
       eval "$(pay-respects zsh --alias)"
       eval "$(zoxide init bash)"
+      ${sharedShellInit}
     '';
   };
   # =======================================
