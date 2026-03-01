@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 let
   shellAliases = {
     nixcfg="nvim ~/.config/home-manager/home.nix";
@@ -17,8 +17,13 @@ let
     hme="nvim ~/.config/home-manager/home.nix";
     f="pay-respects";
     cz="commitizen";
+    zz="zellij";
+    # Order is important
+    cm="chezmoi --source ${toString ./dotfiles}";
+    chezmoi="chezmoi --source ${toString ./dotfiles}";
   };
   sessionVariables={
+    # This one is for interactive shells.
     EDITOR = "nvim";
   };
   sharedShellInit=''
@@ -43,6 +48,7 @@ let
           fg %"$job_num"
         fi
       }
+
 
   '';
 in
@@ -189,6 +195,6 @@ in
   };
   # =======================================
   # =          Development setup          =
-  # =======================================
+  # =======================================  
   
 }

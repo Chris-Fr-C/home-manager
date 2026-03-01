@@ -1,4 +1,5 @@
 #!/bin/sh
+git submodule init
 
 # source: https://nix-community.github.io/home-manager/index.xhtml#sec-install-standalone
 nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
