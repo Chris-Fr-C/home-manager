@@ -87,6 +87,7 @@ in
     goaccess # For TUI + Web logs.
     mprocs # To vizualise concurrent processes.
     gum # Beautiful prints. 
+    eza # Better ls.
 
     # Press f to pay respect when you miss a command.
     pay-respects
