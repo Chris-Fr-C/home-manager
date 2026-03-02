@@ -51,6 +51,8 @@ let
 
 
   '';
+
+  azure=false; # To install azure dependencies.
 in
 {
   # Not using nix
@@ -113,7 +115,18 @@ in
     python313Packages.cmake
     go-task
 
-  ];
+
+    
+  ] ++
+  # Azure dependencies
+  lib.optionals azure [
+    sqlcmd
+    azure-cli
+    python313Packages.keyring
+    dotnet-sdk-wrapped
+    azure-artifacts-credprovider
+  ]
+  ;
   programs.git = {
     enable = true;
     settings.user.name = "Chris-Fr-C";
