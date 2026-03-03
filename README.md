@@ -36,5 +36,5 @@ cd ~/.config/home-manager && home-manager switch
 
 ## Optional dependencies
 ```bash
-home-manager switch --arg azure true
+home-manager switch -f work-wsl.nix
 ```

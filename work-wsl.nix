@@ -7,6 +7,8 @@
   home.packages = with pkgs; [
     sqlcmd
     azure-cli
+    powershell
+    wslu
     python313Packages.keyring
     azure-artifacts-credprovider
   ];

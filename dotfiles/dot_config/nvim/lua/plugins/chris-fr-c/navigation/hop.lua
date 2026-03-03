@@ -1,4 +1,9 @@
 -- ~/.config/nvim/lua/plugins/hop.lua
+if true then
+  -- Flash seems better.
+  return {}
+end
+
 return {
   "smoka7/hop.nvim",
   keys = {

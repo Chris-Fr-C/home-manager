@@ -6,7 +6,10 @@ return {
   "folke/flash.nvim",
   event = "VeryLazy",
   ---@type Flash.Config
-  opts = {},
+  opts = {
+    -- labels = "abcdefghijklmnopqrstuvwxyz",
+    labels = "asdfghjkliqw",
+  },
   keys = {
     {
       "s",
