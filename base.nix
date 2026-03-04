@@ -10,7 +10,6 @@ let
     lsl = "ls -l";
     lsls = "lsl --total-size";
     bench = "hyperfine";
-    refresh = "home-manager switch";
     vim="nvim";
     lg="lazygit";
     hm="home-manager";
@@ -50,9 +49,20 @@ let
       }
 
 
-  '';
+      refresh() {
+          local dir=~/.config/home-manager
+          # Use fd to list .nix files in the folder, non-recursive
+          local file
+          file=$(fd --type f --extension nix . "$dir" | xargs -n1 basename | gum choose --height 10)
 
-  # azure=false; # To install azure dependencies.
+          if [ -n "$file" ]; then
+              echo "Switching to $file..."
+              home-manager switch -f "$dir/$file"
+          else
+              echo "No file selected."
+          fi
+      }
+  '';
 in
 {
   # Not using nix
@@ -176,7 +186,7 @@ in
   # Let chezmoi point to dotfiles here.
   home.file.".local/share/chezmoi" = {
     source=./dotfiles;
-    onChange="echo 'Updating dot files...'; ${pkgs.chezmoi} apply";
+    onChange="echo 'Updating dot files...'; ${pkgs.chezmoi}/bin/chezmoi apply";
   };
 
   # Using one of the shells.
@@ -198,6 +208,8 @@ in
       ${sharedShellInit}
     '';
   };
+  
+  
   # =======================================
   # =          Development setup          =
   # =======================================  
