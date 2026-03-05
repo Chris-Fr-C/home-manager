@@ -83,6 +83,7 @@ in
     
     # Git related tools
     git
+    gh
     lazygit
     commitizen 
 
