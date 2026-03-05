@@ -1,4 +1,4 @@
-if true then
+if false then
   return {}
 end
 -- Equivalent of surround, to quickly move accross  things.
