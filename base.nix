@@ -125,6 +125,7 @@ in
     gnumake
     python313Packages.cmake
     go-task
+    jre8 # java.
 
 
     
