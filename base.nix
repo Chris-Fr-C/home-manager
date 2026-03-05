@@ -82,7 +82,7 @@ in
     neovim 
     
     # Git related tools
-    git
+    # Not putting git cause you already need git to clone this repo.
     gh
     lazygit
     commitizen 
