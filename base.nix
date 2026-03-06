@@ -1,8 +1,9 @@
 { config, pkgs, lib, ... }:
 let
   shellAliases = {
-    nixcfg="nvim ~/.config/home-manager/home.nix";
+    cfg-nix="nvim ~/.config/home-manager/home.nix";
     find = "fd";
+    cd = "z";
     c = "yazi";
     ls = "eza --icons=always";
     lsl = "ls -l";
@@ -14,7 +15,7 @@ let
     hme="nvim ~/.config/home-manager/home.nix";
     f="pay-respects";
     cz="commitizen";
-    zz="zellij";
+    zj="zellij";
     # Order is important
     cm="chezmoi --source ${toString ./dotfiles}";
     chezmoi="chezmoi --source ${toString ./dotfiles}";
