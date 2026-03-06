@@ -3,8 +3,6 @@ let
   shellAliases = {
     nixcfg="nvim ~/.config/home-manager/home.nix";
     find = "fd";
-    z="zoxide";
-    # cd = "zoxide";
     c = "yazi";
     ls = "eza --icons=always";
     lsl = "ls -l";
@@ -48,6 +46,9 @@ let
         fi
       }
 
+      cfg(){
+        cd ~/.config/home-manager
+      }
 
       refresh() {
           local dir=~/.config/home-manager
@@ -113,6 +114,7 @@ in
     yazi # File manager.;
     starship # Make Shell bioutifoul again.
     zellij # Multiplexer. 
+    fd # Find tool.
     # Code tooling
     # python:
     python313
