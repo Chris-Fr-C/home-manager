@@ -13,6 +13,7 @@
     kitty # Best terminal.
     steam # Gaming.
     heroic # For games on epic gamges GOG etc.
+    sunshine # Game streaming.
   ];
 
 }
