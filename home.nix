@@ -9,11 +9,13 @@
     allowUnfree = true; # Needed for vivaldi that is free but not fully opensource.
   };
   home.packages = with pkgs; [
-    vivaldi # Browser.
-    kitty # Best terminal.
-    steam # Gaming.
-    heroic # For games on epic gamges GOG etc.
-    sunshine # Game streaming.
+    (pkgs.vivaldi.override { # Browser.
+      proprietaryCodecs = true;
+      enableWidevine = true;
+    })
+    # Steam and Heroic should be installed
+    # with pacman as it seems to be a bit
+    # complex to setup here.
+    ferdium # Com tools.
   ];
-
 }
