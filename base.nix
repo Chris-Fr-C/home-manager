@@ -13,7 +13,6 @@ let
     lg="lazygit";
     hm="home-manager";
     hme="nvim ~/.config/home-manager/home.nix";
-    f="pay-respects";
     cz="commitizen";
     zj="zellij";
     # Order is important
@@ -64,6 +63,10 @@ let
               echo "No file selected."
           fi
       }
+
+      eval "$(pay-respects bash --alias)"
+      eval "$(pay-respects zsh --alias)"
+      eval "$(zoxide init bash)"
   '';
 in
 {
@@ -128,7 +131,7 @@ in
     gnumake
     python313Packages.cmake
     go-task
-    jre8 # java.
+    jdk25_headless # java.
 
 
     
@@ -207,9 +210,6 @@ in
       # https://unix.stackexchange.com/questions/136423/making-zsh-default-shell-without-root-access
       export SHELL="${pkgs.zsh}/bin/zsh"
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
-      eval "$(pay-respects bash --alias)"
-      eval "$(pay-respects zsh --alias)"
-      eval "$(zoxide init bash)"
       ${sharedShellInit}
     '';
   };
