@@ -67,6 +67,8 @@ let
       eval "$(pay-respects bash --alias)"
       eval "$(pay-respects zsh --alias)"
       eval "$(zoxide init bash)"
+      # Not happy of this. I should refactor it. 
+      export PYTHONPATH="$HOME/.local/lib/python3.13/site-packages"
   '';
 in
 {
@@ -120,16 +122,12 @@ in
     zellij # Multiplexer. 
     fd # Find tool.
     # Code tooling
-    # python:
-    python313
-    uv
     chezmoi
     zsh-powerlevel10k
     powerline
     powerline-fonts
     
     gnumake
-    python313Packages.cmake
     go-task
     jdk25_headless # java.
 
