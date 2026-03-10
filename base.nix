@@ -63,6 +63,9 @@ let
               echo "No file selected."
           fi
       }
+    term(){
+      ttyd -p 9001 -t fontFamily="JetBrainsMono Nerd Font" --writable zsh & disown
+    }
 
       eval "$(pay-respects bash --alias)"
       eval "$(pay-respects zsh --alias)"
@@ -121,11 +124,13 @@ in
     starship # Make Shell bioutifoul again.
     zellij # Multiplexer. 
     fd # Find tool.
+    btop # Process viewer.
     # Code tooling
     chezmoi
     zsh-powerlevel10k
     powerline
     powerline-fonts
+    ttyd # Term over browser.
     
     gnumake
     go-task
