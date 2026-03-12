@@ -8,6 +8,7 @@
     azure-cli
     powershell
     wslu
+    liquibase
     uv
     (python313.withPackages (ps: with ps; [
       pip

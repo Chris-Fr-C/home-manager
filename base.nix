@@ -72,6 +72,7 @@ let
       eval "$(zoxide init bash)"
       # Not happy of this. I should refactor it. 
       export PYTHONPATH="$HOME/.local/lib/python3.13/site-packages"
+      export JAVA_HOME="$HOME/.nix-profile/bin"
   '';
 in
 {
@@ -131,11 +132,11 @@ in
     powerline
     powerline-fonts
     ttyd # Term over browser.
-    
+    opencode # AI TUI. 
     gnumake
     go-task
     jdk25_headless # java.
-
+    
 
     
   ];
