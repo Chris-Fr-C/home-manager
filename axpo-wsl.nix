@@ -8,6 +8,7 @@
     azure-cli
     powershell
     wslu
+    mssql_jdbc
     liquibase
     uv
     (python313.withPackages (ps: with ps; [
@@ -27,5 +28,6 @@
     PYTHONPATH="$SITE_PACKAGES" ${pkgs.python313.withPackages (ps: with ps; [pip])}/bin/python -m pip install --target "$SITE_PACKAGES" "$WHEEL"
     echo "Done!"
   '';
+
 }
 

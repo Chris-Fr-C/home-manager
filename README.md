@@ -27,7 +27,7 @@ git clone https://github.com/Chris-Fr-C/home-manager.git ~/.config/home-manager
 
 You can then 
 ```bash
-cd ~/.config/home-manager && home-manager switch -f work.nix
+cd ~/.config/home-manager && home-manager switch -f axpo-wsl.nix
 ```
 Or you can select home for home setup.
 
