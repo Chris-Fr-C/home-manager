@@ -17,7 +17,7 @@ return {
           vim.opt.termguicolors = true
 
           vim.opt.guicursor:append(
-            "n-v-c:block-ModeCursor,i-ci-ve:ver25-ModeCursor,r-cr:hor20-ModeCursor,o:hor50-ModeCursor"
+            "n-v-c:block-ModeCursor,i-ci-ve:block-ModeCursor,r-cr:hor20-ModeCursor,o:hor50-ModeCursor"
           )
         end,
 
@@ -43,15 +43,15 @@ return {
           -- Insert mode
           i = {
             winhl = {
-              CursorLineNr = { bg = "#800000" },
+              CursorLineNr = { bg = "#AA0000" },
               CursorLine = {
-                underline = true,
-                sp = "#800000",
+                underline = false,
+                sp = "#AA0000",
                 bg = "NONE",
               },
             },
             hl = {
-              ModeCursor = { bg = "#800000" },
+              ModeCursor = { bg = "#AA0000" },
             },
           },
 

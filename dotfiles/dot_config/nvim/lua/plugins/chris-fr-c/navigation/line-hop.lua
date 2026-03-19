@@ -2,6 +2,6 @@
 return {
   "johnpmitsch/vai.nvim",
   config = function()
-    require("vai").setup({ trigger = "gl" })
+    require("vai").setup({ trigger = "qq" })
   end,
 }
