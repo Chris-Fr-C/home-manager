@@ -3,6 +3,6 @@ return {
   { "projekt0n/github-nvim-theme" },
   { "nyoom-engineering/oxocarbon.nvim" },
   { "bluz71/vim-moonfly-colors" },
-  { "catppuccin/nvim" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   { "scottmckendry/cyberdream.nvim" },
 }

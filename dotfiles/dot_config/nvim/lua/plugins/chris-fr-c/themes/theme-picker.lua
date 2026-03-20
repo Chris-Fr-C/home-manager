@@ -13,6 +13,7 @@ return {
     "Th3Whit3Wolf/space-nvim",
     "bluz71/vim-moonfly-colors",
     "protesilaos/modus-themes",
+    "catppuccin/nvim",
   },
   -- Set a keymap to open the picker
   keys = {
