@@ -4,21 +4,23 @@
 -- lua/plugins/mode_line_colors.lua
 -- Colored modes
 -- lua/plugins/mode_line_colors.lua
+if false then
+  return {}
+end
+
 return {
   {
     "rasulomaroff/reactive.nvim",
     lazy = false,
     config = function()
       local reactive = require("reactive")
-
       reactive.add_preset({
         name = "custom-mode-line",
         init = function()
           vim.opt.termguicolors = true
 
-          vim.opt.guicursor:append(
-            "n-v-c:block-ModeCursor,i-ci-ve:block-ModeCursor,r-cr:hor20-ModeCursor,o:hor50-ModeCursor"
-          )
+          vim.opt.guicursor:append("n-v-c:block-Cursor,i-ci-ve:block-Cursor,r-cr:hor20-Cursor,o:hor50-Cursor")
+          -- vim.api.nvim_set_hl(0, "Cursor", { fg = "#000000", bg = "#C1E1C1" })
         end,
 
         modes = {
@@ -27,7 +29,6 @@ return {
             winhl = {
               -- Line number keeps background
               CursorLineNr = { bg = "#C1E1C1" },
-
               -- Text side gets underline only
               CursorLine = {
                 underline = false,
@@ -36,6 +37,7 @@ return {
               },
             },
             hl = {
+              Cursor = { fg = "#FFFFFF", bg = "#C1E1C1" },
               ModeCursor = { bg = "#C1E1C1" },
             },
           },
@@ -50,7 +52,9 @@ return {
                 bg = "NONE",
               },
             },
+
             hl = {
+              Cursor = { fg = "#111111", bg = "#FF746C" },
               ModeCursor = { bg = "#FF746C" },
             },
           },
@@ -65,7 +69,9 @@ return {
                 bg = "NONE",
               },
             },
+
             hl = {
+              Cursor = { fg = "#111111", bg = "#FF746C" },
               ModeCursor = { bg = "#d2691e" },
             },
           },
@@ -81,6 +87,7 @@ return {
               },
             },
             hl = {
+              Cursor = { fg = "#111111", bg = "#d2691e" },
               ModeCursor = { bg = "#d2691e" },
             },
           },
@@ -95,6 +102,8 @@ return {
                 bg = "NONE",
               },
             },
+            Cursor = { fg = "#111111", bg = "#5a2e80" },
+
             hl = {
               ModeCursor = { bg = "#5a2e80" },
             },
