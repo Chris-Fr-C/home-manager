@@ -26,42 +26,42 @@ return {
           n = {
             winhl = {
               -- Line number keeps background
-              CursorLineNr = { bg = "#00FF00" },
+              CursorLineNr = { bg = "#C1E1C1" },
 
               -- Text side gets underline only
               CursorLine = {
-                underline = true,
-                sp = "#00FF00",
+                underline = false,
+                sp = "#C1E1C1",
                 bg = "NONE",
               },
             },
             hl = {
-              ModeCursor = { bg = "#00FF00" },
+              ModeCursor = { bg = "#C1E1C1" },
             },
           },
 
           -- Insert mode
           i = {
             winhl = {
-              CursorLineNr = { bg = "#AA0000" },
+              CursorLineNr = { bg = "#FF746C" },
               CursorLine = {
                 underline = false,
-                sp = "#AA0000",
+                sp = "#FF746C",
                 bg = "NONE",
               },
             },
             hl = {
-              ModeCursor = { bg = "#AA0000" },
+              ModeCursor = { bg = "#FF746C" },
             },
           },
 
           -- Replace mode (R)
           R = {
             winhl = {
-              CursorLineNr = { bg = "#d2691e" },
+              CursorLineNr = { bg = "#FF746C" },
               CursorLine = {
                 underline = true,
-                sp = "#d2691e",
+                sp = "#FF746C",
                 bg = "NONE",
               },
             },
