@@ -14,6 +14,21 @@ return {
     "bluz71/vim-moonfly-colors",
     "protesilaos/modus-themes",
     "catppuccin/nvim",
+    "ellisonleao/gruvbox.nvim",
+    "nyoom-engineering/oxocarbon.nvim",
+    -- Light
+    "yorickpeterse/nvim-grey",
+    "sainnhe/everforest",
+    "EdenEast/nightfox.nvim",
+    "sainnhe/edge",
+    "xero/miasma.nvim",
+    "dgox16/oldworld.nvim",
+    "rafamadriz/neon",
+    "yorik1984/newpaper.nvim",
+    "embark-theme/vim",
+    "NTBBloodbath/sweetie.nvim",
+    "fenetikm/falcon",
+    "ptdewey/darkearth-nvim",
   },
   -- Set a keymap to open the picker
   keys = {
