@@ -22,6 +22,7 @@ return {
         ["neotest-python"] = {
           dap = { justMyCode = false },
           runner = "pytest",
+          args = { "-vv" },
         },
       },
 
