@@ -62,4 +62,11 @@ vim.keymap.set("n", "<leader>cL", function()
   end)
 end, { desc = "Set SQLFluff SQL dialect" })
 
+-- Adding surrounding quotes.
+vim.keymap.set("v", '"', 'c"<C-r>""<Esc>')
+vim.keymap.set("v", "'", "c'<C-r>\"'<Esc>")
+vim.keymap.set("v", "(", 'c(<C-r>")<Esc>')
+vim.keymap.set("v", "[", 'c[<C-r>"]<Esc>')
+vim.keymap.set("v", "{", 'c{<C-r>"}<Esc>')
+
 return {}

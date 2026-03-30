@@ -26,7 +26,10 @@ return {
                 pyflakes = { enabled = false },
                 autopep8 = { enabled = false },
                 yapf = { enabled = false },
-
+                jedi = {
+                  extra_paths = {},
+                  environment = ".venv/bin/python",
+                },
                 ruff = {
                   enabled = true,
                   formatEnabled = false, -- use black for formatting
@@ -37,7 +40,7 @@ return {
                 },
 
                 pylsp_mypy = {
-                  enabled = true,
+                  enabled = false,
                   live_mode = false,
                 },
               },
