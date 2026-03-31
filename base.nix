@@ -73,6 +73,7 @@ let
       # Not happy of this. I should refactor it. 
       export PYTHONPATH="$HOME/.local/lib/python3.13/site-packages"
       export JAVA_HOME="$HOME/.nix-profile/bin"
+      export PATH=$"PATH:$HOME/thirdparty"
   '';
 in
 {
@@ -160,7 +161,6 @@ in
     eval "$(starship init xonsh)"
   '';
 
-  
   # You can set as default with chsh -s $(which xonsh)
   programs.zsh = {
     enable = true;
