@@ -1,4 +1,5 @@
 return {
+  { import = "plugins.chris-fr-c.bundles" },
   { import = "plugins.chris-fr-c.code" },
   { import = "plugins.chris-fr-c.lsp" },
   { import = "plugins.chris-fr-c.navigation" },

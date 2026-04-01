@@ -14,7 +14,7 @@ let
     hm="home-manager";
     hme="nvim ~/.config/home-manager/home.nix";
     cz="commitizen";
-    zj="zellij";
+    zz="zellij";
     # Order is important
     cm="chezmoi --source ${toString ./dotfiles}";
     chezmoi="chezmoi --source ${toString ./dotfiles}";
@@ -122,7 +122,6 @@ in
     # Dev tools
     zsh # Classic shell.
     xonsh # Python + bash, best of both worlds.
-    neovim # Best editor.
     zoxide # A better cmd.
     fzf # Fuzzy search.
     yazi # File manager.;
@@ -181,6 +180,8 @@ in
     };
     initContent = ''
       eval "$(zoxide init zsh)"
+      PATH="$PATH:$HOME/thirdparty/appimages/"
+
       ${sharedShellInit}
       source ${./dotfiles/.p10k.zsh}
     '';
@@ -218,7 +219,6 @@ in
       export SHELL="${pkgs.zsh}/bin/zsh"
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
 
-      export PATH="$HOME/thirdparty/appimages:$PATH"
       ${sharedShellInit}
     '';
   };
@@ -228,8 +228,8 @@ in
 # =======================================  
   home.file."thirdparty/appimages/nvim" = {
     source = builtins.fetchurl {
-      url = "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-arm64.appimage";
-      sha256 = "1izck0nkvmhgxshms822kaj9hbzpy0r8gzn3inypg300qqsrcyai";
+      url = "https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-x86_64.appimage";
+      sha256 = "7876b67462af08abdc884818b398b3e82907d6a4c89edfe7c6b1ff168eb7c4d6";
     };
         executable=true;
 
@@ -239,6 +239,14 @@ in
     source= builtins.fetchurl {
       url = "https://github.com/sinelaw/fresh/releases/download/v0.2.21/fresh-editor-0.2.21-x86_64.AppImage";
       sha256 = "9d6907326359095c8566791384f01a9a3fff3e6c79d4576a2a4613ab65395f16";
+    };
+    executable=true;
+  };
+
+  home.file."thirdparty/appimages/helix" ={
+    source= builtins.fetchurl {
+      url = "https://github.com/helix-editor/helix/releases/download/25.07.1/helix-25.07.1-x86_64.AppImage";
+      sha256 = "0d00848ca858e415a4b4a90612702a35aa491421c658c45a06774a265bc4c4f6";
     };
     executable=true;
   };
