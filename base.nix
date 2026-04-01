@@ -73,7 +73,7 @@ let
       # Not happy of this. I should refactor it. 
       export PYTHONPATH="$HOME/.local/lib/python3.13/site-packages"
       export JAVA_HOME="$HOME/.nix-profile/bin"
-      export PATH=$"PATH:$HOME/thirdparty"
+
   '';
 in
 {
@@ -91,8 +91,11 @@ in
   home.packages = with pkgs; [
     # https://search.nixos.org/packages?channel=unstable&query=xonsh
     # Ide
-    neovim 
-    
+    # neovim <- Deprecated in favour of the app image.
+    # fresh
+
+    fuse # For app images.
+    coreutils
     # Git related tools
     # Not putting git cause you already need git to clone this repo.
     gh
@@ -214,13 +217,33 @@ in
       # https://unix.stackexchange.com/questions/136423/making-zsh-default-shell-without-root-access
       export SHELL="${pkgs.zsh}/bin/zsh"
       [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
+
+      export PATH="$HOME/thirdparty/appimages:$PATH"
       ${sharedShellInit}
     '';
   };
   
-  
-  # =======================================
-  # =          Development setup          =
-  # =======================================  
-  
+# =======================================
+# =          App images                 =
+# =======================================  
+  home.file."thirdparty/appimages/nvim" = {
+    source = builtins.fetchurl {
+      url = "https://github.com/neovim/neovim/releases/download/stable/nvim-linux-arm64.appimage";
+      sha256 = "1izck0nkvmhgxshms822kaj9hbzpy0r8gzn3inypg300qqsrcyai";
+    };
+        executable=true;
+
+  };
+
+  home.file."thirdparty/appimages/fresh" ={
+    source= builtins.fetchurl {
+      url = "https://github.com/sinelaw/fresh/releases/download/v0.2.21/fresh-editor-0.2.21-x86_64.AppImage";
+      sha256 = "9d6907326359095c8566791384f01a9a3fff3e6c79d4576a2a4613ab65395f16";
+    };
+    executable=true;
+  };
+
+  home.sessionVariables.PATH = ''
+    $HOME/thirdparty/appimages${if builtins.getEnv "PATH" != "" then ":" + builtins.getEnv "PATH" else ""}
+  '';
 }
