@@ -180,7 +180,7 @@ in
     };
     initContent = ''
       eval "$(zoxide init zsh)"
-      PATH="$PATH:$HOME/thirdparty/appimages/"
+      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/"
 
       ${sharedShellInit}
       source ${./dotfiles/.p10k.zsh}
