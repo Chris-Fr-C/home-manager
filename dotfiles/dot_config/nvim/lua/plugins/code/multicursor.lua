@@ -1,46 +1,45 @@
 return {
   "brenton-leighton/multiple-cursors.nvim",
-  version = "*", -- Use the latest tagged version
-  opts = {}, -- This causes the plugin setup function to be called
-  keys = {
-    -- Just C would cause conflict with default panels jumping.
-    -- So deactivating it for the moment.
-    -- { "<C-j>", "<Cmd>MultipleCursorsAddDown<CR>", mode = { "n", "x" }, desc = "Add cursor and move down" },
-    -- { "<C-k>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "x" }, desc = "Add cursor and move up" },
+  version = "*",
 
-    { "<M-Up>", "<Cmd>MultipleCursorsAddUp<CR>", mode = { "n", "i", "x" }, desc = "Add cursor and move up" },
-    {
-      "<M-Down>",
-      "<Cmd>MultipleCursorsAddDown<CR>",
-      mode = { "n", "i", "x" },
-      desc = "Add cursor and move down",
-    },
+  lazy = false,
+  config = function()
+    require("multiple-cursors").setup()
 
-    { "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", mode = { "n", "i" }, desc = "Add or remove cursor" },
+    -- Alt + Up
+    vim.keymap.set("n", "<A-Up>", "<Cmd>MultipleCursorsAddUp<CR>", {
+      desc = "Add cursor up",
+    })
 
-    {
-      "<Leader>m",
-      "<Cmd>MultipleCursorsAddVisualArea<CR>",
-      mode = { "x" },
-      desc = "Add cursors to the lines of the visual area",
-    },
+    vim.keymap.set("x", "<A-Up>", "<Cmd>MultipleCursorsAddUp<CR>", {
+      desc = "Add cursor up",
+    })
 
-    { "<Leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", mode = { "n", "x" }, desc = "Add cursors to cword" },
-    {
-      "<Leader>A",
-      "<Cmd>MultipleCursorsAddMatchesV<CR>",
-      mode = { "n", "x" },
-      desc = "Add cursors to cword in previous area",
-    },
+    -- Alt + Down
+    vim.keymap.set("n", "<A-Down>", "<Cmd>MultipleCursorsAddDown<CR>", {
+      desc = "Add cursor down",
+    })
 
-    -- {
-    --   "<Leader>m",
-    --   "<Cmd>MultipleCursorsAddJumpNextMatch<CR>",
-    --   mode = { "n", "x" },
-    --   desc = "Add cursor and jump to next cword",
-    -- },
-    -- { "<Leader>D", "<Cmd>MultipleCursorsJumpNextMatch<CR>", mode = { "n", "x" }, desc = "Jump to next cword" },
-    --
-    -- { "<Leader>l", "<Cmd>MultipleCursorsLock<CR>", mode = { "n", "x" }, desc = "Lock virtual cursors" },
-  },
+    vim.keymap.set("x", "<A-Down>", "<Cmd>MultipleCursorsAddDown<CR>", {
+      desc = "Add cursor down",
+    })
+
+    -- Mouse support
+    vim.keymap.set({ "n", "x" }, "<C-LeftMouse>", "<Cmd>MultipleCursorsMouseAddDelete<CR>", {
+      desc = "Toggle cursor with mouse",
+    })
+
+    -- Visual block / word selection
+    vim.keymap.set("x", "<leader>m", "<Cmd>MultipleCursorsAddVisualArea<CR>", {
+      desc = "Add cursors to visual area",
+    })
+
+    vim.keymap.set({ "n", "x" }, "<leader>a", "<Cmd>MultipleCursorsAddMatches<CR>", {
+      desc = "Add cursors to word",
+    })
+
+    vim.keymap.set({ "n", "x" }, "<leader>A", "<Cmd>MultipleCursorsAddMatchesV<CR>", {
+      desc = "Add cursors in previous area",
+    })
+  end,
 }
