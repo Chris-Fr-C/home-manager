@@ -9,7 +9,7 @@ return {
 
       -- Big file optimizations
       bigfile = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Quick file picker (like telescope)
@@ -17,64 +17,65 @@ return {
         enabled = true,
       },
 
+      explorer = { enabled = true },
       -- Notifications
       notifier = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Terminal integration
       terminal = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Git tools
       git = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Lazygit integration
       lazygit = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Scratch buffers
       scratch = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Rename utility
       rename = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Input UI (better vim.ui.input)
       input = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Scope highlighting
       scope = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Scroll animations
       scroll = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Indent guides
       indent = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Zen mode
       zen = {
-        enabled = true,
+        enabled = false,
       },
 
       -- Words highlight
       words = {
-        enabled = true,
+        enabled = false,
       },
     },
   },
