@@ -9,9 +9,9 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 
-local opts = {buffer = 0}
-vim.keymap.set('n', '<Leader>tt', [[<Cmd>ToggleTerm<CR>]], opts)
-vim.keymap.set('n', '<Leader><Leader>', [[<Cmd>Telescope find_files<CR>]], opts)
+vim.keymap.set('n', '<Leader>tt', function()
+  require("toggleterm").toggle()
+end, { silent = true })
 
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')

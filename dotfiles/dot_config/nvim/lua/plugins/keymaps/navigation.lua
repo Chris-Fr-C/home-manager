@@ -10,4 +10,8 @@ vim.keymap.set("n", "<A-Left>", "<C-o>", { noremap = true, silent = true, desc =
 vim.keymap.set("n", "<A-l>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
 vim.keymap.set("n", "<A-Right>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
 
+vim.keymap.set('n', '<Leader><Leader>', function()
+  require('telescope.builtin').find_files()
+end, { silent = true })
+
 return {}
