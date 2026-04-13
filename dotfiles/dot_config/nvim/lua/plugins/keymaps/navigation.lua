@@ -1,5 +1,5 @@
 -- Exit Neovim completely without saving when press Alt+Q
-vim.keymap.set("n", "<A-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
+vim.keymap.set("n", "<C-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
 
 -- Navigate jump list (previous/next location)
 -- Alt+h or Alt+Left ÔåÆ go back
