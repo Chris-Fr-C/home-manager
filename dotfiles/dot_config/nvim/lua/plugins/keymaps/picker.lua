@@ -9,7 +9,7 @@ vim.keymap.set("n", "<leader><leader>", function()
 end, { desc = "Find files" })
 
 -- LIVE GREP
-vim.keymap.set("n", "<leader>fw", function()
+vim.keymap.set("n", "<leader>fg", function()
   require("fzf-lua").live_grep()
 end, { desc = "Live grep" })
 
@@ -24,7 +24,7 @@ vim.keymap.set("n", "<leader>fr", function()
 end, { desc = "Recent files" })
 
 -- GIT FILES
-vim.keymap.set("n", "<leader>fg", function()
+vim.keymap.set("n", "<leader>fG", function()
   require("fzf-lua").git_files()
 end, { desc = "Git files" })
 

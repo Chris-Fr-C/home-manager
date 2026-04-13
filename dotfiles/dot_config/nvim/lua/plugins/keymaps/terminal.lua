@@ -12,7 +12,6 @@ end
 vim.keymap.set('n', '<Leader>ft', function()
   require("toggleterm").toggle()
 end, { silent = true })
-
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
 
