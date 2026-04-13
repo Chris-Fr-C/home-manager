@@ -1,3 +1,8 @@
+-- Keeping in selection afteri ncrement or decrement.
+vim.keymap.set("v", ">", ">gv", { desc = "Indent and keep selection" })
+vim.keymap.set("v", "<", "<gv", { desc = "Unindent and keep selection" })
+--
+--
 -- Making sure that x deletes without putting it to the register.
 vim.keymap.set("n", "x", '"_x', { noremap = true, silent = true })
 

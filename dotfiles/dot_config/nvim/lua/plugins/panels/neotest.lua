@@ -30,11 +30,11 @@ return {
       output = { open_on_run = true },
       quickfix = {
         open = function()
-          if LazyVim.has("trouble.nvim") then
-            require("trouble").open({ mode = "quickfix", focus = false })
-          else
+          -- if LazyVim.has("trouble.nvim") then
+          --   require("trouble").open({ mode = "quickfix", focus = false })
+          -- else
             vim.cmd("copen")
-          end
+          -- end
         end,
       },
     },
@@ -50,7 +50,7 @@ return {
         },
       }, neotest_ns)
 
-      if LazyVim.has("trouble.nvim") then
+      -- if LazyVim.has("trouble.nvim") then
         opts.consumers = opts.consumers or {}
         -- Refresh and auto close trouble after running tests
         ---@type neotest.Consumer
@@ -79,7 +79,7 @@ return {
             return {}
           end
         end
-      end
+      -- end
 
       if opts.adapters then
         local adapters = {}

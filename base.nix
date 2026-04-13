@@ -139,8 +139,8 @@ in
     gnumake
     go-task
     jdk25_headless # java.
-    
 
+    chafa # Imgs in terminal.
     
   ];
   programs.git = {

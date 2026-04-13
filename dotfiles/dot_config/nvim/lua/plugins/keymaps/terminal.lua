@@ -9,7 +9,7 @@ function _G.set_terminal_keymaps()
   vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
 end
 
-vim.keymap.set('n', '<Leader>tt', function()
+vim.keymap.set('n', '<Leader>ft', function()
   require("toggleterm").toggle()
 end, { silent = true })
 

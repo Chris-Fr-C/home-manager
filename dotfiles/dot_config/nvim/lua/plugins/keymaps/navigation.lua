@@ -1,5 +1,12 @@
+-- Nvchad has some mappings we dont want to keep.
+--
+nomap("n", "<leader>h")
+
+nomap("n", "<leader>v")
+
+nomap("n", "<leader>x") 
 -- Exit Neovim completely without saving when press Alt+Q
-vim.keymap.set("n", "<C-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
+vim.keymap.set("n", "<A-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
 
 -- Navigate jump list (previous/next location)
 -- Alt+h or Alt+Left ÔåÆ go back
@@ -10,8 +17,13 @@ vim.keymap.set("n", "<A-Left>", "<C-o>", { noremap = true, silent = true, desc =
 vim.keymap.set("n", "<A-l>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
 vim.keymap.set("n", "<A-Right>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
 
-vim.keymap.set('n', '<Leader><Leader>', function()
-  require('telescope.builtin').find_files()
-end, { silent = true })
+local map = vim.keymap.set
+map("n", "<leader>ff", function()
+  require("snacks.picker").files()
+end, { desc = "Find Files" })
+
+map("n", "<leader>fg", function()
+  require("telescope.builtin").live_grep()
+end, { desc = "Live Grep (Telescope)" })
 
 return {}

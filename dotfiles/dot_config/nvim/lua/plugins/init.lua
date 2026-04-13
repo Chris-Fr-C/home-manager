@@ -29,4 +29,5 @@ return {
   {import="plugins.lsp"},
   {import="plugins.keymaps"},
   {import="plugins.navigation"},
+  {import="plugins.themes"},
 }
