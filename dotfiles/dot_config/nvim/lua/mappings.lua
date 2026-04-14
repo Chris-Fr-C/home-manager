@@ -196,6 +196,7 @@ vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", {
 local cmp = require("cmp")
 cmp.setup({
 	mapping = cmp.mapping.preset.insert({
+		["<C-Space>"] = cmp.mapping.complete(), -- trigger completion (LSP + others)
 		["<C-y>"] = cmp.mapping.confirm({ select = true }), -- accept with Ctrl+y
 		["<CR>"] = cmp.mapping(function(fallback)
 			fallback() -- disable Enter from confirming
