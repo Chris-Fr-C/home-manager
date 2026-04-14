@@ -159,7 +159,7 @@ vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 vim.keymap.set("n", "<A-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
 
 -- Navigate jump list (previous/next location)
--- Alt+h or Alt+Left ÔåÆ go back
+-- Alt+h or Alt+Left to go back
 vim.keymap.set("n", "<A-h>", "<C-o>", { noremap = true, silent = true, desc = "Jump to previous location" })
 vim.keymap.set("n", "<A-Left>", "<C-o>", { noremap = true, silent = true, desc = "Jump to previous location" })
 
@@ -179,7 +179,7 @@ vim.keymap.set("n", "L", "<cmd>bnext<CR>", {
 	desc = "Next buffer",
 })
 
--- Split window
+-- Split window.
 vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", {
 	noremap = true,
 	silent = true,
@@ -190,4 +190,15 @@ vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", {
 	noremap = true,
 	silent = true,
 	desc = "Vertical split",
+})
+
+-- Accept suggestions.
+local cmp = require("cmp")
+cmp.setup({
+	mapping = cmp.mapping.preset.insert({
+		["<C-y>"] = cmp.mapping.confirm({ select = true }), -- accept with Ctrl+y
+		["<CR>"] = cmp.mapping(function(fallback)
+			fallback() -- disable Enter from confirming
+		end, { "i", "s" }),
+	}),
 })
