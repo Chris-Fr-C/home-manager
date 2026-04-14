@@ -203,3 +203,102 @@ cmp.setup({
 		end, { "i", "s" }),
 	}),
 })
+
+-- Lsp shortcuts.
+local map = vim.keymap.set
+local opts = { buffer = bufnr, silent = true }
+-- which-key group name
+map("n", "<leader>c", "", {
+	desc = "Code",
+})
+-- Code actions (fzf-lua picker)
+map(
+	{ "n", "v" },
+	"<leader>ca",
+	function()
+		require("fzf-lua").lsp_code_actions()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Code Action",
+	})
+)
+
+-- Rename symbol (fzf-lua input UI)
+map(
+	"n",
+	"<leader>cr",
+	function()
+		require("fzf-lua").lsp_rename()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Rename",
+	})
+)
+
+-- Format (still LSP, no UI needed)
+map(
+	{ "n", "v" },
+	"<leader>cf",
+	function()
+		vim.lsp.buf.format({ async = true })
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Format",
+	})
+)
+
+-- CodeLens run (no popup)
+map(
+	{ "n", "v" },
+	"<leader>cc",
+	function()
+		vim.lsp.codelens.run()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Run CodeLens",
+	})
+)
+
+-- CodeLens refresh
+map(
+	"n",
+	"<leader>cC",
+	function()
+		vim.lsp.codelens.refresh()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Refresh CodeLens",
+	})
+)
+
+-- Organize imports (via code actions picker filtered)
+map(
+	"n",
+	"<leader>co",
+	function()
+		require("fzf-lua").lsp_code_actions({
+			filter = function(action)
+				return action.kind and action.kind:find("source.organizeImports")
+			end,
+		})
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Organize Imports",
+	})
+)
+
+-- Source actions (all source.*)
+map(
+	"n",
+	"<leader>cA",
+	function()
+		require("fzf-lua").lsp_code_actions({
+			filter = function(action)
+				return action.kind and action.kind:find("^source")
+			end,
+		})
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Source Action",
+	})
+)
