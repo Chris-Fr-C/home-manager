@@ -178,3 +178,16 @@ vim.keymap.set("n", "L", "<cmd>bnext<CR>", {
 	silent = true,
 	desc = "Next buffer",
 })
+
+-- Split window
+vim.keymap.set("n", "<leader>-", "<cmd>split<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Horizontal split",
+})
+
+vim.keymap.set("n", "<leader>|", "<cmd>vsplit<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Vertical split",
+})
