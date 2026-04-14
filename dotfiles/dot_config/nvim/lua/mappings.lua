@@ -228,7 +228,7 @@ map(
 	"n",
 	"<leader>cr",
 	function()
-		require("fzf-lua").lsp_rename()
+		vim.lsp.buf.rename()
 	end,
 	vim.tbl_extend("force", opts, {
 		desc = "Rename",
@@ -300,5 +300,91 @@ map(
 	end,
 	vim.tbl_extend("force", opts, {
 		desc = "Source Action",
+	})
+)
+
+-- =========================================
+-- GR LAYER (OVERWRITE DEFAULT NEOVIM LSP)
+-- =========================================
+
+-- References
+map(
+	"n",
+	"grr",
+	function()
+		require("fzf-lua").lsp_references()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "References",
+	})
+)
+
+-- Implementations
+map(
+	"n",
+	"gri",
+	function()
+		require("fzf-lua").lsp_implementations()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Implementations",
+	})
+)
+
+-- Type definitions
+map(
+	"n",
+	"grt",
+	function()
+		require("fzf-lua").lsp_typedefs()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Type Definition",
+	})
+)
+
+-- Code actions
+map(
+	{ "n", "v" },
+	"gra",
+	function()
+		require("fzf-lua").lsp_code_actions()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Code Action",
+	})
+)
+
+-- Rename (fzf-lua UI)
+map(
+	"n",
+	"grn",
+	function()
+		require("fzf-lua").lsp_rename()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Rename",
+	})
+)
+
+-- gd = normal LSP definition (fast jump)
+map(
+	"n",
+	"gd",
+	vim.lsp.buf.definition,
+	vim.tbl_extend("force", opts, {
+		desc = "Definition",
+	})
+)
+
+-- grd = fuzzy definition (fzf-lua)
+map(
+	"n",
+	"grd",
+	function()
+		require("fzf-lua").lsp_definitions()
+	end,
+	vim.tbl_extend("force", opts, {
+		desc = "Definitions (fzf)",
 	})
 )
