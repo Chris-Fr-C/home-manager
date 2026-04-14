@@ -154,5 +154,27 @@ end, { silent = true, desc = "Open terminal" })
 -- if you only want these mappings for toggle term use term://*toggleterm#* instead
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
--- To start the windows move mode
-vim.keymap.set("n", "<S-m>", "<Cmd>WinShift<CR>", { noremap = true, silent = true })
+-- Navigation
+
+vim.keymap.set("n", "<A-q>", ":qa!<CR>", { noremap = true, silent = true, desc = "Quit all without saving" })
+
+-- Navigate jump list (previous/next location)
+-- Alt+h or Alt+Left ÔåÆ go back
+vim.keymap.set("n", "<A-h>", "<C-o>", { noremap = true, silent = true, desc = "Jump to previous location" })
+vim.keymap.set("n", "<A-Left>", "<C-o>", { noremap = true, silent = true, desc = "Jump to previous location" })
+
+-- Alt+l or Alt+Right to go forward
+vim.keymap.set("n", "<A-l>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
+vim.keymap.set("n", "<A-Right>", "<C-i>", { noremap = true, silent = true, desc = "Jump to next location" })
+
+vim.keymap.set("n", "H", "<cmd>bprevious<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Previous buffer",
+})
+
+vim.keymap.set("n", "L", "<cmd>bnext<CR>", {
+	noremap = true,
+	silent = true,
+	desc = "Next buffer",
+})
