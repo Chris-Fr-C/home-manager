@@ -139,6 +139,7 @@ in
     gnumake
     go-task
     jdk25_headless # java.
+    luarocks # For vim deps.
 
     chafa # Imgs in terminal.
     
