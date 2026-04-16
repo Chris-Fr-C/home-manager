@@ -388,3 +388,15 @@ map(
 		desc = "Definitions (fzf)",
 	})
 )
+
+-- Convenience
+-- Exit buffer
+-- gd = normal LSP definition (fast jump)
+map(
+	"n",
+	"<leader>q",
+	"<Cmd>:bd<CR>",
+	vim.tbl_extend("force", opts, {
+		desc = "Close buffer",
+	})
+)
