@@ -71,18 +71,6 @@ return {
 					},
 				},
 			}
-
-			-- Setup handlers (auto-apply to all servers)
-			mason_lspconfig.setup_handlers({
-				function(server_name)
-					local server_opts = servers[server_name] or {}
-
-					lspconfig[server_name].setup(vim.tbl_deep_extend("force", {
-						on_attach = on_attach,
-						capabilities = capabilities,
-					}, server_opts))
-				end,
-			})
 		end,
 	},
 }
