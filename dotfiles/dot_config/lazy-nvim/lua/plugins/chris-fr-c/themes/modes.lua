@@ -4,10 +4,6 @@
 -- lua/plugins/mode_line_colors.lua
 -- Colored modes
 -- lua/plugins/mode_line_colors.lua
-if false then
-  return {}
-end
-
 return {
   {
     "rasulomaroff/reactive.nvim",
