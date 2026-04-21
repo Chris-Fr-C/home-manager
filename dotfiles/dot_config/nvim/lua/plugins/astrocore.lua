@@ -86,6 +86,21 @@ return {
 				-- tables with just a `desc` key will be registered with which-key if it's installed
 				-- this is useful for naming menus
 				["<Leader>b"] = { desc = "Buffers" },
+
+				-- Window
+				-- Increase height
+				["<C-Up>"] = { "<cmd>resize +2<cr>", desc = "Increase window height" },
+
+				-- Decrease height
+				["<C-Down>"] = { "<cmd>resize -2<cr>", desc = "Decrease window height" },
+
+				-- Increase width
+				["<C-Right>"] = { "<cmd>vertical resize +2<cr>", desc = "Increase window width" },
+
+				-- Decrease width
+				["<C-Left>"] = { "<cmd>vertical resize -2<cr>", desc = "Decrease window width" },
+
+				-- FZF
 				["<Leader>fw"] = {
 					function()
 						require("fzf-lua").live_grep()
@@ -104,9 +119,41 @@ return {
 					end,
 					desc = "Close buffer",
 				},
-				["<Leader>c"] = { desc = "Code actions" },
-				-- setting a mapping to false will disable it
-				-- ["<C-S>"] = false,
+
+				["<Leader>bn"] = {
+					desc = "New buffer",
+					function()
+						vim.cmd("bn")
+					end,
+				},
+				-- Neorg
+				["<Leader-n>"] = {
+					function() end,
+					desc = "Notes",
+				},
+				["<Leader>n"] = {
+					function() end,
+					desc = "Notes",
+				},
+
+				["<Leader>tt"] = {
+					function()
+						vim.ui.select({ "horizontal", "vertical" }, {
+							prompt = "Terminal split direction:",
+						}, function(choice)
+							if not choice then
+								return
+							end
+
+							if choice == "horizontal" then
+								vim.cmd("split | terminal")
+							elseif choice == "vertical" then
+								vim.cmd("vsplit | terminal")
+							end
+						end)
+					end,
+					desc = "Open terminal",
+				},
 			},
 		},
 	},
