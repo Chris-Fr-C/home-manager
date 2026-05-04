@@ -49,6 +49,10 @@ let
       cfg(){
         cd ~/.config/home-manager
       }
+      cfge(){
+        nvim ~/.config/home-manager/dotfiles/dot_config/nvim/init.lua
+      }
+
 
       refresh() {
           local dir=~/.config/home-manager
