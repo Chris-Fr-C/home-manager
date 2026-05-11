@@ -184,14 +184,28 @@ end, {
 
 -- Just a shortcut to open da terminal.
 -- 
--- horizontal terminal
-vim.keymap.set("n", "<leader>th", function()
-  vim.cmd("split | terminal")
-end, { desc = "Horizontal terminal" })
+-- Ensure your leader key is set (usually Space or Backslash)
+vim.g.mapleader = " " 
 
--- vertical terminal
-vim.keymap.set("n", "<leader>tv", function()
-  vim.cmd("vsplit | terminal")
-end, { desc = "Vertical terminal" })
+-- Vertical split terminal
+vim.keymap.set('n', '<leader>|', ':vsplit <CR>')
+
+-- Horizontal split terminal
+vim.keymap.set('n', '<leader>-', ':split <CR>')
+
+-- Exit terminal mode with jj
+vim.keymap.set('t', 'jj', [[<C-\><C-n>]], { noremap = true, silent = true })
+
+-- Navigate windows from terminal mode
+vim.keymap.set('t', '<C-h>', [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
+vim.keymap.set('t', '<C-j>', [[<C-\><C-n><C-w>j]], { noremap = true, silent = true })
+vim.keymap.set('t', '<C-k>', [[<C-\><C-n><C-w>k]], { noremap = true, silent = true })
+vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
+
+
+-- Indentation
+vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
+vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
+
 
 return {}
