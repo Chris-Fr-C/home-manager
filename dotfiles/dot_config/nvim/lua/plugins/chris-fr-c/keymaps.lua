@@ -181,4 +181,17 @@ end, {
   desc = "LSP: Format file",
 })
 
+
+-- Just a shortcut to open da terminal.
+-- 
+-- horizontal terminal
+vim.keymap.set("n", "<leader>th", function()
+  vim.cmd("split | terminal")
+end, { desc = "Horizontal terminal" })
+
+-- vertical terminal
+vim.keymap.set("n", "<leader>tv", function()
+  vim.cmd("vsplit | terminal")
+end, { desc = "Vertical terminal" })
+
 return {}
