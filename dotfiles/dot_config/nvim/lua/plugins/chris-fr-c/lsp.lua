@@ -1,15 +1,16 @@
-return { {
+return { 
+
+-- Already in the init but just to be sure.
+  {
   "neovim/nvim-lspconfig",
-  config = function()
-    require "configs.lspconfig"
-  end,
+  lazy = false,
 },
 
   -- C++
   --
   {
     "civitasv/cmake-tools.nvim",
-
+    ft = { "cpp", "c", "objc", "objcpp", "cuda", "proto" },
     config = function()
       require("cmake-tools").setup({
         cmake_generate_options = {

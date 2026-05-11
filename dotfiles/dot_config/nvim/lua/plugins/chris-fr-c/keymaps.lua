@@ -187,6 +187,9 @@ end, {
 -- Ensure your leader key is set (usually Space or Backslash)
 vim.g.mapleader = " " 
 
+-- Quick terminal
+vim.keymap.set('n', '<leader>ft', ':split | terminal <CR>', { noremap = true, silent = true })
+
 -- Vertical split terminal
 vim.keymap.set('n', '<leader>|', ':vsplit <CR>')
 
@@ -207,5 +210,16 @@ vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = tr
 vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
+
+-- Another way to accept suggestion
+vim.keymap.set("i", "<C-y>", function()
+  local cmp = require("cmp")
+  if cmp.visible() then
+    cmp.confirm({ select = true })
+  else
+    -- Fallback: just act like a normal keypress or do nothing
+    vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes("<C-y>", true, false, true), "n", true)
+  end
+end, { desc = "Confirm selection with Ctrl + y" })
 
 return {}

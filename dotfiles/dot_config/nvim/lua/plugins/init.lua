@@ -9,7 +9,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require "configs.lspconfig"
+      require "nvchad.configs.lspconfig" -- Loads NvChad defaults
+      require "configs.lspconfig"        -- Loads YOUR file (lua/configs/lspconfig.lua)
     end,
   },
   {import="plugins.chris-fr-c.keymaps"},
