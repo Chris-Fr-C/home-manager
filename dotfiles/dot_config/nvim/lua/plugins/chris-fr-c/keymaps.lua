@@ -188,13 +188,14 @@ end, {
 vim.g.mapleader = " " 
 
 -- Quick terminal
-vim.keymap.set('n', '<leader>ft', ':split | terminal <CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>ft', ':split | terminal <CR>', { noremap = true, silent = true , desc="Terminal (horizontal)"})
 
--- Vertical split terminal
-vim.keymap.set('n', '<leader>|', ':vsplit <CR>')
+vim.keymap.set('n', '<leader>|', ':vsplit <CR>',{desc="Vertical split"})
+vim.keymap.set('n', '<leader>wsv', ':vsplit <CR>', {desc="Vertical split"})
 
 -- Horizontal split terminal
-vim.keymap.set('n', '<leader>-', ':split <CR>')
+vim.keymap.set('n', '<leader>-', ':split <CR>', {desc="Horizontal split"})
+vim.keymap.set('n', '<leader>wsh', ':split <CR>', {desc="Horizontal split"})
 
 -- Exit terminal mode with jj
 vim.keymap.set('t', 'jj', [[<C-\><C-n>]], { noremap = true, silent = true })
@@ -210,6 +211,12 @@ vim.keymap.set('t', '<C-l>', [[<C-\><C-n><C-w>l]], { noremap = true, silent = tr
 vim.keymap.set("v", "<Tab>", ">gv", { noremap = true, silent = true })
 vim.keymap.set("v", "<S-Tab>", "<gv", { noremap = true, silent = true })
 
+-- Navigate Location List (Standard)
+-- Might be duplicated with init.lua cause it seems a bit broken on nvchad.
+-- Jump to older location
+-- vim.keymap.map("n", "<A-h>", "<C-o>", { desc = "Jump older" })
+-- Jump to newer location
+-- vim.keymap.map("n", "<A-l>", "<C-i>", { desc = "Jump newer" })
 
 -- Another way to accept suggestion
 vim.keymap.set("i", "<C-y>", function()
