@@ -1,28 +1,29 @@
 -- lazy.nvim
-return { {
-  lazy=false,
-  "johnpmitsch/vai.nvim",
-  config = function()
-    require("vai").setup({ trigger = "qq", keys = "asdfewqh" })
-  end,
-},
+return {
+	{
+		lazy = false,
+		"johnpmitsch/vai.nvim",
+		config = function()
+			require("vai").setup({ trigger = "qq", keys = "asdfewqh" })
+		end,
+	},
 
-
-  {"tpope/vim-obsession"},
-  {  "max397574/better-escape.nvim",
-  lazy = false,
-  config = function()
-    require("better_escape").setup({
-      -- Add your custom configuration here if needed
-      -- For example:
-      mappings = {
-        i = {
-          j = { j = "<Esc>", k = "<Esc>" },
-        },
-      },
-    })
-  end,
-  },
+	{ "tpope/vim-obsession" },
+	{
+		"max397574/better-escape.nvim",
+		lazy = false,
+		config = function()
+			require("better_escape").setup({
+				-- Add your custom configuration here if needed
+				-- For example:
+				mappings = {
+					i = {
+						j = { j = "<Esc>", k = "<Esc>" },
+					},
+				},
+			})
+		end,
+	},
 
 	{
 		"folke/flash.nvim",
@@ -77,4 +78,6 @@ return { {
 		},
 	},
 
+	-- For diagrams
+	{ "terrastruct/d2-vim", ft = { "d2" } },
 }
