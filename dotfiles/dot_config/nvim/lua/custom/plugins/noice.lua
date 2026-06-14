@@ -16,23 +16,28 @@ require("noice").setup({
       view = "mini",
     },
 
-    routes = {
-      {
-        -- To put long notifications into splits so it's easier to read.
-        filter = {
-          event = "notify",
-          min_height = 15
+  routes = {
+    -- Normal errors and wars take too much space. Changing that to be on the bottom right. 
+    {
+      filter = {
+        any = {
+          { error = true },
+          { warning = true },
+          { event = "msg_show", kind = { "error", "warning" } },
+          { find = "ERROR" },
         },
-        view = 'split'
       },
-      {
-        filter={find="ERROR"},
-        view="mini",
-      },
-
+      view = "mini",
     },
-  
-
+    -- 2. Put long notifications into splits so they don't block the screen
+    {
+      filter = {
+        event = "notify",
+        min_height = 15
+      },
+      view = 'split'
+    },
+  },
 
 
   lsp = {
@@ -46,10 +51,10 @@ require("noice").setup({
   -- you can enable a preset for easier configuration
   presets = {
     bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
+    command_palette = false, -- position the cmdline and popupmenu together
     long_message_to_split = true, -- long messages will be sent to a split
     inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = false, -- add a border to hover docs and signature help
+    lsp_doc_border = true, -- add a border to hover docs and signature help
   },
 })
 
