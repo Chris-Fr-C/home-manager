@@ -82,10 +82,9 @@ require('mini.cursorword').setup {}
 
 require('mini.starter').setup {}
 
-
 -- For shortcuts:
-require("mini.basics").setup({
-    -- Options. Set field to `false` to disable.
+require('mini.basics').setup {
+  -- Options. Set field to `false` to disable.
   options = {
     -- Basic options ('number', 'ignorecase', and many more)
     basic = true,
@@ -111,12 +110,10 @@ require("mini.basics").setup({
     -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
     move_with_alt = true,
   },
+}
 
-})
-
-
-require("mini.move").setup({
-   -- Module mappings. Use `''` (empty string) to disable one.
+require('mini.move').setup {
+  -- Module mappings. Use `''` (empty string) to disable one.
   mappings = {
     -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
     left = '<M-h>',
@@ -136,6 +133,19 @@ require("mini.move").setup({
     -- Automatically reindent selection during linewise vertical move
     reindent_linewise = true,
   },
-})
+}
 
+require('mini.splitjoin').setup {
+  -- Module mappings. Use `''` (empty string) to disable one.
+  -- Created for both Normal and Visual modes.
+  mappings = {
+
+    toggle = 'gS',
+    split = '',
+    join = '',
+  },
+}
+
+
+require("mini.trailspace").setup({})
 return {}

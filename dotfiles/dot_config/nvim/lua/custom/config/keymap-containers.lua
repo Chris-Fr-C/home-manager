@@ -6,13 +6,13 @@ local containers = {
   quit = { key = '<leader>q', desc = '[q]uit' },
   find = { key = '<leader>f', desc = '[f]ind' },
   git = { key = '<leader>g', desc = '[g]it' },
-  lsp = {key="<leader>l", desc="[l]sp"},
-  goto = {key="g", desc="[g]oto"},
+  lsp = {key="<leader>c", desc="[c]ode"},
   code = {key="<leader>c", desc="[c]ode"},
+  diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
+  goto = {key="g", desc="[g]oto"},
   open = {key="<leader>o", desc="[o]pen"},
   build = {key="<leader>ob", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
-  diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
   root = {key="", desc=""}, -- just here so the linter helps us to know where it is used.
 }
 
