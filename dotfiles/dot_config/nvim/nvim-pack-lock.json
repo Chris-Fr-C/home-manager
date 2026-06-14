@@ -22,6 +22,10 @@
       "rev": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3",
       "src": "https://github.com/akinsho/bufferline.nvim"
     },
+    "clean-diagnostic": {
+      "rev": "18699b3a95e5470cb5038b65adbc9c10dcf302a3",
+      "src": "https://github.com/Kurama622/clean-diagnostic"
+    },
     "code_runner.nvim": {
       "rev": "faeea87f6038307eabbe1d1ea97ab6b1d6fd33b5",
       "src": "https://github.com/CRAG666/code_runner.nvim"
