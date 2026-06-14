@@ -11,6 +11,7 @@ require('which-key').setup {
       { "<leader>", mode = { "n", "v" } },
       { "g", mode = { "n", "v" } },
       { "s", mode = { "n", "x" } },
+      { "z", mode = { "n", "x" } },
     },
   -- Document existing key chains
   spec = {

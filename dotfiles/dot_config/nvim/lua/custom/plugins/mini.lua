@@ -82,4 +82,60 @@ require('mini.cursorword').setup {}
 
 require('mini.starter').setup {}
 
+
+-- For shortcuts:
+require("mini.basics").setup({
+    -- Options. Set field to `false` to disable.
+  options = {
+    -- Basic options ('number', 'ignorecase', and many more)
+    basic = true,
+
+    -- Extra UI features ('winblend', 'listchars', 'pumheight', ...)
+    extra_ui = true,
+
+    -- Presets for window borders ('single', 'double', ...)
+    -- Default 'auto' infers from 'winborder' option
+    win_borders = 'auto',
+  },
+  mappings = {
+    -- Basic mappings (better 'jk', save with Ctrl+S, ...)
+    basic = true,
+
+    -- Prefix for mappings that toggle common options ('wrap', 'spell', ...).
+    -- Supply empty string to not create these mappings.
+    option_toggle_prefix = [[\]],
+
+    -- Window navigation with <C-hjkl>, resize with <C-arrow>
+    windows = true,
+
+    -- Move cursor in Insert, Command, and Terminal mode with <M-hjkl>
+    move_with_alt = true,
+  },
+
+})
+
+
+require("mini.move").setup({
+   -- Module mappings. Use `''` (empty string) to disable one.
+  mappings = {
+    -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.
+    left = '<M-h>',
+    right = '<M-l>',
+    down = '<M-j>',
+    up = '<M-k>',
+
+    -- Move current line in Normal mode
+    line_left = '<M-h>',
+    line_right = '<M-l>',
+    line_down = '<M-j>',
+    line_up = '<M-k>',
+  },
+
+  -- Options which control moving behavior
+  options = {
+    -- Automatically reindent selection during linewise vertical move
+    reindent_linewise = true,
+  },
+})
+
 return {}
