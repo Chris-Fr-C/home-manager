@@ -12,6 +12,7 @@ local containers = {
   open = {key="<leader>o", desc="[o]pen"},
   build = {key="<leader>ob", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
+  diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
 }
 
 -- Automatically register the root descriptions for UI menus
