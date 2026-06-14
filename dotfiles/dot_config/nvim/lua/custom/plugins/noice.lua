@@ -27,7 +27,7 @@ require("noice").setup({
       },
       {
         filter={find="ERROR"},
-        view="notify",
+        view="split",
       },
 
     },

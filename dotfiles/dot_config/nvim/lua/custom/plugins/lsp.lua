@@ -66,7 +66,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map(containers.lsp.key .. 'D', vim.lsp.buf.declaration, '[D]eclaration')
 
     map(containers.goto.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
-    map(containers.lsp.key .. 'r', vim.lsp.buf.definition, '[d]efinition')
+    map(containers.lsp.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
 
 
     

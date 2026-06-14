@@ -1,13 +1,17 @@
 local MINI = 'mini'
 local LUA = 'lua'
-local line = MINI
+local line = LUA
 
 if line == LUA then
   vim.pack.add {
     'https://github.com/nvim-tree/nvim-web-devicons',
     'https://github.com/nvim-lualine/lualine.nvim',
   }
-  require('lualine').setup {}
+  require('lualine').setup {
+    sections = {
+      lualine_x = { 'overseer' },
+    },
+  }
 elseif line == MINI then
   -- Simple and easy statusline.
   --  You could remove this setup call if you don't like it,

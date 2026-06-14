@@ -10,6 +10,7 @@ local containers = {
   goto = {key="g", desc="[g]oto"},
   code = {key="<leader>c", desc="[c]ode"},
   open = {key="<leader>o", desc="[o]pen"},
+  build = {key="<leader>ob", desc="[b]uild"},
 }
 
 -- Automatically register the root descriptions for UI menus
