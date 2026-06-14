@@ -65,6 +65,13 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map(containers.goto.key .. 'D', vim.lsp.buf.declaration, '[D]eclaration')
     map(containers.lsp.key .. 'D', vim.lsp.buf.declaration, '[D]eclaration')
 
+    map(containers.goto.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
+    map(containers.lsp.key .. 'r', vim.lsp.buf.definition, '[d]efinition')
+
+
+    
+    map(containers.lsp.key .. 'f', vim.lsp.buf.format, '[f]ormat')
+
     -- The following two autocommands are used to highlight references of the
     -- word under your cursor when your cursor rests there for a little while.
     --    See `:help CursorHold` for information about when this is executed

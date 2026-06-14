@@ -8,7 +8,8 @@ local containers = {
   git = { key = '<leader>g', desc = '[g]it' },
   lsp = {key="<leader>l", desc="[l]sp"},
   goto = {key="g", desc="[g]oto"},
-  code = {key="<leader>c", desc="[c]ode"}
+  code = {key="<leader>c", desc="[c]ode"},
+  open = {key="<leader>o", desc="[o]pen"},
 }
 
 -- Automatically register the root descriptions for UI menus
