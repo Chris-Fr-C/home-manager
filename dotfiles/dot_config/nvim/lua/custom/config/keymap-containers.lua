@@ -11,6 +11,7 @@ local containers = {
   code = {key="<leader>c", desc="[c]ode"},
   open = {key="<leader>o", desc="[o]pen"},
   build = {key="<leader>ob", desc="[b]uild"},
+  execute = {key="<leader>x", desc="E[x]ecute"},
 }
 
 -- Automatically register the root descriptions for UI menus
