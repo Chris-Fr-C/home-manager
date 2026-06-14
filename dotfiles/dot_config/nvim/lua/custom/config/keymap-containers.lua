@@ -13,11 +13,15 @@ local containers = {
   build = {key="<leader>ob", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
   diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
+  root = {key="", desc=""}, -- just here so the linter helps us to know where it is used.
 }
 
 -- Automatically register the root descriptions for UI menus
 for _, target in pairs(containers) do
-  vim.keymap.set('n', target.key, '', { desc = target.desc })
+  if target.key ~= "" then  
+    vim.keymap.set('n', target.key, '', { desc = target.desc })
+  end
+
 end
 
 return containers
