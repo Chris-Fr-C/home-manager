@@ -66,6 +66,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "headlines.nvim": {
+      "rev": "bf17c96a836ea27c0a7a2650ba385a7783ed322e",
+      "src": "https://github.com/lukas-reineke/headlines.nvim"
+    },
     "indent-blankline.nvim": {
       "rev": "d28a3f70721c79e3c5f6693057ae929f3d9c0a03",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
@@ -191,6 +195,10 @@
       "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "orgmode": {
+      "rev": "c8e3d6c42f22c5fb52e30f50fa7f5f962c577097",
+      "src": "https://github.com/nvim-orgmode/orgmode"
+    },
     "overseer.nvim": {
       "rev": "a93d9f6d6defdac4bcd6d2c8ba988650e42e0a0e",
       "src": "https://github.com/stevearc/overseer.nvim"
@@ -234,6 +242,10 @@
     "videre.nvim": {
       "rev": "0ac28c8d10bd42a25386ebf5f8db612306de24f2",
       "src": "https://github.com/Owen-Dechow/videre.nvim"
+    },
+    "vim-orgmode": {
+      "rev": "e9506ee5cb492817c39c3897ed332b4a29b01c87",
+      "src": "https://github.com/jceb/vim-orgmode"
     },
     "vim-sleuth": {
       "rev": "be69bff86754b1aa5adcbb527d7fcd1635a84080",
