@@ -3,8 +3,9 @@
 local containers = {
   config = { key = '<leader>C', desc = '[C]onfig' },
   config_vim = { key = '<leader>Cv', desc = '[C]onfig [V]im' },
-  quit = { key = '<leader>q', desc = '[Q]uit ...' },
-  find = { key = '<leader>f', desc = '[F]ind ...' },
+  quit = { key = '<leader>q', desc = '[q]uit ...' },
+  find = { key = '<leader>f', desc = '[f]ind ...' },
+  git = { key = '<leader>g', desc = '[g]it ...' },
 }
 
 -- Automatically register the root descriptions for UI menus
