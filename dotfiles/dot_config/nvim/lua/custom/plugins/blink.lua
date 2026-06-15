@@ -26,7 +26,6 @@ require('blink.cmp').setup {
     --
     -- See `:help blink-cmp-config-keymap` for defining your own keymap
     preset = 'default',
-
     -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
     --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
   },
@@ -34,13 +33,29 @@ require('blink.cmp').setup {
   appearance = {
     -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
     -- Adjusts spacing to ensure icons are aligned
+    use_nvim_cmp_as_default = true,
     nerd_font_variant = 'mono',
   },
 
   completion = {
     -- By default, you may press `<c-space>` to show the documentation.
     -- Optionally, set `auto_show = true` to show the documentation after a delay.
-    documentation = { auto_show = false, auto_show_delay_ms = 500 },
+    -- documentation = { auto_show = false, auto_show_delay_ms = 500 },
+
+    menu = {
+      -- Clean, borderless menu popups
+      border = 'rounded',
+      scrolloff = 2,
+    },
+    documentation = {
+      window = {
+        -- Give the documentation panel a sharp, clean border to separate it from the code
+        border = 'rounded',
+        winblend = 10, -- Add a touch of transparency
+      },
+      auto_show = true,
+      auto_show_delay_ms = 200,
+    },
   },
 
   sources = {
@@ -61,4 +76,8 @@ require('blink.cmp').setup {
   -- Shows a signature help window while you type arguments for a function
   signature = { enabled = true },
 }
+
+local set_hl = vim.api.nvim_set_hl
+
+
 return {}
