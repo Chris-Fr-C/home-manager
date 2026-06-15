@@ -2,6 +2,10 @@ local MINI = 'mini'
 local LUA = 'lua'
 local line = LUA
 
+
+-- Force a single, global statusline at the bottom of the screen.
+vim.opt.laststatus = 3
+
 if line == LUA then
   vim.pack.add {
     'https://github.com/nvim-tree/nvim-web-devicons',
