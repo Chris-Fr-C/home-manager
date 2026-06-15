@@ -233,7 +233,7 @@ in
 # =======================================  
   home.file."thirdparty/appimages/nvim" = {
     source = builtins.fetchurl {
-      url = "https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-x86_64.appimage";
+      url = " https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-x86_64.appimage";
       sha256 = "7876b67462af08abdc884818b398b3e82907d6a4c89edfe7c6b1ff168eb7c4d6";
     };
         executable=true;

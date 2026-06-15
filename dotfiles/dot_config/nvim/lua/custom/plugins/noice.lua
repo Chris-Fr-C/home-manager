@@ -17,7 +17,7 @@ require("noice").setup({
     },
 
   routes = {
-    -- Normal errors and wars take too much space. Changing that to be on the bottom right. 
+    -- Normal errors and wars take too much space. Changing that to be on the bottom right.
     {
       filter = {
         any = {
@@ -29,7 +29,7 @@ require("noice").setup({
       },
       view = "mini",
     },
-    -- 2. Put long notifications into splits so they don't block the screen
+    -- Put long notifications into splits so they don't block the screen.
     {
       filter = {
         event = "notify",
