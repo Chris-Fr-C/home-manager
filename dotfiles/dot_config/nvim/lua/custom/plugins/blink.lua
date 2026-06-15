@@ -51,7 +51,7 @@ require('blink.cmp').setup {
       window = {
         -- Give the documentation panel a sharp, clean border to separate it from the code
         border = 'rounded',
-        winblend = 10, -- Add a touch of transparency
+        -- winblend = 10, -- Add a touch of transparency
       },
       auto_show = true,
       auto_show_delay_ms = 200,
