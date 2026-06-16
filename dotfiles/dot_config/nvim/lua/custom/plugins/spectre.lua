@@ -6,5 +6,5 @@ vim.pack.add({
 })
 local spectre = require("spectre")
 spectre.setup({})
-vim.keymap.set("n", containers.open.key .. "s", spectre.toggle, {desc="[s]earch and replace"})
+vim.keymap.set("n", containers.open.key .. "/", spectre.toggle, {desc="[/] search and replace"})
 return {}
