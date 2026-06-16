@@ -1,3 +1,4 @@
+local containers = require("custom.config.keymap-containers")
 -- Mini doesnt have automatic cleanup for instance, and packages
 -- seem to depend on noice anyway.
 vim.pack.add({
@@ -10,25 +11,50 @@ vim.pack.add({
   }
 )
 
+local core = require("custom.config.core")
+--- @type "cmdline_popup"|"mini"|"notify"|"virtualtext"|"split"
+local view_type="mini"
 require("noice").setup({
     -- Force general notifications (like vim.notify) to use mini view cuw less intrusive.
     notify = {
-      view = "mini",
+      view = view_type,
     },
 
   routes = {
-    -- Normal errors and wars take too much space. Changing that to be on the bottom right.
+    -- Custom notification modes to select where it goes
     {
-      filter = {
-        any = {
-          { error = true },
-          { warning = true },
-          { event = "msg_show", kind = { "error", "warning" } },
-          { find = "ERROR" },
-        },
-      },
-      view = "mini",
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return msg.opts and msg.opts.view == "popup"
+                end,
+            },
+            view = "popup",
     },
+
+    {
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return msg.opts and msg.opts.view == "notify"
+                end,
+            },
+            view = "notify",
+    },
+    {
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return msg.opts and msg.opts.view == "virtualtext"
+                end,
+            },
+            view = "virtualtext",
+    },
+
+
+
+
+    -- Normal errors and wars take too much space. Changing that to be on the bottom right.
     -- Put long notifications into splits so they don't block the screen.
     {
       filter = {
@@ -58,5 +84,14 @@ require("noice").setup({
   },
 })
 
+vim.keymap.set("n", containers.open.key .. "n","", {desc="[n]otifications"})
+vim.keymap.set("n", containers.open.key .. "nl", function()
+  require("noice").cmd("last")
+end, {desc="[l]ast"})
+
+vim.keymap.set("n", containers.open.key .. "nh", function()
+  require("noice").cmd("history")
+end, {desc="[h]istory"} )
 
 return {}
+

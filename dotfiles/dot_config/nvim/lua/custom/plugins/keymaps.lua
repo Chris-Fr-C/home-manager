@@ -1,10 +1,11 @@
 -- Capture the returned table of prefix variables
 local containers = require 'custom.config.keymap-containers'
 
+local core = require("custom.config.core")
 -- Save
 vim.keymap.set('n', '<C-s>', function()
   vim.cmd 'w!'
-  vim.notify('Saved file', vim.log.levels.INFO)
+  core.notify("Saved", "Saved file", "INFO", "virtualtext")
 end, { desc = '[S]ave (force)' })
 
 -- Concatenate the prefix with "u" (Resulting in for example '<leader>cu')
