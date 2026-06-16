@@ -34,10 +34,10 @@ require("overseer").setup({})
 --   },
 -- }
 --
-vim.keymap.set("n",containers.build.key .. "t", "<cmd>OverseerToggle<cr>", {desc="[t]ask"})
+vim.keymap.set("n",containers.build.key .. "t", "<cmd>OverseerToggle<cr>", {desc="[t]oggle task"})
+vim.keymap.set("n",containers.build.key .. "s", "<cmd>OverseerShell<cr>", {desc="[s]hell"})
 vim.keymap.set("n",containers.build.key .. "r", "<cmd>OverseerRun<cr>", {desc="[r]un"})
-vim.keymap.set("n",containers.build.key .. "b", "<cmd>OverseerBuild<cr>", {desc="[b]uild"})
-vim.keymap.set("n",containers.build.key .. "c", "<cmd>OverseerClearCache<cr>", {desc="[c]lear cache"})
+vim.keymap.set("n",containers.build.key .. "a", "<cmd>OverseerTaskAction<cr>", {desc="[a]ction"})
 vim.keymap.set("n",containers.build.key .. "i", "<cmd>OverseerInfo<cr>", {desc="[i]nfo"})
 
 
