@@ -14,6 +14,7 @@ local containers = {
   build = {key="<leader>ob", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
   debug = {key="<leader>d", desc="[d]ebug"},
+  visualize = {key="<leader>v", desc="[v]isualize"}, -- just here so the linter helps us to know where it is used.
   root = {key="", desc=""}, -- just here so the linter helps us to know where it is used.
 }
 
