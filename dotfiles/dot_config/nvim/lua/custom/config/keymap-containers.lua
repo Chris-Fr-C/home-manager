@@ -6,6 +6,7 @@ local containers = {
   quit = { key = '<leader>q', desc = '[q]uit' },
   find = { key = '<leader>f', desc = '[f]ind' },
   git = { key = '<leader>g', desc = '[g]it' },
+  generate = {key="<leader>G", desc="[G]enerate"},
   lsp = {key="<leader>c", desc="[c]ode"},
   code = {key="<leader>c", desc="[c]ode"},
   diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
