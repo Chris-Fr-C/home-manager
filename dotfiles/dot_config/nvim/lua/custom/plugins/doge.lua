@@ -9,16 +9,15 @@ local function install_doge()
 end
 vim.g.doge_enable_mappings = 0
 
--- You can expose it as a user command so you can just type `:DogeInstall`
-vim.api.nvim_create_user_command('DogeInstall', function()
-  vim.fn['doge#install']()
-  print("Vim-Doge dependencies installed.")
-end, {})
 
 
+-- Formats
+vim.g.doge_doc_standard_cs = 'xmldoc'
+vim.g.doge_doc_standard_py = 'google'
 
 -- Generate comment for current line
 vim.keymap.set('n', containers.generate.key .. "d", '<Plug>(doge-generate)', {desc="[d]ocumentation"})
+vim.keymap.set('n', containers.generate.key .. "i", '<cmd>DogeInstall', {desc="documentation [i]nstall"})
 
 -- Interactive mode comment todo-jumping
 vim.keymap.set('n', containers.root.key .. '<TAB>', '<Plug>(doge-comment-jump-forward)')

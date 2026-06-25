@@ -56,6 +56,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     --  Most Language Servers support renaming across files, etc.
     map(containers.lsp.key..'r', vim.lsp.buf.rename, '[r]ename')
     map(containers.lsp.key..'R', vim.lsp.buf.references, '[R]eferences')
+    map(containers.root.key..'gR', vim.lsp.buf.references, '[R]eferences')
 
     -- Execute a code action, usually your cursor needs to be on top of an error
     -- or a suggestion from your LSP for this to activate.
@@ -63,10 +64,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     -- WARN: This is not Goto Definition, this is Goto Declaration.
     --  For example, in C this would take you to the header.
-    map(containers.goto.key .. 'D', vim.lsp.buf.declaration, '[D]eclaration')
+    map(containers.root.key .. 'gD', vim.lsp.buf.declaration, '[D]eclaration')
     map(containers.lsp.key .. 'D', vim.lsp.buf.declaration, '[D]eclaration')
 
-    map(containers.goto.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
+    map(containers.root.key .. 'gd', vim.lsp.buf.definition, '[d]efinition')
     map(containers.lsp.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
 
 
