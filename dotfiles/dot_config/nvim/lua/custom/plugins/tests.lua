@@ -10,6 +10,7 @@ vim.pack.add({
 	-- Language specifics
 	"https://github.com/nvim-neotest/neotest-python",
 	"https://github.com/alfaix/neotest-gtest",
+	"https://github.com/Issafalcon/neotest-dotnet",
 })
 
 local neotest = require("neotest")
@@ -18,6 +19,7 @@ neotest.setup({
 		require("neotest-python")({
 			dap = { justMyCode = false },
 		}),
+		require("neotest-dotnet")({}),
 	},
 })
 vim.keymap.set("n", containers.open.key .. "T", function() 
