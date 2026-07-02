@@ -122,6 +122,7 @@ local servers = {
   omnisharp = {},
   clangd = {},
   gopls = {},
+  markdownlint ={},
   pyright = {
           filetypes={"python"},
   },

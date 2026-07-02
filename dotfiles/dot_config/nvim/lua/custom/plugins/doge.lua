@@ -13,7 +13,7 @@ vim.g.doge_enable_mappings = 0
 
 -- Formats
 vim.g.doge_doc_standard_cs = 'xmldoc'
-vim.g.doge_doc_standard_py = 'google'
+vim.g.doge_doc_standard_python = 'google'
 
 -- Generate comment for current line
 vim.keymap.set('n', containers.generate.key .. "d", '<Plug>(doge-generate)', {desc="[d]ocumentation"})
