@@ -93,6 +93,11 @@ in
     luarocks # For vim deps.
 
     chafa # Imgs in terminal.
+
+    # Functional programming
+    babashka # Closure fast interpretor (good to avoid bash).
+    leiningen # Closure package manager
+    clojure
     
   ];
   programs.git = {
