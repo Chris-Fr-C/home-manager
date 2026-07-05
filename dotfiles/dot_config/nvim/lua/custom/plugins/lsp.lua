@@ -143,7 +143,8 @@ local servers = {
       filetypes={"python"},
   }, -- For python.
 
-
+  -- For clojure.
+  clojure_lsp = {},
 
   -- Special Lua Config, as recommended by neovim help docs
   lua_ls = {
