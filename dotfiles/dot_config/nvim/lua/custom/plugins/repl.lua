@@ -14,6 +14,12 @@ vim.pack.add({
 -- Disable the documentation mapping
 vim.g["conjure#mapping#doc_word"] = "gk"
 
+-- Default is "ConjureEvalInline"
+vim.g["conjure#eval#inline#highlight"] = "Comment" 
+
+-- If we just use the ghost text. 
+vim.g["conjure#log#hud#enabled"] = false
+
 vim.keymap.set('n', containers.root.key .. 'gk', '<cmd>ConjureDocWord<cr>', { desc = '[g]et [k]nowledge / Doc' })
 
 vim.keymap.set("n", containers.code.key .. "c","<cmd>ConjureEval<cr>", {desc="[c]onjure eval"})
