@@ -36,7 +36,7 @@ require("noice").setup({
             filter = {
                 event = "notify",
                 cond = function(msg)
-                    return msg.opts and msg.opts.view == "notify"
+                    return msg.opts and msg.opts.view == "mini"
                 end,
             },
             view = "notify",
