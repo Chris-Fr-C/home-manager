@@ -1,6 +1,7 @@
 -- This changes often based on my tastes. So we make it a variable that we can use and
 -- append based on the organisation we want.
 local containers = {
+  buffer = { key = '<leader>b', desc = '[b]uffer' },
   config = { key = '<leader>C', desc = '[C]onfig' },
   config_vim = { key = '<leader>Cv', desc = '[v]im' },
   quit = { key = '<leader>q', desc = '[q]uit' },

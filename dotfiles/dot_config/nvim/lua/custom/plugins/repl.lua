@@ -20,7 +20,7 @@ vim.keymap.set("n", containers.code.key .. "c","<cmd>ConjureEval<cr>", {desc="[c
 vim.keymap.set("n", containers.code.key .. "c", "<cmd>ConjureEvalCurrentForm<cr>", {desc="[c]lojure eval current form"})
 vim.keymap.set("n", containers.code.key .. "b", "<cmd>ConjureEvalBuf<cr>", {desc="[b]uffer eval"})
 vim.keymap.set("n", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalBuf<cr>", {desc="Evaluate buffer"})
-vim.keymap.set("v", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalCurrentFormf<cr>", {desc="Evaluate buffer"})
+vim.keymap.set("v", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalCurrentForm<cr>", {desc="Evaluate buffer"})
 vim.keymap.set("n", containers.code.key .. "l", "<cmd>ConjureLogToggle<cr>", {desc="[l]og toggle"})
 -- For clojure i recommend to put this line:
 -- {:user {:plugins [[cider/cider-nrepl "0.42.1"]]}}

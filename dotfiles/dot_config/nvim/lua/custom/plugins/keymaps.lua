@@ -29,7 +29,10 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'f', function() require('flash').jump() end, {
 --  Map 'F' to do a Treesitter scope jump if i want to reuse the key
 vim.keymap.set({ 'n', 'x', 'o' }, 'F', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
 
-local fzf=require("fzf-lua")
-vim.keymap.set('n', containers.root.key .. '<leader><leader>', fzf.buffers, { desc = '[ ] Find existing buffers' })
+
+vim.keymap.set('n', containers.root.key .. '<leader>|', '<cmd>vsplit<cr>', { desc = 'Vertical split' })
+vim.keymap.set('n', containers.buffer.key .. 'v', '<cmd>vsplit<cr>', { desc = '[v]ertical split' })
+vim.keymap.set('n', containers.buffer.key .. 'h', '<cmd>split<cr>', { desc = '[h]orizontal split' })
+
 
 return {}
