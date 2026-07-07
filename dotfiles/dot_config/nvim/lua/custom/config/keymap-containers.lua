@@ -9,7 +9,7 @@ local containers = {
   generate = {key="<leader>g", desc="[g]enerate or [g]it"},
   git = { key = '<leader>g', desc = '[g]it', alias= true},
   lsp = {key="<leader>c", desc="[c]ode"},
-  code = {key="<leader>c", desc="[c]ode"},
+  code = {key="<leader>c", desc="[c]ode", alias=true},
   diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
   open = {key="<leader>o", desc="[o]pen"},
   build = {key="<leader>ob", desc="[b]uild"},

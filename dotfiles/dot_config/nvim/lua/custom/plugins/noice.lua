@@ -26,17 +26,26 @@ require("noice").setup({
             filter = {
                 event = "notify",
                 cond = function(msg)
-                    return msg.opts and msg.opts.view == "popup"
+                    return msg.opts and msg.opts.view == "cmdline_popup"
                 end,
             },
-            view = "popup",
+            view = "cmdline_popup",
+    },
+    {
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return msg.opts and msg.opts.view == "mini"
+                end,
+            },
+            view = "mini",
     },
 
     {
             filter = {
                 event = "notify",
                 cond = function(msg)
-                    return msg.opts and msg.opts.view == "mini"
+                    return msg.opts and msg.opts.view == "notify"
                 end,
             },
             view = "notify",

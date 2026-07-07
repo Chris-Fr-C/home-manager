@@ -30,7 +30,6 @@ vim.keymap.set({ 'n', 'x', 'o' }, 'f', function() require('flash').jump() end, {
 vim.keymap.set({ 'n', 'x', 'o' }, 'F', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
 
 
-vim.keymap.set('n', containers.root.key .. '<leader>|', '<cmd>vsplit<cr>', { desc = 'Vertical split' })
 vim.keymap.set('n', containers.buffer.key .. 'v', '<cmd>vsplit<cr>', { desc = '[v]ertical split' })
 vim.keymap.set('n', containers.buffer.key .. 'h', '<cmd>split<cr>', { desc = '[h]orizontal split' })
 

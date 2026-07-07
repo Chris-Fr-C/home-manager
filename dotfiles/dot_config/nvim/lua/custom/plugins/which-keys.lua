@@ -1,6 +1,9 @@
-  -- Useful plugin to show you pending keybinds.
-vim.pack.add { {'https://github.com/folke/which-key.nvim'} }
-require('which-key').setup {
+-- Useful plugin to show you pending keybinds.
+-- Lol, we need to call teh file differently than which-key otherwise vim.pack
+-- breaks the import order.
+vim.pack.add({'https://github.com/folke/which-key.nvim'})
+
+require('which-key').setup({
   -- Delay between pressing a key and opening which-key (milliseconds)
   delay = 0,
 ---@type false | "classic" | "modern" | "helix"
@@ -22,5 +25,9 @@ require('which-key').setup {
     { 's', group = '[s]urround', mode = { 'n', "x"} },
   },
 }
+)
+
+
+
 
 return {}
