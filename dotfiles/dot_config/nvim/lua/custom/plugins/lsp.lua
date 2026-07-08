@@ -120,6 +120,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local servers = {
   -- for dotnet.
   omnisharp = {},
+
+  -- The js frontend language: elm
+  elmls = {},
+
   clangd = {},
   gopls = {},
   markdownlint ={},
