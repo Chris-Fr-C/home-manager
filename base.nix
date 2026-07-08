@@ -98,6 +98,8 @@ in
     babashka # Closure fast interpretor (good to avoid bash).
     leiningen # Closure package manager
     clojure
+
+    beam29Packages.elixir 
     
   ];
   programs.git = {
