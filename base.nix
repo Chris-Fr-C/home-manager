@@ -94,6 +94,8 @@ in
 
     chafa # Imgs in terminal.
 
+    inotify-tools # File watcher on unix.
+
     # Functional programming
     babashka # Closure fast interpretor (good to avoid bash).
     leiningen # Closure package manager
