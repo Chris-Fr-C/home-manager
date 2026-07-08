@@ -124,6 +124,8 @@ local servers = {
   -- The js frontend language: elm
   elmls = {},
 
+  elixirls = {},
+
   clangd = {},
   gopls = {},
   markdownlint ={},
