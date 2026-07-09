@@ -118,8 +118,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --  See `:help lsp-config` for information about keys and how to configure
 ---@type table<string, vim.lsp.Config>
 local servers = {
+  -- #LSP
+  --
   -- for dotnet.
   omnisharp = {},
+  -- F# Language Server (FSAC).
+  fsautocomplete = {},
+
+  -- TOML Language Server (supports pyproject.toml, Cargo.toml ...).
+  taplo = {},
+
 
   -- The js frontend language: elm
   elmls = {},
