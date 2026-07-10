@@ -10,5 +10,4 @@ local navbuddy = require 'nvim-navbuddy'
 navbuddy.setup({lsp={auto_attach=true}})
 
 
-vim.keymap.set("n", containers.open.key .. "n", navbuddy.open, {desc="[n]avbuddy"}) 
-vim.keymap.set("n", containers.root.key .. "Q", navbuddy.open, {desc="navbuddy"}) 
+vim.keymap.set("n", containers.root.key .. "<C-q>", navbuddy.open, {desc="navbuddy"})

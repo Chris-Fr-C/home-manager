@@ -24,14 +24,19 @@ vim.keymap.set('n', containers.root.key .. '<leader>-', '<cmd>split<cr>', { desc
 vim.keymap.set('n', containers.root.key .. '<leader>|', '<cmd>vsplit<cr>', { desc = 'Vertical split' })
 
 -- Global search (forward + backward) using 'f'
-vim.keymap.set({ 'n', 'x', 'o' }, 'f', function() require('flash').jump() end, { desc = 'Flash Jump (Forward/Backward)' })
+vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'f', function() require('flash').jump() end, { desc = 'Flash Jump (Forward/Backward)' })
 
 --  Map 'F' to do a Treesitter scope jump if i want to reuse the key
-vim.keymap.set({ 'n', 'x', 'o' }, 'F', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
+vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'F', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
 
 
 vim.keymap.set('n', containers.buffer.key .. 'v', '<cmd>vsplit<cr>', { desc = '[v]ertical split' })
 vim.keymap.set('n', containers.buffer.key .. 'h', '<cmd>split<cr>', { desc = '[h]orizontal split' })
 
+
+-- Recording with q is super annoying so changing it.
+-- Deactivate 'q' from recording macros
+vim.keymap.set('n', containers.root.key .. 'q', '<Nop>', { desc = 'Disable default macro recording' })
+vim.keymap.set('n', containers.root.key .. '<C-A-r>', 'q', { desc = 'Record macro' })
 
 return {}

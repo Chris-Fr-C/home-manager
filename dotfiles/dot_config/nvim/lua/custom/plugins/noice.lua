@@ -21,6 +21,16 @@ require("noice").setup({
     },
 
   routes = {
+    {
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return msg.opts and not msg.opts.view
+                end,
+            },
+            view = view_type, -- default
+    },
+
     -- Custom notification modes to select where it goes
     {
             filter = {
@@ -59,18 +69,6 @@ require("noice").setup({
             },
             view = "virtualtext",
     },
-
-
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return not msg.opts
-                end,
-            },
-            view = "mini",
-    },
-
 
     -- Normal errors and wars take too much space. Changing that to be on the bottom right.
     -- Put long notifications into splits so they don't block the screen.
@@ -112,4 +110,3 @@ vim.keymap.set("n", containers.open.key .. "nh", function()
 end, {desc="[h]istory"} )
 
 return {}
-
