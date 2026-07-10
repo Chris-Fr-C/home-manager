@@ -61,6 +61,15 @@ require("noice").setup({
     },
 
 
+    {
+            filter = {
+                event = "notify",
+                cond = function(msg)
+                    return not msg.opts
+                end,
+            },
+            view = "mini",
+    },
 
 
     -- Normal errors and wars take too much space. Changing that to be on the bottom right.
