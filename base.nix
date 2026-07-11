@@ -23,8 +23,8 @@ let
     # This one is for interactive shells.
     EDITOR = "nvim";
   };
-  sharedShellInit=builtins.readFile ./scripts/functions.sh + 
-    builtins.readFile ./scripts/initializations.sh + 
+  sharedShellInit=builtins.readFile ./scripts/functions.sh +
+    builtins.readFile ./scripts/initializations.sh +
     builtins.readFile ./scripts/yazi-shortcut.sh;
 in
 {
@@ -37,8 +37,8 @@ in
 
   home.stateVersion = "25.11";
   # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true; 
-  
+  programs.home-manager.enable = true;
+
   home.packages = with pkgs; [
     # https://search.nixos.org/packages?channel=unstable&query=xonsh
     # Ide
@@ -51,7 +51,7 @@ in
     # Not putting git cause you already need git to clone this repo.
     gh
     lazygit
-    commitizen 
+    commitizen
 
     # Cli tools
     htop
@@ -65,7 +65,7 @@ in
     helm # Helm on kubernetes.
     goaccess # For TUI + Web logs.
     mprocs # To vizualise concurrent processes.
-    gum # Beautiful prints. 
+    gum # Beautiful prints.
     eza # Better ls.
     ripgrep  # Grep tool.
     # Press f to pay respect when you miss a command.
@@ -77,7 +77,7 @@ in
     fzf # Fuzzy search.
     yazi # File manager.;
     starship # Make Shell bioutifoul again.
-    zellij # Multiplexer. 
+    zellij # Multiplexer.
     fd # Find tool.
     btop # Process viewer.
     # Code tooling
@@ -86,7 +86,7 @@ in
     powerline
     powerline-fonts
     ttyd # Term over browser.
-    opencode # AI TUI. 
+    opencode # AI TUI.
     gnumake
     go-task
     jdk25_headless # java.
@@ -101,8 +101,9 @@ in
     leiningen # Closure package manager
     clojure
 
-    beam29Packages.elixir 
-    
+    beam29Packages.elixir
+    gleam
+
   ];
   programs.git = {
     enable = true;
@@ -110,7 +111,7 @@ in
     settings.user.email = "christophe.fr.corsi@gmail.com";
   };
 
-  
+
   # =======================================
   # =           Shell setup               =
   # =======================================
@@ -183,10 +184,10 @@ in
       ${sharedShellInit}
     '';
   };
-  
+
 # =======================================
 # =          App images                 =
-# =======================================  
+# =======================================
   home.file."thirdparty/appimages/nvim" = {
     source = builtins.fetchurl {
       url = " https://github.com/neovim/neovim/releases/download/v0.12.0/nvim-linux-x86_64.appimage";

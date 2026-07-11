@@ -71,7 +71,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map(containers.lsp.key .. 'd', vim.lsp.buf.definition, '[d]efinition')
 
 
-    
+
     map(containers.lsp.key .. 'f', vim.lsp.buf.format, '[f]ormat')
 
     -- The following two autocommands are used to highlight references of the
@@ -118,8 +118,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
 --  See `:help lsp-config` for information about keys and how to configure
 ---@type table<string, vim.lsp.Config>
 local servers = {
-  -- #LSP
+  -- #LSP--
   --
+
   -- for dotnet.
   omnisharp = {},
   -- F# Language Server (FSAC).
@@ -223,6 +224,3 @@ for name, server in pairs(servers) do
   vim.lsp.config(name, server)
   vim.lsp.enable(name)
 end
-
-
-
