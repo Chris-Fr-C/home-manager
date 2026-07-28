@@ -104,6 +104,8 @@ in
     beam29Packages.elixir
     gleam
 
+    coursier # For scala/java
+
   ];
   programs.git = {
     enable = true;

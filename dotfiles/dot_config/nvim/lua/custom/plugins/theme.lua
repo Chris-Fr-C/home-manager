@@ -4,6 +4,7 @@ vim.pack.add {
   'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/edeneast/nightfox.nvim',
   'https://github.com/catppuccin/nvim',
+'https://github.com/scottmckendry/cyberdream.nvim',
 }
 
 
@@ -13,8 +14,9 @@ vim.pack.add {
 --- @alias Kanagawa "kanagawa"|"kanawaga-wave"
 --- @alias Catppuccin "catppuccin-latte"|"catppuccin-frappe"|"catppuccin-macchiato"|"catppuccin-mocha"
 --- @alias Carbonfox "carbonfox"|"nightfox"
----@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"
-local selected = 'catppuccin'
+--- @alias Cyberdream "cyberdream"|"cyberdream-light"
+---@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream
+local selected = 'cyberdream'
 
 
 if (selected == "catppuccin") then
@@ -93,6 +95,27 @@ if (selected == "catppuccin") then
             },
             which_key=true,
             -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
+        },
+    })
+
+elseif (selected=="cyberdreak") then
+    require("cyberdream").setup({
+        -- Enable transparent background
+        transparent = false,
+
+
+        -- Enable italics comments
+        italic_comments = false,
+                -- Replace all fillchars with ' ' for the ultimate clean look
+        hide_fillchars = false,
+
+        -- Apply a modern borderless look to pickers like Telescope, Snacks Picker & Fzf-Lua
+        borderless_pickers = false,
+        extensions = {
+            default=true,
+            -- telescope = true,
+            -- notify = true,
+            -- mini = true,
         },
     })
 end
