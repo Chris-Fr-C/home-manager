@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("RecordingLeave", {
     local noice = require("noice")
     core.notify("Macro", "Stopped recording macro", "WARN", "notify")
 
- 
+
     -- vim.notify("Stopped recording macro", vim.log.levels.INFO, {
     --   title = "Macro",
     --   timeout = 2000,

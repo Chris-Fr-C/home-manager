@@ -6,4 +6,3 @@ require("sort").setup({})
 vim.keymap.set("v", containers.code.key .. "s", "<cmd>Sort<cr>", {desc="[s]ort"} )
 
 return {}
-
