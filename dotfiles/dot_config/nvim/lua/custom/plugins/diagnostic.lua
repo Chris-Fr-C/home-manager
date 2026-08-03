@@ -8,6 +8,7 @@ diag.setup {
   border = 'rounded',
   min_severity = 4,
   max_width = 78,
+  always_show_message = true,
 }
 vim.keymap.set('n', container.open.key .. 'd', diag.show, { desc = 'Show [d]iagnostic' })
 return {}
