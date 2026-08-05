@@ -144,7 +144,7 @@ in
     };
     initContent = ''
       eval "$(zoxide init zsh)"
-      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/"
+      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/:$HOME/.cargo/bin"
 
       ${sharedShellInit}
       source ${./dotfiles/.p10k.zsh}
