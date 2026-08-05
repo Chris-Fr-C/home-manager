@@ -120,7 +120,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 local servers = {
   -- #LSP--
   --
-
+  yamlls = {},
   -- for dotnet.
   omnisharp = {},
   -- F# Language Server (FSAC).
