@@ -155,8 +155,9 @@
 ;; ROOT / GLOBAL KEYMAPS
 ;; =============================================================================
 ;; Jump to previous (gh) and next (gl) code locations in Normal mode
-(map! :n "gh" #'+lookup/jump-backward
-      :n "gl" #'+lookup/jump-forward)
+;; Jump to previous (gh) and next (gl) code locations in Normal mode
+(map! :n "gh" #'evil-jump-backward
+      :n "gl" #'evil-jump-forward)
 
 ;; Save current buffer (<C-s>)
 (map! "C-s" #'save-buffer)
