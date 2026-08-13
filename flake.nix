@@ -45,7 +45,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            ./home.nix
+            ./base.nix
             ./axpo-wsl.nix
           ];
         };
