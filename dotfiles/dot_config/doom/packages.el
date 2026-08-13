@@ -60,6 +60,3 @@
 ;;; Themes and styling
 (package! modus-themes)
 
-
-;;;  For popup like telescope.
-(package! vertico-posframe)

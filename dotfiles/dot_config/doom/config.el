@@ -6,8 +6,8 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
-;; (setq user-full-name "John Doe"
-;;       user-mail-address "john@doe.com")
+                                        ; (setq user-full-name "John Doe"
+                                        ;       user-mail-address "john@doe.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -229,25 +229,6 @@
 
 
 
-(use-package! vertico-posframe
-  :after vertico
-  :config
-  (vertico-posframe-mode 1)
-
-  ;; Customize popup appearance
-  (setq vertico-posframe-parameters
-        '((left-fringe . 8)
-          (right-fringe . 8)
-          (internal-border-width . 2)))
-
-  ;; Set position to center (like Telescope/fzf-lua)
-  (setq vertico-posframe-poshandler #'posframe-poshandler-frame-center)
-
-  ;; Set width and height ratios
-  (setq vertico-posframe-height 20
-        vertico-posframe-width 120))
-
-
 
 ;;; Modus themes.
 ;;;
@@ -370,43 +351,3 @@
 ;; Ensure evil-escape's pre-command hook captures keypresses in vterm-mode
 (after! vterm
   (add-hook 'vterm-mode-hook #'evil-escape-mode))
-
-
-
-
-;;;  For popup like telescope
-(use-package! vertico-posframe
-  :after vertico
-  :config
-  (vertico-posframe-mode 1)
-
-  ;; Center the popup vertically and horizontally
-  (setq vertico-posframe-poshandler #'posframe-poshandler-frame-center)
-
-  ;; Configure border and size to match Telescope feel
-  (setq vertico-posframe-parameters
-        '((left-fringe  . 8)
-          (right-fringe . 8)
-          (border-width . 2)))
-
-  ;; Ensure terminal fallback displays in the top/center when posframe isn't native
-  (setq vertico-posframe-fallback-mode t))
-
-
-
-;;; Centering
-;; 1. Centered Search / File / Buffer Popups (Telescope style)
-(after! vertico
-  (require 'vertico-posframe)
-  (vertico-posframe-mode 1)
-  (setq vertico-posframe-poshandler #'posframe-poshandler-frame-center
-        vertico-posframe-height 20
-        vertico-posframe-width 100
-        vertico-posframe-border-width 2))
-
-;; 2. Centered Which-Key Popups
-(after! which-key
-  (setq which-key-popup-type 'frame
-        which-key-frame-max-height 20
-        which-key-frame-max-width 100
-        which-key-posframe-poshandler #'posframe-poshandler-frame-center))
