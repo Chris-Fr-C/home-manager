@@ -1,0 +1,65 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1786630952,
+        "narHash": "sha256-a952+jEQ1I6sMd6yzi2GIsO/EFNtEFvzwbJ+oOG9Cg0=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "2d1bac51b2513914ace47797765c3265164de78e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1786599213,
+        "narHash": "sha256-yNJd40f11EzXBjSByCB7IPpeFFAdeoSKKM67dGkfFoU=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "0e251e24a4f24e036a084b6b4b2d2491af4167f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nova-repo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1786380397,
+        "narHash": "sha256-C828OpWYdi3DFhJuOb+kdFNrOveMh8kLMiDY/F2ltMg=",
+        "owner": "Yazelix",
+        "repo": "nova",
+        "rev": "58e201a18b1a686d4baa110a414d7b662e088e07",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Yazelix",
+        "repo": "nova",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs",
+        "nova-repo": "nova-repo"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
