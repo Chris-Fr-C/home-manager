@@ -18,6 +18,7 @@ let
     # Order is important
     cm="chezmoi --source ${toString ./dotfiles}";
     chezmoi="chezmoi --source ${toString ./dotfiles}";
+    em="emacs -nw";
   };
   sessionVariables={
     # This one is for interactive shells.
@@ -105,6 +106,7 @@ in
     gleam
 
     coursier # For scala/java
+    emacs
 
   ];
   programs.git = {
@@ -144,7 +146,7 @@ in
     };
     initContent = ''
       eval "$(zoxide init zsh)"
-      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/:$HOME/.cargo/bin"
+      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/:$HOME/.cargo/bin:$HOME/.config/emacs/bin"
 
       ${sharedShellInit}
       source ${./dotfiles/.p10k.zsh}
