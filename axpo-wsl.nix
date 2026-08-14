@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  imports = [./base.nix];
-  
   home.packages = with pkgs; [
     sqlcmd
     azure-cli
@@ -16,7 +14,9 @@
       keyring
     ]))
   ];
+
   home.sessionVariables.PYTHONPATH = "$HOME/.local/lib/python3.13/site-packages";
+
   home.file.".local/wheels/artifacts_keyring-1.0.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl".source = ./thirdparty/artifacts_keyring-1.0.0-cp313-cp313-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl;
 
   home.activation.setupAzureKeyring = lib.hm.dag.entryAfter ["writeBoundary"] ''
@@ -28,6 +28,4 @@
     PYTHONPATH="$SITE_PACKAGES" ${pkgs.python313.withPackages (ps: with ps; [pip])}/bin/python -m pip install --target "$SITE_PACKAGES" "$WHEEL"
     echo "Done!"
   '';
-
 }
-
