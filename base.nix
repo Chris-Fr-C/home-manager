@@ -102,7 +102,9 @@ in
     gleam
 
     coursier # For scala/java
-    emacs
+    # emacs
+
+    lazysql
   ];
 
   programs.git = {
