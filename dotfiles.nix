@@ -10,10 +10,33 @@ in
     # ".".source = ./dotfiles/config;
 
     # Or targeting specific folders individually:
-    "nvim".source = ./dotfiles/config/nvim;
-    "doom".source = ./dotfiles/config/doom;
-    "helix".source = ./dotfiles/config/helix;
-    "zellij".source = ./dotfiles/config/zellij;
-    "starship.toml".source = ./dotfiles/config/starship.toml;
+    "nvim" ={
+      source = ./dotfiles/config/nvim;
+      force = true;
+    recursive = true;
+    };
+
+    "doom" = {
+      source = ./dotfiles/config/doom;
+      force = true;
+      recursive = true;
+    };
+
+    "helix" = {
+      source = ./dotfiles/config/helix;
+      force=true;
+      recursive=true;
+    };
+
+    "zellij" = {
+      source = ./dotfiles/config/zellij;
+      force=true;
+      recursive=true;
+    };
+
+    "starship.toml" = {
+        source = ./dotfiles/config/starship.toml;
+        force=true;
+    };
   };
 }
