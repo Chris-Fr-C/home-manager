@@ -9,6 +9,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+
+  # Use the active Steel fork branch to have the plugin system.
+   helix-steel = {
+    url = "github:mattwparas/helix/steel-event-system";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+
+
   };
 
   outputs = { nixpkgs, home-manager, ... }@inputs:
@@ -33,6 +41,7 @@
             ./base.nix
             ./home.nix
             ./dotfiles.nix
+            ./helix.nix
           ];
         };
 
@@ -45,6 +54,7 @@
             ./base.nix
             ./axpo-wsl.nix
             ./dotfiles.nix
+            ./helix.nix
           ];
         };
 

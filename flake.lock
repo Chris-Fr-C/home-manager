@@ -1,5 +1,27 @@
 {
   "nodes": {
+    "helix-steel": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "rust-overlay": "rust-overlay"
+      },
+      "locked": {
+        "lastModified": 1786230879,
+        "narHash": "sha256-1dBU2QNctYbkgkuRs9pMXNAWM276zqf3dFZhyAhSgPg=",
+        "owner": "mattwparas",
+        "repo": "helix",
+        "rev": "bab8acd7a32e3cb85cd6aaae6281cb5de3ce0780",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mattwparas",
+        "ref": "steel-event-system",
+        "repo": "helix",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -36,27 +58,32 @@
         "type": "github"
       }
     },
-    "nova-repo": {
-      "flake": false,
+    "root": {
+      "inputs": {
+        "helix-steel": "helix-steel",
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs"
+      }
+    },
+    "rust-overlay": {
+      "inputs": {
+        "nixpkgs": [
+          "helix-steel",
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1786380397,
-        "narHash": "sha256-C828OpWYdi3DFhJuOb+kdFNrOveMh8kLMiDY/F2ltMg=",
-        "owner": "Yazelix",
-        "repo": "nova",
-        "rev": "58e201a18b1a686d4baa110a414d7b662e088e07",
+        "lastModified": 1775358767,
+        "narHash": "sha256-f2eC+WIfhjevCPQILuV08i/kmKZzYZpUvkom/33VxCA=",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
+        "rev": "20fd44bc663daa53a2575e01293e24e681d62244",
         "type": "github"
       },
       "original": {
-        "owner": "Yazelix",
-        "repo": "nova",
+        "owner": "oxalica",
+        "repo": "rust-overlay",
         "type": "github"
-      }
-    },
-    "root": {
-      "inputs": {
-        "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "nova-repo": "nova-repo"
       }
     }
   },

@@ -102,6 +102,8 @@ in
     # emacs
 
     lazysql
+
+    steel
   ];
 
   programs.git = {
@@ -110,12 +112,6 @@ in
     userEmail = "christophe.fr.corsi@gmail.com";
   };
 
-  # Steel-enabled Helix (or standard fallback)
-  programs.helix = {
-    enable = true;
-    package = if pkgs ? steelix then pkgs.steelix else pkgs.helix;
-    settings = { };
-  };
 
   # =======================================
   # =          Shell setup                =
@@ -195,13 +191,26 @@ in
     executable = true;
   };
 
-  home.file."thirdparty/appimages/helix" = {
-    source = builtins.fetchurl {
-      url = "https://github.com/helix-editor/helix/releases/download/25.07.1/helix-25.07.1-x86_64.AppImage";
-      sha256 = "0d00848ca858e415a4b4a90612702a35aa491421c658c45a06774a265bc4c4f6";
-    };
-    executable = true;
+  # App image version for helix
+  # home.file."thirdparty/appimages/helix" = {
+  #   source = builtins.fetchurl {
+  #     url = "https://github.com/helix-editor/helix/releases/download/25.07.1/helix-25.07.1-x86_64.AppImage";
+  #     sha256 = "0d00848ca858e415a4b4a90612702a35aa491421c658c45a06774a265bc4c4f6";
+  #   };
+  #   executable = true;
+  # };
+
+
+  # Helix with built in flag for plugins
+    # Steel-enabled Helix compiled with necessary feature flags
+  programs.helix = {
+    enable = true;
+    package = inputs.helix-steel.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
+      cargoBuildFlags = (oldAttrs.cargoBuildFlags or []) ++ [ "--features" "steel,git" ];
+    });
+    # settings = {};
   };
+
 
   # Clean way to extend PATH
   home.sessionPath = [
