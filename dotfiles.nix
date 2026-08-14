@@ -1,42 +1,49 @@
 { config, pkgs, lib, inputs, ... }:
 let
+  dotfilesDir = "${config.home.homeDirectory}/.config/home-manager/dotfiles/config";
 in
 {
-  home.file.".p10k.zsh" = {
-    source=./dotfiles/.p10k.zsh;
-  };
-  xdg.configFile = {
+  # xdg.configFile would ve read only so nvim etc would fail.
+
+  home.file = {
     # Recursively symlinks all files inside ./dotfiles/config into ~/.config/
     # ".".source = ./dotfiles/config;
+    # p10k is setup in the plugin section of base.nix
+
 
     # Or targeting specific folders individually:
-    "nvim" ={
-      source = ./dotfiles/config/nvim;
+    ".config/nvim" ={
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
       force = true;
-    recursive = true;
+      # recursive = true; 
+      # executable=true;
     };
 
-    "doom" = {
+    ".config/doom" = {
       source = ./dotfiles/config/doom;
       force = true;
-      recursive = true;
+      # recursive = true;
+      # executable=true;
     };
 
-    "helix" = {
+    ".config/helix" = {
       source = ./dotfiles/config/helix;
       force=true;
-      recursive=true;
+      # recursive=true;
+      # executable=true;
     };
 
-    "zellij" = {
+    ".config/zellij" = {
       source = ./dotfiles/config/zellij;
       force=true;
-      recursive=true;
+      # recursive=true;
+      # executable=true;
     };
 
-    "starship.toml" = {
+    ".config/starship.toml" = {
         source = ./dotfiles/config/starship.toml;
-        force=true;
+        # force=true;
+        # executable=true;
     };
   };
 }

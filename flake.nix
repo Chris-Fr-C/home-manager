@@ -9,13 +9,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nova-repo = {
-      url = "github:Yazelix/nova";
-      flake = false;
-    };
   };
 
-  outputs = { nixpkgs, home-manager, nova-repo, ... }@inputs:
+  outputs = { nixpkgs, home-manager, ... }@inputs:
     let
       system = "x86_64-linux";
 
@@ -29,8 +25,8 @@
     {
       homeConfigurations = {
         # Profile 1: Desktop Machine
-        # Build with: home-manager switch --flake .#christophe
-        "christophe" = home-manager.lib.homeManagerConfiguration {
+        # Build with: home-manager switch --flake .#home
+        "home" = home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [

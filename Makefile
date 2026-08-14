@@ -7,8 +7,8 @@
 	# To allow flake experimental feature but at the user level only.
 	mkdir -p ~/.config/nix && echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 
-build:
-	home-manager switch --extra-experimental-features "nix-command flakes" --flake .#christophe
+home:
+	home-manager switch --extra-experimental-features "nix-command flakes" --flake .#home
 
 axpo:
 	home-manager switch --extra-experimental-features "nix-command flakes" --flake .#axpo-wsl
