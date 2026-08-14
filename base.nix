@@ -16,8 +16,6 @@ let
     cz = "commitizen";
     zz = "zellij";
     # Order is important
-    cm = "chezmoi --source ${toString ./dotfiles}";
-    chezmoi = "chezmoi --source ${toString ./dotfiles}";
     em = "emacs -nw";
   };
   sessionVariables = {
@@ -79,7 +77,6 @@ in
     btop # Process viewer.
 
     # Code tooling
-    chezmoi
     zsh-powerlevel10k
     powerline
     powerline-fonts
@@ -164,11 +161,6 @@ in
     ];
   };
 
-  # Chezmoi dotfiles path
-  home.file.".local/share/chezmoi" = {
-    source = ./dotfiles;
-    onChange = "echo 'Updating dot files...'; ${pkgs.chezmoi}/bin/chezmoi apply";
-  };
 
   programs.bash = {
     enable = true;
@@ -182,6 +174,7 @@ in
       ${sharedShellInit}
     '';
   };
+
 
   # =======================================
   # =            App images               =
