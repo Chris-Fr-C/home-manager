@@ -378,6 +378,10 @@
     "xml2lua.nvim": {
       "rev": "c5fa33ad038958e9592df06e8ca6a88f4e7543aa",
       "src": "https://github.com/a-usr/xml2lua.nvim"
+    },
+    "zellij-nav.nvim": {
+      "rev": "91cc2a642d8927ebde50ced5bf71ba470a0fc116",
+      "src": "https://github.com/swaits/zellij-nav.nvim"
     }
   }
 }

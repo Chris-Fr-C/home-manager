@@ -103,7 +103,8 @@ in
 
     lazysql
 
-    steel
+
+    wtfutil
   ];
 
   programs.git = {
@@ -203,13 +204,13 @@ in
 
   # Helix with built in flag for plugins
     # Steel-enabled Helix compiled with necessary feature flags
-  programs.helix = {
-    enable = true;
-    package = inputs.helix-steel.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
-      cargoBuildFlags = (oldAttrs.cargoBuildFlags or []) ++ [ "--features" "steel,git" ];
-    });
-    # settings = {};
-  };
+  # programs.helix = {
+  #   enable = true;
+  #   package = inputs.helix-steel.packages.${pkgs.system}.default.overrideAttrs (oldAttrs: {
+  #     cargoBuildFlags = (oldAttrs.cargoBuildFlags or []) ++ [ "--features" "steel,git" ];
+  #   });
+  #   # settings = {};
+  # };
 
 
   # Clean way to extend PATH
