@@ -15,7 +15,7 @@ in
     ".config/nvim" ={
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nvim";
       force = true;
-      # recursive = true; 
+      # recursive = true;
       # executable=true;
     };
 
@@ -26,19 +26,20 @@ in
       # executable=true;
     };
 
-    ".config/helix" = {
-      source = ./dotfiles/config/helix;
+    ".config/zellij" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij";
       force=true;
       # recursive=true;
       # executable=true;
     };
 
-    ".config/zellij" = {
-      source = ./dotfiles/config/zellij;
+    ".config/wtf" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/wtf";
       force=true;
       # recursive=true;
       # executable=true;
     };
+
 
     ".config/starship.toml" = {
         source = ./dotfiles/config/starship.toml;
