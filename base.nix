@@ -103,6 +103,7 @@ in
     nushell
 
     wtfutil
+    tuios
   ];
 
   programs.git = {
