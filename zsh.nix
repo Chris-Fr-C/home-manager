@@ -29,14 +29,13 @@ let
     builtins.readFile ./scripts/yazi-shortcut.sh;
 in
 {
-  zsh # Classic shell.
   home.packages = with pkgs; [
     zsh
     zsh-powerlevel10k
 
   ];
 
-    programs.zsh = {
+  programs.zsh = {
     enable = true;
     enableCompletion = true;
     autosuggestion.enable = true;
@@ -72,6 +71,5 @@ in
     ];
   };
 
-``
 
 }

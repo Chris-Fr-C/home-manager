@@ -36,6 +36,8 @@
             ./home.nix
             ./nushell.nix
             ./dotfiles.nix
+            ./bash.nix
+            ./zsh.nix
           ];
         };
 
@@ -49,6 +51,8 @@
             ./axpo-wsl.nix
             ./nushell.nix
             ./dotfiles.nix
+            ./bash.nix
+            ./zsh.nix
           ];
         };
 
