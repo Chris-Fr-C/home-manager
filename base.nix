@@ -8,12 +8,10 @@ let
     ls = "eza --icons=always";
     lsl = "ls -l";
     lsls = "lsl --total-size";
-    bench = "hyperfine";
     vim = "nvim";
     lg = "lazygit";
     hm = "home-manager";
     hme = "nvim ~/.config/home-manager/home.nix";
-    cz = "commitizen";
     zz = "zellij";
     # Order is important
     em = "emacs -nw";

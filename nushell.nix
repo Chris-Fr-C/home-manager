@@ -18,6 +18,13 @@ in
     shellAliases = {
       vim="nvim" ;
       cfg="cd ~/.config/home-manager";
+      lg="lazygit";
+      lsql="lazysql";
+      cd="z"; # Zoxide
+      hm = "home-manager";
+      hme = "nvim ~/.config/home-manager/home.nix";
+      c="yazi";
+
     };
 
     # if i want to add some custom funcs.
