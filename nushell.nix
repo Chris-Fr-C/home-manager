@@ -14,6 +14,15 @@ in
 
   programs.nushell = {
     enable = true;
+
+    shellAliases = {
+      vim="nvim" ;
+      cfg="cd ~/.config/home-manager";
+    };
+
+    # if i want to add some custom funcs.
+    # configFile.text = '' '';
+
     settings = {
       edit_mode="vi";
       use_kitty_protocol = true;
