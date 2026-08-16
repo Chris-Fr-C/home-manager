@@ -7,7 +7,7 @@
 # (or import) custom commands, or run any other startup tasks.
 # See https://www.nushell.sh/book/configuration.html
 #
-# Nushell sets "sensible defaults" for most configuration settings, 
+# Nushell sets "sensible defaults" for most configuration settings,
 # so your `config.nu` only needs to override these defaults if desired.
 #
 # You can open this file in your default editor using:
@@ -16,3 +16,20 @@
 # You can also pretty-print and page through the documentation for configuration
 # options using:
 #     config nu --doc | nu-highlight | less -R
+#
+#
+$env.config.edit_mode="vi"
+
+$env.config.use_kitty_protocol = true
+
+
+# Can be rounded basic compact compact_double light thin restructured ascii_rounded
+# basic_compact single double frameless
+$env.config.table.mode="rounded"
+
+
+$env.config.highlight_resolved_externals = true
+
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
