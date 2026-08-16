@@ -66,8 +66,6 @@ in
     pay-respects
 
     # Dev tools
-    zsh # Classic shell.
-    xonsh # Python + bash, best of both worlds.
     zoxide # A better cd.
     fzf # Fuzzy search.
     yazi # File manager.
@@ -77,7 +75,6 @@ in
     btop # Process viewer.
 
     # Code tooling
-    zsh-powerlevel10k
     powerline
     powerline-fonts
     ttyd # Term over browser.
@@ -103,6 +100,7 @@ in
 
     lazysql
 
+    nushell
 
     wtfutil
   ];
@@ -113,64 +111,6 @@ in
     userEmail = "christophe.fr.corsi@gmail.com";
   };
 
-
-  # =======================================
-  # =          Shell setup                =
-  # =======================================
-  home.file.".config/xonsh/rc.xsh".text = ''
-    # Initialize Starship prompt
-    eval "$(starship init xonsh)"
-  '';
-
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
-
-    history.size = 10000;
-    inherit shellAliases sessionVariables;
-
-    oh-my-zsh = {
-      enable = true;
-      plugins = [ "git" ];
-    };
-
-    initExtra = ''
-      eval "$(zoxide init zsh)"
-      PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/:$HOME/.cargo/bin:$HOME/.config/emacs/bin"
-
-      ${sharedShellInit}
-      source ${./dotfiles/.p10k.zsh}
-    '';
-
-    plugins = [
-      {
-        name = "powerlevel10k-config";
-        src = ./dotfiles;
-        file = ".p10k.zsh";
-      }
-      {
-        name = "zsh-powerlevel10k";
-        src = "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/";
-        file = "powerlevel10k.zsh-theme";
-      }
-    ];
-  };
-
-
-  programs.bash = {
-    enable = true;
-    inherit sessionVariables shellAliases;
-    initExtra = ''
-      # include .profile if it exists
-      [[ -f ~/.profile ]] && . ~/.profile
-      export SHELL="${pkgs.zsh}/bin/zsh"
-      [ -z "$ZSH_VERSION" ] && exec "$SHELL" -l
-
-      ${sharedShellInit}
-    '';
-  };
 
 
   # =======================================

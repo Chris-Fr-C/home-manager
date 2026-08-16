@@ -40,6 +40,14 @@ in
       # executable=true;
     };
 
+    ".config/nushell" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/nushell";
+      force=true;
+      # recursive=true;
+      # executable=true;
+    };
+
+
 
     ".config/starship.toml" = {
         source = ./dotfiles/config/starship.toml;

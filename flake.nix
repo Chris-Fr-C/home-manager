@@ -34,6 +34,7 @@
           modules = [
             ./base.nix
             ./home.nix
+            ./nushell.nix
             ./dotfiles.nix
           ];
         };
@@ -46,6 +47,7 @@
           modules = [
             ./base.nix
             ./axpo-wsl.nix
+            ./nushell.nix
             ./dotfiles.nix
           ];
         };
