@@ -41,6 +41,15 @@ in
     };
 
 
+    ".config/tuios/config.toml" = {
+      source =  ./../dotfiles/tuios/config.toml;
+      force=true;
+      # recursive=true;
+      # executable=true;
+    };
+
+
+
 
 
     ".config/starship.toml" = {
