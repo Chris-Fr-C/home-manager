@@ -20,9 +20,6 @@ let
     # This one is for interactive shells.
     EDITOR = "nvim";
   };
-  sharedShellInit = builtins.readFile ./scripts/functions.sh +
-    builtins.readFile ./scripts/initializations.sh +
-    builtins.readFile ./scripts/yazi-shortcut.sh;
 in
 {
 

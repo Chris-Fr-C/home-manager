@@ -24,9 +24,8 @@ let
     em = "emacs -nw";
   };
 
-  sharedShellInit = builtins.readFile ./scripts/functions.sh +
-    builtins.readFile ./scripts/initializations.sh +
-    builtins.readFile ./scripts/yazi-shortcut.sh;
+  sharedShellInit = '''';
+    # builtins.readFile ./scripts/functions.sh +
 
 in
 

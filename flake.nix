@@ -34,10 +34,10 @@
           modules = [
             ./base.nix
             ./home.nix
-            ./nushell.nix
-            ./dotfiles.nix
-            ./bash.nix
-            ./zsh.nix
+            ./components/dotfiles.nix
+            ./components/shells/bash.nix
+            ./components/shells/zsh.nix
+            ./components/shells/nushell.nix
           ];
         };
 
@@ -49,10 +49,10 @@
           modules = [
             ./base.nix
             ./axpo-wsl.nix
-            ./nushell.nix
-            ./dotfiles.nix
-            ./bash.nix
-            ./zsh.nix
+            ./components/dotfiles.nix
+            ./components/shells/bash.nix
+            ./components/shells/nushell.nix
+            ./components/shells/zsh.nix
           ];
         };
 

@@ -24,9 +24,8 @@ let
     em = "emacs -nw";
   };
 
-  sharedShellInit = builtins.readFile ./scripts/functions.sh +
-    builtins.readFile ./scripts/initializations.sh +
-    builtins.readFile ./scripts/yazi-shortcut.sh;
+  sharedShellInit = '''';
+    # builtins.readFile ./scripts/yazi-shortcut.sh;
 in
 {
   home.packages = with pkgs; [
@@ -49,18 +48,18 @@ in
       plugins = [ "git" ];
     };
 
-    initExtra = ''
+    initContent = ''
       eval "$(zoxide init zsh)"
       PATH="$PATH:$HOME/thirdparty/appimages/:$HOME/go/bin/:$HOME/.cargo/bin:$HOME/.config/emacs/bin"
 
       ${sharedShellInit}
-      source ${./dotfiles/.p10k.zsh}
+      source ${./../../dotfiles/.p10k.zsh}
     '';
 
     plugins = [
       {
         name = "powerlevel10k-config";
-        src = ./dotfiles;
+        src = ./../../dotfiles;
         file = ".p10k.zsh";
       }
       {

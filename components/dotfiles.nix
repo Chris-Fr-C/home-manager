@@ -20,7 +20,7 @@ in
     };
 
     ".config/doom" = {
-      source = ./dotfiles/config/doom;
+      source = ./../dotfiles/config/doom;
       force = true;
       # recursive = true;
       # executable=true;
@@ -44,7 +44,7 @@ in
 
 
     ".config/starship.toml" = {
-        source = ./dotfiles/config/starship.toml;
+        source = ./../dotfiles/config/starship.toml;
         # force=true;
         # executable=true;
     };
