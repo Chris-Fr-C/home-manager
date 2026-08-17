@@ -42,7 +42,7 @@ in
 
 
     ".config/tuios/config.toml" = {
-      source =  ./../dotfiles/tuios/config.toml;
+      source =  ./../dotfiles/config/tuios/config.toml;
       force=true;
       # recursive=true;
       # executable=true;

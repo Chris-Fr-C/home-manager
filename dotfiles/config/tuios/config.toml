@@ -50,8 +50,7 @@ show_ram = true
 theme = 'tokyo_night'
 
 [keybindings]
-# leader_key = 'ctrl+b'
-leader_key = 'ctrl+space'
+leader_key = 'ctrl+w'
 
 [keybindings.window_management]
 close_window = ['w', 'x']
@@ -96,7 +95,7 @@ switch_workspace_9 = ['alt+9']
 equalize_splits = ['=']
 preselect_down = ['ctrl+j'] # instead of alt
 preselect_left = ['ctrl+h']
-preselect_right = ['ctlr+l']
+preselect_right = ['ctrl+l']
 preselect_up = ['ctrl+k']
 resize_height_grow = ['}', 'shift+]']
 resize_height_grow_top = [']']
