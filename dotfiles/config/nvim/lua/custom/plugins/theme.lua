@@ -5,6 +5,7 @@ vim.pack.add {
   'https://github.com/edeneast/nightfox.nvim',
   'https://github.com/catppuccin/nvim',
 'https://github.com/scottmckendry/cyberdream.nvim',
+    "https://github.com/uhs-robert/oasis.nvim",
 }
 
 
@@ -15,8 +16,9 @@ vim.pack.add {
 --- @alias Catppuccin "catppuccin-latte"|"catppuccin-frappe"|"catppuccin-macchiato"|"catppuccin-mocha"
 --- @alias Carbonfox "carbonfox"|"nightfox"
 --- @alias Cyberdream "cyberdream"|"cyberdream-light"
----@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream
-local selected = 'cyberdream'
+--- @alias Oasis "oasis"|"oasis-desert"
+---@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream|Oasis
+local selected = 'oasis-desert'
 
 
 if (selected == "catppuccin") then

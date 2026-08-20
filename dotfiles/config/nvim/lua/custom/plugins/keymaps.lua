@@ -20,8 +20,8 @@ vim.keymap.set('n', containers.quit.key .. 'o', '<cmd>only!<cr>', { desc = '[o]t
 -- Root shortcuts:
 vim.keymap.set('n', containers.root.key .. '<C-q>', '<cmd>q!<cr>', { desc = '[b]uffer' })
 vim.keymap.set('n', containers.root.key .. '<A-q>', '<cmd>qa!<cr>', { desc = '[a]ll' })
-vim.keymap.set('n', containers.root.key .. '<leader>-', '<cmd>split<cr>', { desc = 'Horizontal split' })
-vim.keymap.set('n', containers.root.key .. '<leader>|', '<cmd>vsplit<cr>', { desc = 'Vertical split' })
+vim.keymap.set('n', containers.root.key .. '<leader>-', '<cmd>split<cr>', { desc = 'Up/Down split' })
+vim.keymap.set('n', containers.root.key .. '<leader>|', '<cmd>vsplit<cr>', { desc = 'Left/Right split' })
 
 -- Global search (forward + backward) using 'f'
 vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'f', function() require('flash').jump() end, { desc = 'Flash Jump (Forward/Backward)' })
@@ -30,8 +30,8 @@ vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'f', function() require(
 vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'F', function() require('flash').treesitter() end, { desc = 'Flash Treesitter' })
 
 
-vim.keymap.set('n', containers.buffer.key .. 'v', '<cmd>vsplit<cr>', { desc = '[v]ertical split' })
-vim.keymap.set('n', containers.buffer.key .. 'h', '<cmd>split<cr>', { desc = '[h]orizontal split' })
+vim.keymap.set('n', containers.buffer.key .. 'l', '<cmd>vsplit<cr>', { desc = 'Left/Right split' })
+vim.keymap.set('n', containers.buffer.key .. 'j', '<cmd>split<cr>', { desc = 'Up/Down split' })
 
 
 -- Recording with q is super annoying so changing it.

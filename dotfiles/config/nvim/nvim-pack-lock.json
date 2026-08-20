@@ -271,6 +271,10 @@
       "rev": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec",
       "src": "https://github.com/s1n7ax/nvim-window-picker"
     },
+    "oasis.nvim": {
+      "rev": "4f09133c95de9cd4bb8772c0944d9f6c8fb15e3d",
+      "src": "https://github.com/uhs-robert/oasis.nvim"
+    },
     "orgmode": {
       "rev": "c8e3d6c42f22c5fb52e30f50fa7f5f962c577097",
       "src": "https://github.com/nvim-orgmode/orgmode"
@@ -309,7 +313,7 @@
     },
     "todo-comments.nvim": {
       "rev": "31e3c38ce9b29781e4422fc0322eb0a21f4e8668",
-      "src": "https://github.com/folke/todo-comments.nvim"
+      "src": "https//github.com/folke/todo-comments.nvim"
     },
     "toggleterm.nvim": {
       "rev": "9a88eae817ef395952e08650b3283726786fb5fb",
