@@ -50,6 +50,12 @@ in
 
 
 
+    ".config/opencode/opencode.json" = {
+      source =  ./../dotfiles/config/opencode/opencode.json;
+      force=true;
+      # recursive=true;
+      # executable=true;
+    };
 
 
     ".config/starship.toml" = {
