@@ -19,6 +19,7 @@
       }
     }
   },
+
   "mcp": {
     "playwright": {
       "type": "local",
@@ -28,5 +29,12 @@
       ],
       "enabled": true
     }
+  },
+
+
+  "compaction": {
+    "auto": true,
+    "prune": false,
+    "reserved": 10000
   }
 }
