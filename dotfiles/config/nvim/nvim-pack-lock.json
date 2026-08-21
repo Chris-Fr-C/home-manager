@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "99": {
+      "rev": "c17422457027c913c76c75a921fca1e623d2678e",
+      "src": "https://github.com/ThePrimeagen/99"
+    },
     "FixCursorHold.nvim": {
       "rev": "1900f89dc17c603eec29960f57c00bd9ae696495",
       "src": "https://github.com/antoinemadec/FixCursorHold.nvim"
@@ -121,6 +125,10 @@
     "lean.nvim": {
       "rev": "dbfa4928652229c92bd02c21dffa1b7e8d20a108",
       "src": "https://github.com/julian/lean.nvim"
+    },
+    "leap.nvim": {
+      "rev": "2479d86f168c13e99f3ba2c6830d6bccca906b94",
+      "src": "https://codeberg.org/andyg/leap.nvim"
     },
     "lsp-timeout.nvim": {
       "rev": "6325906730330105a9adc41d0ceb8499b3072e2b",
