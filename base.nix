@@ -99,6 +99,7 @@ in
 
     wtfutil
     tuios
+    lean4 # Formal math and physics prover.
   ];
 
   programs.git = {

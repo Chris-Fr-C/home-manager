@@ -38,6 +38,7 @@
             ./components/shells/bash.nix
             ./components/shells/zsh.nix
             ./components/shells/nushell.nix
+            ./components/science.nix
           ];
         };
 
