@@ -52,6 +52,7 @@ in
     doggo # DNS viewer.
     nmap # Network scanner.
     visidata # Data wrangler (alias is vd).
+
     helm # Helm on kubernetes.
     goaccess # For TUI + Web logs.
     mprocs # To visualize concurrent processes.
@@ -79,6 +80,7 @@ in
     jdk25_headless # java.
     luarocks # For vim deps.
 
+    duckdb
     chafa # Imgs in terminal.
     # inotify-tools # File watcher on unix.
 
