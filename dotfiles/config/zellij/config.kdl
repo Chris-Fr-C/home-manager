@@ -11,23 +11,33 @@ keybinds clear-defaults=true {
         bind "down" { MoveFocus "down"; }
         bind "up" { MoveFocus "up"; }
         bind "right" { MoveFocus "right"; }
-        bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
+        // bind "c" { SwitchToMode "renamepane"; PaneNameInput 0; }
+        bind "r" { SwitchToMode "renamepane"; PaneNameInput 0; }
         bind "d" { NewPane "down"; SwitchToMode "locked"; }
         bind "e" { TogglePaneEmbedOrFloating; SwitchToMode "locked"; }
         bind "f" { ToggleFocusFullscreen; SwitchToMode "locked"; }
-        bind "h" { MoveFocus "left"; }
         bind "i" { TogglePanePinned; SwitchToMode "locked"; }
-        bind "j" { MoveFocus "down"; }
-        bind "k" { MoveFocus "up"; }
-        bind "l" { MoveFocus "right"; }
+        // If i want to create new tabs:
+
+        bind "h" { NewPane "left"; SwitchToMode "locked";}
+        bind "j" { NewPane "down"; SwitchToMode "locked";}
+        bind "k" { NewPane "up"; SwitchToMode "locked";}
+        bind "k" { NewPane "up"; SwitchToMode "locked";}
+        bind "l" { NewPane "right"; SwitchToMode "locked";}
+        // If i want to move:
+        // bind "h" { MoveFocus "left"; }
+        // bind "j" { MoveFocus "down"; }
+        // bind "k" { MoveFocus "up"; }
+        // bind "l" { MoveFocus "right"; }
         bind "n" { NewPane; SwitchToMode "locked"; }
         bind "p" { SwitchToMode "normal"; }
-        bind "r" { NewPane "right"; SwitchToMode "locked"; }
+        // bind "r" { NewPane "right"; SwitchToMode "locked"; }
         bind "s" { NewPane "stacked"; SwitchToMode "locked"; }
         bind "w" { ToggleFloatingPanes; SwitchToMode "locked"; }
         bind "x" { CloseFocus; SwitchToMode "locked"; }
         bind "z" { TogglePaneFrames; SwitchToMode "locked"; }
         bind "tab" { SwitchFocus; }
+
     }
     tab {
         bind "left" { GoToPreviousTab; }
@@ -331,7 +341,20 @@ default_shell "nu"
 //   - true (default, enabled)
 //   - false
 //
-// pane_frames false
+pane_frames false
+layout {
+    pane split_direction="vertical" {
+        pane
+        pane split_direction="horizontal" {
+            pane
+            pane
+        }
+    }
+    pane size=1 borderless=true {
+        plugin location="zellij:compact-bar"
+    }
+}
+
 
 // When attaching to an existing session with other users,
 // should the session be mirrored (true)

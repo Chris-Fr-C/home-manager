@@ -8,14 +8,6 @@
       "npm": "@ai-sdk/openai-compatible",
       "options": {
         "baseURL": "http://localhost:1234/v1"
-      },
-      "models": {
-        "*": {
-          "limit": {
-            "context": 8192,
-            "output": 2048
-          }
-        }
       }
     }
   },
@@ -29,12 +21,6 @@
       ],
       "enabled": true
     }
-  },
-
-
-  "compaction": {
-    "auto": true,
-    "prune": false,
-    "reserved": 10000
   }
+
 }

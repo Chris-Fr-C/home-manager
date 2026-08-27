@@ -138,8 +138,8 @@ local servers = {
   clangd = {},
   gopls = {},
   markdownlint ={},
-  pyright = {
-          filetypes={"python"},
+  basedpyright = {
+      -- filetypes={"python"},
   },
   rust_analyzer = {},
   --
