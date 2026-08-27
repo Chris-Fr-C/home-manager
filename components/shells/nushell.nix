@@ -24,7 +24,7 @@ in
       hm = "home-manager";
       hme = "nvim ~/.config/home-manager/home.nix";
       c="yazi";
-
+      zz="zellij";
     };
 
     # if i want to add some custom funcs.

@@ -80,26 +80,20 @@ in
     luarocks # For vim deps.
 
     chafa # Imgs in terminal.
-    inotify-tools # File watcher on unix.
+    # inotify-tools # File watcher on unix.
 
     # Functional programming
-    babashka # Clojure fast interpreter
-    leiningen # Clojure package manager
-    clojure
+    # babashka # Clojure fast interpreter
+    # leiningen # Clojure package manager
+    # clojure
 
-    beam29Packages.elixir
-    gleam
+    # beam29Packages.elixir
+    # gleam
 
-    coursier # For scala/java
+    # coursier # For scala/java
     # emacs
-
     lazysql
-
-    nushell
-
-    wtfutil
-    tuios
-    lean4 # Formal math and physics prover.
+    wtfutil # Dashboard
   ];
 
   programs.git = {

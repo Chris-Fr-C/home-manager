@@ -5,8 +5,7 @@ let
 in
 {
   home.packages = with pkgs; [
-    lean4
-    elan
+    elan # Version manager for lean 4.
   ];
 
 }
