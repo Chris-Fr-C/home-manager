@@ -23,6 +23,16 @@ require 'window-picker'.setup({
     -- following letters on them so you can use that letter to select the window
     selection_chars = 'adfhjklqi',
 
+
+
+	include_current=false,
+    filter_rules = {
+        bo = {
+            filetype = { "neo-tree", "neo-tree-popup", "notify", "minifiles" },
+            buftype = { "terminal", "quickfix", "minifiles" },
+        },
+    },
+    other_win_hl_color = "#900000",
   }
 )
 

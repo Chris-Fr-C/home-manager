@@ -2,111 +2,127 @@ local containers = require("custom.config.keymap-containers")
 -- Mini doesnt have automatic cleanup for instance, and packages
 -- seem to depend on noice anyway.
 vim.pack.add({
-    -- Dependencies:
-    "https://github.com/MunifTanjim/nui.nvim",
-    -- and for the notification view:
-    "https://github.com/rcarriga/nvim-notify",
-    -- Core:
-    "https://github.com/folke/noice.nvim",
-  }
-)
-
-local core = require("custom.config.core")
---- @type "cmdline_popup"|"mini"|"notify"|"virtualtext"|"split"
-local view_type="mini"
-require("noice").setup({
-    -- Force general notifications (like vim.notify) to use mini view cuw less intrusive.
-    notify = {
-      view = view_type,
-    },
-
-  routes = {
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return msg.opts and not msg.opts.view
-                end,
-            },
-            view = view_type, -- default
-    },
-
-    -- Custom notification modes to select where it goes
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return msg.opts and msg.opts.view == "cmdline_popup"
-                end,
-            },
-            view = "cmdline_popup",
-    },
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return msg.opts and msg.opts.view == "mini"
-                end,
-            },
-            view = "mini",
-    },
-
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return msg.opts and msg.opts.view == "notify"
-                end,
-            },
-            view = "notify",
-    },
-    {
-            filter = {
-                event = "notify",
-                cond = function(msg)
-                    return msg.opts and msg.opts.view == "virtualtext"
-                end,
-            },
-            view = "virtualtext",
-    },
-
-    -- Normal errors and wars take too much space. Changing that to be on the bottom right.
-    -- Put long notifications into splits so they don't block the screen.
-    {
-      filter = {
-        event = "notify",
-        min_height = 15
-      },
-      view = 'split'
-    },
-  },
-
-
-  lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    },
-  },
-  -- you can enable a preset for easier configuration
-  presets = {
-    bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = false, -- position the cmdline and popupmenu together
-    long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = true, -- add a border to hover docs and signature help
-  },
+	-- Dependencies:
+	"https://github.com/MunifTanjim/nui.nvim",
+	-- and for the notification view:
+	"https://github.com/rcarriga/nvim-notify",
+	-- Core:
+	"https://github.com/folke/noice.nvim",
 })
 
-vim.keymap.set("n", containers.open.key .. "n","", {desc="[n]otifications"})
+local core = require("custom.config.core")
+--- @type "cmdline_popup"|"mini"|"notify"|"virtualtext"|"split"|"popup"|"message"|"hover"
+local view_type = "mini"
+require("noice").setup({
+	-- Force general notifications (like vim.notify) to use mini view cuw less intrusive.
+	--
+	messages = {
+		enabled = true, -- enables the Noice messages UI
+		view = view_type, -- default view for messages
+		view_error = "notify", -- view for errors
+		view_warn = view_type, -- view for warnings
+		view_history = "messages", -- view for :messages
+		view_search = "virtualtext", -- view for search count messages. Set to `false` to disable
+	},
+
+	views = {
+		notify = {
+			timeout = 500, -- Duration in milliseconds (default is 5000ms / 5s)
+			replace = true, -- Replace existing notification if the same message repeats
+		},
+	},
+	routes = {
+		{
+			filter = {
+				event = "notify",
+				cond = function(msg)
+					return msg.opts and not msg.opts.view
+				end,
+			},
+			view = view_type, -- default
+		},
+
+		-- Custom notification modes to select where it goes
+		{
+			filter = {
+				event = "notify",
+				cond = function(msg)
+					return msg.opts and msg.opts.view == "cmdline_popup"
+				end,
+			},
+			view = "cmdline_popup",
+		},
+		{
+			filter = {
+				event = "notify",
+				cond = function(msg)
+					return msg.opts and msg.opts.view == "mini"
+				end,
+			},
+			view = "mini",
+		},
+
+		{
+			filter = {
+				event = "notify",
+				cond = function(msg)
+					return msg.opts and msg.opts.view == "notify"
+				end,
+			},
+			view = "mini",
+		},
+		{
+			filter = {
+				event = "notify",
+				cond = function(msg)
+					return msg.opts and msg.opts.view == "virtualtext"
+				end,
+			},
+			view = "virtualtext",
+		},
+		presets = {
+			bottom_search = true,
+			command_palette = false,
+			long_message_to_split = true,
+			inc_rename = false,
+			lsp_doc_border = true,
+		},
+		-- Normal errors and wars take too much space. Changing that to be on the bottom right.
+		-- Put long notifications into splits so they don't block the screen.
+		{
+			filter = {
+				event = "notify",
+				min_height = 15,
+			},
+			view = "split",
+		},
+	},
+
+	lsp = {
+		-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+		override = {
+			["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+			["vim.lsp.util.stylize_markdown"] = true,
+			["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+		},
+	},
+	-- you can enable a preset for easier configuration
+	presets = {
+		bottom_search = true, -- use a classic bottom cmdline for search
+		command_palette = false, -- position the cmdline and popupmenu together
+		long_message_to_split = true, -- long messages will be sent to a split
+		inc_rename = false, -- enables an input dialog for inc-rename.nvim
+		lsp_doc_border = true, -- add a border to hover docs and signature help
+	},
+})
+
+vim.keymap.set("n", containers.open.key .. "n", "", { desc = "[n]otifications" })
 vim.keymap.set("n", containers.open.key .. "nl", function()
-  require("noice").cmd("last")
-end, {desc="[l]ast"})
+	require("noice").cmd("last")
+end, { desc = "[l]ast" })
 
 vim.keymap.set("n", containers.open.key .. "nh", function()
-  require("noice").cmd("history")
-end, {desc="[h]istory"} )
+	require("noice").cmd("history")
+end, { desc = "[h]istory" })
 
 return {}

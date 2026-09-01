@@ -279,6 +279,10 @@
       "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "nvim-window": {
+      "rev": "48e44d492d2adaf9aac72a0f4ff21d6caae1b6a2",
+      "src": "https://github.com/yorickpeterse/nvim-window"
+    },
     "nvim-window-picker": {
       "rev": "6382540b2ae5de6c793d4aa2e3fe6dbb518505ec",
       "src": "https://github.com/s1n7ax/nvim-window-picker"
