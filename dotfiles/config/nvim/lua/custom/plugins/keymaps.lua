@@ -1,6 +1,6 @@
 local containers = require("custom.config.keymap-containers")
 
-vim.opt.timeoutlen = 300 -- Wait 300ms instead of 1000ms for key mappings
+vim.opt.timeoutlen = 100 -- Wait n ms instead of 1000ms for key mappings
 
 local core = require("custom.config.core")
 -- Save
