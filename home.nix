@@ -10,5 +10,9 @@
     })
     ferdium
     forge-mtg # Solo magic da gathering for da win
+    rsync # file copy and backup.
+    grsync # with ui
+    rclone
+    rclone-browser
   ];
 }
