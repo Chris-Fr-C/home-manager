@@ -18,9 +18,7 @@ fzf.setup({
 vim.keymap.set("n", containers.find.key .. "f", function()
 	fzf.files()
 end, { desc = "[f]ile" })
-vim.keymap.set("n", containers.root.key .. "<leader><leader>", function()
-	fzf.files()
-end, { desc = "[f]ile" })
+-- Not using <leader><leader> cause it slows down aaaall my other keymaps.
 
 vim.keymap.set('n', containers.find.key .. 'b', fzf.buffers, { desc = 'Find existing [b]uffers' })
 vim.keymap.set("n", containers.find.key .. "w", function()
