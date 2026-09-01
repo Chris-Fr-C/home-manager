@@ -9,7 +9,8 @@ vim.pack.add {
 }
 
 
-require 'window-picker'.setup({
+local picker = require 'window-picker'
+picker.setup({
     -- type of hints you want to get
     -- following types are supported
     -- 'statusline-winbar' | 'floating-big-letter' | 'floating-letter'
@@ -39,20 +40,38 @@ require 'window-picker'.setup({
 -- Quick keymap to toggle the sidebar tree view
 vim.keymap.set('n', '<leader>e', '<cmd>Neotree toggle<cr>', { desc = 'Toggle File [E]xplorer' })
 
-require('neo-tree').setup {
+require('neo-tree').setup({
   filesystem = {
     window = {
       mappings = {
         ['\\'] = 'close_window',
-        -- I want something like nvchad where when i select a file it lets me choose
-        -- on which pane it goes.
-        -- Overwrite the standard 'open' (Enter) command with the window picker
-          ["<cr>"] = "open_with_window_picker",
+
+        ["<cr>"] = function(state)
+          local node = state.tree:get_node()
+
+          -- 1. Toggle directory if it's a folder
+          if node.type == "directory" then
+            require("neo-tree.sources.filesystem.commands").toggle_node(state)
+            return
+          end
+
+          -- 2. Safely pick a window using window-picker
+          local picked_window_id = picker.pick_window()
+
+          -- 3. If a window was picked, set focus to it and open the file
+          if picked_window_id then
+            vim.api.nvim_set_current_win(picked_window_id)
+            require("neo-tree.sources.filesystem.commands").open(state)
+          else
+            -- Fallback: If no pickable window exists (only Neo-tree is open),
+            -- standard 'open' will automatically split into a new main pane.
+            require("neo-tree.sources.filesystem.commands").open(state)
+          end
+        end,
       },
     },
   },
-}
-
+})
 
 
 -- We return true to let Kickstart know the file successfully parsed
