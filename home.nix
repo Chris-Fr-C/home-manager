@@ -9,5 +9,6 @@
       enableWidevine = true;
     })
     ferdium
+    forge-mtg # Solo magic da gathering for da win
   ];
 }

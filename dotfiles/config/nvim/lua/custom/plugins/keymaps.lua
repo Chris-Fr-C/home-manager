@@ -1,4 +1,3 @@
--- Capture the returned table of prefix variables
 local containers = require 'custom.config.keymap-containers'
 
 local core = require("custom.config.core")
@@ -10,6 +9,9 @@ end, { desc = '[S]ave (force)' })
 
 -- Concatenate the prefix with "u" (Resulting in for example '<leader>cu')
 vim.keymap.set('n', containers.config_vim.key .. 'u', function() vim.pack.update() end, { desc = '[U]pdate vim.pack packages' })
+vim.keymap.set('n', containers.config_vim.key .. 'r', ":source $MYVIMRC<CR>", { desc = '[r]eload' })
+
+
 
 -- Quit shortcuts
 vim.keymap.set('n', containers.quit.key .. 'a', '<cmd>qa!<cr>', { desc = '[a]ll' })
@@ -32,11 +34,30 @@ vim.keymap.set({ 'n', 'x', 'o' }, containers.root.key ..'F', function() require(
 
 vim.keymap.set('n', containers.buffer.key .. 'l', '<cmd>vsplit<cr>', { desc = 'Left/Right split' })
 vim.keymap.set('n', containers.buffer.key .. 'j', '<cmd>split<cr>', { desc = 'Up/Down split' })
-
+vim.keymap.set('n', containers.buffer.key .. 'n', '<cmd>enew<cr>', { desc = '[n]ew buffer' })
+vim.keymap.set('n', containers.buffer.key .. 't', '<cmd>tabnew<cr>', { desc = '[t]ab' })
 
 -- Recording with q is super annoying so changing it.
 -- Deactivate 'q' from recording macros
 vim.keymap.set('n', containers.root.key .. 'q', '<Nop>', { desc = 'Disable default macro recording' })
 vim.keymap.set('n', containers.root.key .. '<C-A-r>', 'q', { desc = 'Record macro' })
+
+-- Clipboard is annoying when pasting. Only using X to cut.
+-- Remap 'd' (and visual 'd') to delete to the blackhole register
+vim.keymap.set({'n', 'v'}, 'd', '"_d', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'D', '"_D', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'dd', '"_dd', { noremap = true })
+
+-- Ensure 'x' explicitly cuts to the system clipboard / default register
+vim.keymap.set({'n', 'v'}, 'x', '""x', { noremap = true })
+
+-- Buffer navigation
+-- -- Navigate buffers using Shift + H and Shift + L
+vim.keymap.set('n', containers.root.key .. 'H', ':bprevious<CR>', { silent = true, desc="Previous buffer" })
+vim.keymap.set('n', containers.root.key .. 'L', ':bnext<CR>', { silent = true, desc="Next buffer"})
+
+-- Tab navigation
+vim.keymap.set('n', containers.root.key .. '<Tab>', ':tabnext<CR>', { silent = true, desc="Next tab"})
+vim.keymap.set('n', containers.root.key .. '<S-Tab>', ':tabprevious<CR>', { silent = true, desc="Previous tab"})
 
 return {}
