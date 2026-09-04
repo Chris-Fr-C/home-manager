@@ -95,7 +95,26 @@ in
     # coursier # For scala/java
     # emacs
     lazysql
-    wtfutil # Dashboard
+
+
+
+    # Experimental
+    # Cool stuff in https://terminaltrove.com/explore/
+    aerc # email + calendar
+    asuka # browser with gemini protocol
+    asciinema # Terminal recording
+    basalt # Handling obsidian notes.
+
+
+    ddgr # duck duck go search
+    dstp # networking tests on a website
+    cariddi # bug bounty and vuln lookup
+    flawz # tui for cve vulns
+    # flowrs # apache airflow
+    doxx # Word docx viewer
+    nerdlog # structured log streaming.
+    # gloomberb # in case i want to check stock prices
+    sampler # dashboarding. Alternative: wtfutil
   ];
 
   programs.git = {

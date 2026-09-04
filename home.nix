@@ -14,5 +14,6 @@
     grsync # with ui
     rclone
     rclone-browser
+
   ];
 }
