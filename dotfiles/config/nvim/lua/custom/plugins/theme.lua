@@ -9,7 +9,6 @@ vim.pack.add {
 }
 
 
-
 -- https://github.com/nvim-mini/mini.nvim/blob/main/readmes/mini-hues.md#bundled-color-schemes
 --- @alias Mini "miniwinter"|"minispring"|"miniautumn"
 --- @alias Kanagawa "kanagawa"|"kanawaga-wave"
@@ -18,10 +17,9 @@ vim.pack.add {
 --- @alias Cyberdream "cyberdream"|"cyberdream-light"
 --- @alias Oasis "oasis"|"oasis-desert"
 ---@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream|Oasis
-local selected = 'oasis-desert'
+local selected = 'catppuccin-macchiato'
 
-
-if (selected == "catppuccin") then
+if (selected == "catppuccin" or selected == "catppuccin-macchiato") then
     require("catppuccin").setup({
         flavour = "auto", -- auto, latte, frappe, macchiato, mocha
         background = { -- :h background
@@ -33,9 +31,9 @@ if (selected == "catppuccin") then
             transparent = false, -- enable transparent floating windows
             solid = false, -- use solid styling for floating windows, see |winborder|
         },
-        term_colors = false, -- sets terminal colors (e.g. `g:terminal_color_0`)
+        term_colors = true, -- sets terminal colors (e.g. `g:terminal_color_0`)
         dim_inactive = {
-            enabled = false, -- dims the background color of inactive window
+            enabled = true, -- dims the background color of inactive window
             shade = "dark",
             percentage = 0.15, -- percentage of the shade to apply to the inactive window
         },
@@ -47,13 +45,13 @@ if (selected == "catppuccin") then
             conditionals = { "italic" },
             loops = {},
             functions = { "italic"},
-            keywords = {},
+            keywords = {"italic"},
             strings = {},
             variables = {},
             numbers = {},
             booleans = {},
             properties = {},
-            types = {},
+            types = {"italic"},
             operators = {},
             -- miscs = {}, -- Uncomment to turn off hard-coded styles
         },
@@ -100,19 +98,19 @@ if (selected == "catppuccin") then
         },
     })
 
-elseif (selected=="cyberdreak") then
+elseif (selected=="cyberdream") then
     require("cyberdream").setup({
         -- Enable transparent background
         transparent = false,
 
 
         -- Enable italics comments
-        italic_comments = false,
+        italic_comments = true,
                 -- Replace all fillchars with ' ' for the ultimate clean look
-        hide_fillchars = false,
+        hide_fillchars = true,
 
         -- Apply a modern borderless look to pickers like Telescope, Snacks Picker & Fzf-Lua
-        borderless_pickers = false,
+        borderless_pickers = true,
         extensions = {
             default=true,
             -- telescope = true,
