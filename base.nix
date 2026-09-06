@@ -103,7 +103,6 @@ in
     aerc # email + calendar
     asuka # browser with gemini protocol
     asciinema # Terminal recording
-    basalt # Handling obsidian notes.
 
 
     ddgr # duck duck go search

@@ -1,6 +1,9 @@
+local local_leader=";";
+
 -- This changes often based on my tastes. So we make it a variable that we can use and
 -- append based on the organisation we want.
 local containers = {
+  local_leader = {key=local_leader, desc="Local leader", alias=true},
   buffer = { key = '<leader>b', desc = '[b]uffer' },
   config = { key = '<leader>C', desc = '[C]onfig' },
   config_vim = { key = '<leader>Cv', desc = '[v]im' },
@@ -10,12 +13,15 @@ local containers = {
   git = { key = '<leader>g', desc = '[g]it', alias= true},
   lsp = {key="<leader>c", desc="[c]ode"},
   code = {key="<leader>c", desc="[c]ode", alias=true},
+  evaluate = {key=local_leader.."e", desc="[e]valuate"},
   diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
   open = {key="<leader>o", desc="[o]pen"},
   build = {key="<leader>ob", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
   debug = {key="<leader>d", desc="[d]ebug"},
   visualize = {key="<leader>v", desc="[v]isualize"}, -- just here so the linter helps us to know where it is used.
+  obsidian = {key=local_leader.."o", desc="[o]bsidian"}, -- just here so the linter helps us to know where it is used.
+  terminal = {key="<leader>t", desc="[t]erminal"}, -- just here so the linter helps us to know where it is used.
   root = {key="", desc=""}, -- just here so the linter helps us to know where it is used.
 }
 

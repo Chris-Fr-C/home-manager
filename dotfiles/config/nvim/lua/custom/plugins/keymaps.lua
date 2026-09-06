@@ -1,5 +1,9 @@
 local containers = require("custom.config.keymap-containers")
 
+
+
+vim.g.maplocalleader = containers.local_leader.key
+
 vim.opt.timeoutlen = 100 -- Wait n ms instead of 1000ms for key mappings
 
 local core = require("custom.config.core")
