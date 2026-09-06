@@ -72,13 +72,6 @@ obsidian.setup({
     date_format = "%Y-%m-%d",
     time_format = "%H:%M",
   },
-  ui = {
-    enable = true,
-    checkboxes = {
-      [" "] = { char = "󰄱", hl_group = "ObsidianTodo" },
-      ["x"] = { char = "", hl_group = "ObsidianDone" },
-    },
-  },
 })
 
 -- 3. Keymaps

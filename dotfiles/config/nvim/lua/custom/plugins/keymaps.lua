@@ -61,7 +61,7 @@ vim.keymap.set({ "n", "v" }, "D", '"_D', { noremap = true })
 vim.keymap.set({ "n", "v" }, "dd", '"_dd', { noremap = true })
 
 -- Ensure 'x' explicitly cuts to the system clipboard / default register
-vim.keymap.set({ "n", "v" }, "x", '""x', { noremap = true })
+vim.keymap.set({ "n", "v" }, "x", '"+x', { noremap = true })
 
 -- Buffer navigation
 -- -- Navigate buffers using Shift + H and Shift + L

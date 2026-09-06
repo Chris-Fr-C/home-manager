@@ -46,5 +46,13 @@ in
         # force=true;
         # executable=true;
     };
+
+
+    ".config/alacritty/alacritty.toml" = {
+        source = ./../dotfiles/config/alacritty/alacritty.toml;
+        # force=true;
+        # executable=true;
+    };
+
   };
 }
