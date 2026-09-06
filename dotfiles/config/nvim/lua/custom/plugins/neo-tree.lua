@@ -45,7 +45,26 @@ require('neo-tree').setup({
     window = {
       mappings = {
         ['\\'] = 'close_window',
+        -- Opening with Vizidata
+        ["E"] = function(state)
+          local node = state.tree:get_node()
+          if node.type ~= "file" then return end
 
+          local file = vim.fn.fnameescape(node:get_id())
+          local picked_window_id = picker.pick_window()
+
+          if picked_window_id then
+            -- Focus the target window chosen by window-picker
+            vim.api.nvim_set_current_win(picked_window_id)
+            vim.cmd("terminal vd " .. file)
+          else
+            -- Fallback: Create a split if no existing window was selected
+            vim.cmd("vsplit | terminal vd " .. file)
+          end
+
+          vim.bo.buflisted = true
+          vim.cmd("startinsert")
+        end,
         ["<cr>"] = function(state)
           local node = state.tree:get_node()
 

@@ -33,23 +33,6 @@ in
       # executable=true;
     };
 
-    ".config/wtf" = {
-      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/wtf";
-      force=true;
-      # recursive=true;
-      # executable=true;
-    };
-
-
-    ".config/tuios/config.toml" = {
-      source =  ./../dotfiles/config/tuios/config.toml;
-      force=true;
-      # recursive=true;
-      # executable=true;
-    };
-
-
-
     ".config/opencode/opencode.json" = {
       source =  ./../dotfiles/config/opencode/opencode.json;
       force=true;

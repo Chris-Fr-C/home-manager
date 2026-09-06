@@ -115,6 +115,7 @@ in
     nerdlog # structured log streaming.
     # gloomberb # in case i want to check stock prices
     sampler # dashboarding. Alternative: wtfutil
+
   ];
 
   programs.git = {
@@ -136,6 +137,17 @@ in
     };
     executable = true;
   };
+
+
+  home.file."thirdparty/appimages/neovide" = {
+    source = builtins.fetchurl {
+      # 0.16.2
+      url = "https://github.com/neovide/neovide/releases/download/0.16.2/neovide.AppImage";
+      sha256 = "ef617c743d7425267ac3ae2f1761ac8fc801683bd3e013758eb68247a53c6812";
+    };
+    executable = true;
+  };
+
 
   home.file."thirdparty/appimages/fresh" = {
     source = builtins.fetchurl {
