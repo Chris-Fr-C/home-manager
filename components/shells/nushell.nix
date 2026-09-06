@@ -18,6 +18,7 @@ in
     shellAliases = {
       vim="nvim" ;
       cfg="cd ~/.config/home-manager";
+      cfgvim="cd ~/.config/home-manager/dotfiles/config/nvim/lua/custom";
       lg="lazygit";
       lsql="lazysql";
       cd="z"; # Zoxide
