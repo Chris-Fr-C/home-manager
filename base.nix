@@ -156,6 +156,16 @@ in
     executable = true;
   };
 
+
+  # Terny: Terminal
+  # home.file."thirdparty/appimages/termy" = {
+  #   source = builtins.fetchurl {
+  #     url = "https://github.com/lassejlv/termy/releases/download/v0.2.43/Termy-v0.2.43-linux-x86_64.AppImage";
+  #     sha256 = "92091c8e1700cace9e58d38fc1fe7206d40798109517d9236548700a68806404";
+  #   };
+  #   executable = true;
+  # };
+
   # App image version for helix
   # home.file."thirdparty/appimages/helix" = {
   #   source = builtins.fetchurl {
