@@ -103,7 +103,7 @@ in
     aerc # email + calendar
     asuka # browser with gemini protocol
     asciinema # Terminal recording
-
+    # slumber # rest client.
 
     ddgr # duck duck go search
     dstp # networking tests on a website
@@ -114,6 +114,9 @@ in
     nerdlog # structured log streaming.
     # gloomberb # in case i want to check stock prices
     sampler # dashboarding. Alternative: wtfutil
+
+
+    marp-cli # for markdown presentations
 
   ];
 
