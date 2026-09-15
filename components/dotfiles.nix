@@ -19,12 +19,19 @@ in
       # executable=true;
     };
 
-    ".config/doom" = {
-      source = ./../dotfiles/config/doom;
+    ".config/emacs" ={
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/emacs";
       force = true;
       # recursive = true;
       # executable=true;
     };
+
+    # ".config/doom" = {
+    #   source = ./../dotfiles/config/doom;
+    #   force = true;
+    #   # recursive = true;
+    #   # executable=true;
+    # };
 
     ".config/zellij" = {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij";

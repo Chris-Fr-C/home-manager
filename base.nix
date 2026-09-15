@@ -15,6 +15,7 @@ let
     zz = "zellij";
     # Order is important
     em = "emacs -nw";
+    cat = "bat";
   };
   sessionVariables = {
     # This one is for interactive shells.
@@ -117,6 +118,8 @@ in
 
 
     marp-cli # for markdown presentations
+    glow # markdown renderer
+    bat # cat but with syntax highlight
 
   ];
 
@@ -177,6 +180,14 @@ in
   #   };
   #   executable = true;
   # };
+
+  home.file."thirdparty/appimages/neomacs" = {
+    source = builtins.fetchurl {
+      url = "https://github.com/eval-exec/neomacs/releases/download/v0.0.18/neomacs-0.0.18-x86_64-unknown-linux-gnu.AppImage";
+      sha256 = "sha256:aa394266b0932685c451d7149403ca6b1c5403db9595dd2f3d203c26eb26ebd2";
+    };
+    executable = true;
+  };
 
 
   # Helix with built in flag for plugins

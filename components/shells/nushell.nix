@@ -26,6 +26,8 @@ in
       hme = "nvim ~/.config/home-manager/home.nix";
       c="yazi";
       zz="zellij";
+      cat = "bat";
+
     };
 
     # if i want to add some custom funcs.

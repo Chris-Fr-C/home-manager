@@ -60,3 +60,4 @@
 ;;; Themes and styling
 (package! modus-themes)
 
+(package! vertico-posframe)
