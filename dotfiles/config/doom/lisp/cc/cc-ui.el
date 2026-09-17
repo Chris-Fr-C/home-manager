@@ -7,4 +7,6 @@
       :foreground "red"      ; High-contrast text color
       :background "yellow"))) ; High-contrast background highlight
 
+
+
 (provide 'cc-ui)

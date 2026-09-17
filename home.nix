@@ -19,6 +19,7 @@
     nerd-fonts.daddy-time-mono # Lol dat name
     nerd-fonts.monaspace # or monaspace
     nerd-fonts.victor-mono
-    nerd-fonts.symbols-only
+
+    symbola # font
   ];
 }

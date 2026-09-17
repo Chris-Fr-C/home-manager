@@ -16,3 +16,5 @@ axpo:
 install-doom:
 	git clone --depth 1 https://github.com/doomemacs/core ~/.config/emacs
 	~/.config/emacs/bin/doom install
+
+	echo "Remember to nerd-icons-install-fonts"

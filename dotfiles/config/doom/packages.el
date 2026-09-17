@@ -61,3 +61,7 @@
 
 ;; For treesitter like scoped jump.
 (package! expand-region)
+
+
+;; Icons
+(package! nerd-icons)
