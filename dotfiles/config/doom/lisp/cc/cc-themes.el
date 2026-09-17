@@ -1,3 +1,5 @@
+(use-package catppuccin-theme :ensure t)
+
 ;; Don't show the splash screen
 (setq inhibit-startup-message t visible-bell t)
 
@@ -10,10 +12,10 @@
 (setq use-dialog-box nil)
 
 ;; Display line numbers in every buffer
-(global-display-line-numbers-mode 1)
-
-
-
+; (global-display-line-numbers-mode 1)
+;; Enable line numbers only in programming modes (Python, C, Elisp, JS, etc.)
+(add-hook 'prog-mode-hook #'display-line-numbers-mode)
+(add-hook 'text-mode-hook #'display-line-numbers-mode)
 
 
 ;; Customizing modus
@@ -33,7 +35,8 @@
 (setq modus-themes-completions 'opinionated)
 
 ;; Load the Modus Vivendi dark theme
-(load-theme 'modus-vivendi t)
+; (load-theme 'modus-vivendi t)
+(load-theme 'catppuccin t)
 
 
 ;; Must be the last line in the file:

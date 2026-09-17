@@ -2,3 +2,8 @@ result*
 thirdparty/appimages/*
 /dotfiles/config/wtf/log.txt
 /tmp/
+/dotfiles/config/emacs/.github
+/dotfiles/config/emacs/LICENSE
+/dotfiles/config/emacs/README.md
+/dotfiles/config/emacs/docs
+/dotfiles/config/emacs/elpa

@@ -3,7 +3,6 @@
 let
   sessionVariables = {
     # This one is for interactive shells.
-    EDITOR = "nvim";
   };
 
 in
@@ -14,7 +13,12 @@ in
 
   programs.nushell = {
     enable = true;
+    environmentVariables = {
+      EMACS="neomacs";
+      EDITOR = "nvim";
+      DOOMDIR="~/.config/doom";
 
+    };
     shellAliases = {
       vim="nvim" ;
       cfg="cd ~/.config/home-manager";
@@ -26,7 +30,10 @@ in
       hme = "nvim ~/.config/home-manager/home.nix";
       c="yazi";
       zz="zellij";
+      em = "neomacs -nw";
+      emacs = "neomacs";
       cat = "bat";
+      doom="~/.config/emacs/bin/doom";
 
     };
 

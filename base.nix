@@ -14,7 +14,8 @@ let
     hme = "nvim ~/.config/home-manager/home.nix";
     zz = "zellij";
     # Order is important
-    em = "emacs -nw";
+    em = "neomacs -nw";
+    emacs = "neomacs";
     cat = "bat";
   };
   sessionVariables = {
@@ -94,7 +95,7 @@ in
     # gleam
 
     # coursier # For scala/java
-    # emacs
+
     lazysql
 
 

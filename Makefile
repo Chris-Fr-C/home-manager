@@ -12,3 +12,7 @@ home:
 
 axpo:
 	home-manager switch --extra-experimental-features "nix-command flakes" --flake .#axpo-wsl
+
+install-doom:
+	git clone --depth 1 https://github.com/doomemacs/core ~/.config/emacs
+	~/.config/emacs/bin/doom install

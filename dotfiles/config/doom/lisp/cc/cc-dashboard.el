@@ -7,7 +7,9 @@
 (setq dashboard-center-content t)
 
 ;; To disable shortcut "jump" indicators for each section, set
-(setq dashboard-show-shortcuts nil)
+(setq dashboard-show-shortcuts t)
+
+
 
 
 ;; Set the banner
@@ -40,5 +42,9 @@
 
 
 (dashboard-refresh-buffer)
+
+; Not putting evil mode as it makes hard to navigate.
+(with-eval-after-load 'dashboard
+  (add-hook 'dashboard-mode-hook #'evil-emacs-state))
 
 (provide 'cc-dashboard)

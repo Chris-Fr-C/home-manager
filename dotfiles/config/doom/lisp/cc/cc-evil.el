@@ -11,5 +11,6 @@
   ;; Turn on Evil Mode globally
   :config
   (evil-mode 1))
+(evil-set-leader 'normal (kbd "SPC"))
 
 (provide 'cc-evil)

@@ -4,6 +4,7 @@ let
   sessionVariables = {
     # This one is for interactive shells.
     EDITOR = "nvim";
+    DOOMDIR="~/.config/doom";
   };
   shellAliases = {
     cfg-nix = "nvim ~/.config/home-manager/home.nix";

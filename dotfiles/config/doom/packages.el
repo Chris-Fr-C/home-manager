@@ -1,5 +1,4 @@
-;; -*- no-byte-compile: t; -*-
-;;; $DOOMDIR/packages.el
+;;; $DOOMDIR/packages.el -*- lexical-binding: t; no-byte-compile: t -*-
 
 ;; To install a package:
 ;;
@@ -54,10 +53,11 @@
 ;; (unpin! t)
 
 
-;;; For vim bindings in the tree.
-(package! treemacs-evil)
+;; Move around with alt.
+(package! drag-stuff)
 
-;;; Themes and styling
-(package! modus-themes)
+;; Jumping around.
+(package! avy)
 
-(package! vertico-posframe)
+;; For treesitter like scoped jump.
+(package! expand-region)
