@@ -71,6 +71,11 @@
         "C-k" #'evil-window-up
         "C-l" #'evil-window-right))
 
+;; -- Treemacs window-picker on open (NvChad style) -----------------------
+;; Hooks directly into Treemacs' native RET action pipeline to trigger ace-window
+(after! treemacs
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
+  (treemacs-define-RET-action 'file-node-open   #'treemacs-visit-node-ace))
 ;; -- SPC e  (file tree / treemacs) ---------------------------------------
 (map! :leader
       :desc "Toggle Treemacs" "e" #'+treemacs/toggle)
