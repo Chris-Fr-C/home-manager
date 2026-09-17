@@ -111,6 +111,28 @@
        :desc "New tab"          "t" #'+workspace/new))  ; needs :ui workspaces,
                                                           ; see note above
 
+;; -- Terminal --------------------------------------------------------------
+;; -- SPC t * (toggle/terminal) — custom bindings for Ghostel ---------------
+(map! :leader
+      (:prefix ("t" . "toggle")
+        :desc "Ghostel terminal"           "t" #'ghostel
+        :desc "Ghostel split left"         "h" (cmd! (split-window-left)  (ghostel))
+        :desc "Ghostel split down"         "j" (cmd! (split-window-below) (ghostel))
+        :desc "Ghostel split up"           "k" (cmd! (split-window-above) (ghostel))
+        :desc "Ghostel split right"        "l" (cmd! (split-window-right) (ghostel))))
+
+;; Better escape
+;; Configure evil-escape globally for 'jk' sequence
+(after! evil-escape
+  (setq evil-escape-key-sequence "jk")
+  (setq evil-escape-delay 0.15))
+
+;; Explicitly bind 'jk' inside ghostel keymap
+(after! ghostel
+  (map! :map ghostel-mode-map
+        :i "j k" #'evil-normal-state))
+
+
 ;; -- mini.move-style Alt-h/j/k/l -----------------------------------------
 ;; Alt-h / Alt-l : decrease / increase indent (dedent/indent).
 ;; Normal state shifts the current line; visual state shifts the selection
