@@ -89,5 +89,4 @@
 
 
 ;; Add the folder to the load-path so Emacs can locate it
-(message "Loading config file")
 (load! "lisp/cc/init.el")

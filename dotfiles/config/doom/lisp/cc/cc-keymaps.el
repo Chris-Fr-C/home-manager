@@ -10,6 +10,8 @@
       doom-localleader-alt-key "M-;")
 
 (after! which-key
+  (setq which-key-idle-delay 0.2           ; default ~0.4-1s before first popup
+        which-key-idle-secondary-delay 0.05) ; delay for subsequent prefixes, once it's already open
   (which-key-add-key-based-replacements
     "SPC C"   "config"
     "SPC C v" "vim/doom"
@@ -58,6 +60,20 @@
 (map! :n "f" #'evil-avy-goto-char-timer
       :v "f" #'evil-avy-goto-char-timer
       :o "f" #'evil-avy-goto-char-timer)
+
+
+;; File tree
+
+(after! treemacs
+  (map! :map treemacs-mode-map
+        "C-h" #'evil-window-left
+        "C-j" #'evil-window-down
+        "C-k" #'evil-window-up
+        "C-l" #'evil-window-right))
+
+;; -- SPC e  (file tree / treemacs) ---------------------------------------
+(map! :leader
+      :desc "Toggle Treemacs" "e" #'+treemacs/toggle)
 
 ;; "Treesitter scope jump" has no built-in Emacs equivalent. Pick ONE:
 ;;   combobulate   -- structural/treesit navigation, closest analog, not
