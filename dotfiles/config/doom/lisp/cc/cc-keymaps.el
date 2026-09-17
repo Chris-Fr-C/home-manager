@@ -196,6 +196,12 @@
       :v "D" #'+cc/delete-blackhole-eol
       )
 
+;; Fuzzy finding.
+;; Add fuzzy file and text searching under SPC f without overriding other bindings
+;; Safely rebind SPC f f and SPC f w without wiping other SPC f keys
+(map! :leader
+      :desc "Fuzzy find file in project" "f f" #'projectile-find-file
+      :desc "Fuzzy find text in project" "f w" #'+default/search-project)
 
 ;; ============================================================================
 ;; CONFLICTS
@@ -252,7 +258,4 @@
 ;; different local keymap per mode — if workspace-switching stops working
 ;; in a specific mode, find that mode's Tab binding with `SPC h k <tab>`
 ;; and decide there whether to unbind it.
-
-
-
-(provide 'cc-keymaps)
+;; Map SPC f w to fuzzy find/grep text across project files
