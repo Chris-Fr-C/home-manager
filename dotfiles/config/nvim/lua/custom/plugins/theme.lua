@@ -17,8 +17,8 @@ vim.pack.add {
 --- @alias Cyberdream "cyberdream"|"cyberdream-light"
 --- @alias Oasis "oasis"|"oasis-desert"
 ---@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream|Oasis
-local selected = 'catppuccin-macchiato'
-
+-- local selected = 'catppuccin-macchiato'
+ local selected = 'cyberdream'
 if (selected == "catppuccin" or selected == "catppuccin-macchiato") then
     require("catppuccin").setup({
         flavour = "auto", -- auto, latte, frappe, macchiato, mocha

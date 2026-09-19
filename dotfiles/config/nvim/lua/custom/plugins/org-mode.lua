@@ -10,14 +10,21 @@ vim.pack.add({
 
 require("headlines").setup({})
 
-require('orgmode').setup({
-  org_agenda_files = '~/orgfiles/**/*',
-  org_default_notes_file = '~/orgfiles/refile.org',
-})
 
-require("org-roam").setup({
-    directory = "~/org_roam",
-})
+-- Check if a local project config exists in the current directory
+local has_local_config = vim.fn.filereadable(".nvim.lua") == 1
+
+if not has_local_config then
+    require('orgmode').setup({
+      org_agenda_files = '~/orgfiles/**/*',
+      org_default_notes_file = '~/orgfiles/refile.org',
+    })
+
+    require("org-roam").setup({
+      directory = "~/org_roam",
+    })
+end
+
 -- And the org roam mode
 
 

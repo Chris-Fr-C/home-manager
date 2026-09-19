@@ -5,6 +5,17 @@ local containers = require("custom.config.keymap-containers")
 local style = require("custom.config.style")
 local builtin = require 'telescope.builtin'
 
+
+vim.pack.add({"https://github.com/nvim-telescope/telescope.nvim"})
+
+require("telescope").setup({
+	  pickers = {
+    colorscheme = {
+      enable_preview = true,
+    },
+  },
+})
+
 -- vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [H]elp' })
 vim.keymap.set('n', containers.open.key ..'k', builtin.keymaps, { desc = '[K]eymaps' })
 -- vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })

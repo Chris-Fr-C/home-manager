@@ -121,6 +121,7 @@ in
     marp-cli # for markdown presentations
     glow # markdown renderer
     bat # cat but with syntax highlight
+    pandoc
 
   ];
 
