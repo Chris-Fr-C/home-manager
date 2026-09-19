@@ -24,17 +24,17 @@
 
 ;; -- Save (force) ------------------------------------------------------
 (map! "C-s" (cmd! (save-buffer)
-                   (message "Saved")))
+                  (message "Saved")))
 
 ;; -- SPC C v u/r  (config > vim/doom) -----------------------------------
 (map! :leader
       (:prefix ("C" . "config")
-       (:prefix ("v" . "vim/doom")
-        :desc "Update packages" "u" #'doom/doom-upgrade  ; if this command
-        :desc "Reload config"   "r" #'doom/reload)))     ; doesn't exist on
-                                                           ; your version, run
-                                                           ; `doom upgrade`
-                                                           ; from a shell instead
+               (:prefix ("v" . "vim/doom")
+                :desc "Update packages" "u" #'doom/doom-upgrade  ; if this command
+                :desc "Reload config"   "r" #'doom/reload)))     ; doesn't exist on
+                                        ; your version, run
+                                        ; `doom upgrade`
+                                        ; from a shell instead
 
 ;; -- SPC q *  (quit) ------------------------------------------------------
 (map! :leader
@@ -109,17 +109,17 @@
        :desc "Up/Down split"    "j" #'split-window-below
        :desc "New buffer"       "n" #'evil-buffer-new
        :desc "New tab"          "t" #'+workspace/new))  ; needs :ui workspaces,
-                                                          ; see note above
+                                        ; see note above
 
 ;; -- Terminal --------------------------------------------------------------
 ;; -- SPC t * (toggle/terminal) — custom bindings for Ghostel ---------------
 (map! :leader
       (:prefix ("t" . "toggle")
-        :desc "Ghostel terminal"           "t" #'ghostel
-        :desc "Ghostel split left"         "h" (cmd! (split-window-left)  (ghostel))
-        :desc "Ghostel split down"         "j" (cmd! (split-window-below) (ghostel))
-        :desc "Ghostel split up"           "k" (cmd! (split-window-above) (ghostel))
-        :desc "Ghostel split right"        "l" (cmd! (split-window-right) (ghostel))))
+       :desc "Ghostel terminal"           "t" #'ghostel
+       :desc "Ghostel split left"         "h" (cmd! (split-window-left)  (ghostel))
+       :desc "Ghostel split down"         "j" (cmd! (split-window-below) (ghostel))
+       :desc "Ghostel split up"           "k" (cmd! (split-window-above) (ghostel))
+       :desc "Ghostel split right"        "l" (cmd! (split-window-right) (ghostel))))
 
 ;; Better escape
 ;; Configure evil-escape globally for 'jk' sequence
@@ -201,7 +201,13 @@
 ;; Safely rebind SPC f f and SPC f w without wiping other SPC f keys
 (map! :leader
       :desc "Fuzzy find file in project" "f f" #'projectile-find-file
-      :desc "Fuzzy find text in project" "f w" #'+default/search-project)
+      :desc "Fuzzy find text in project" "f w" #'+default/search-project
+      )
+
+
+
+;; Orgmode syntax
+
 
 ;; ============================================================================
 ;; CONFLICTS
