@@ -10,6 +10,7 @@ vim.pack.add({
 
 require("headlines").setup({})
 
+local containers = require("custom.config.keymap-containers")
 
 -- Check if a local project config exists in the current directory
 local has_local_config = vim.fn.filereadable(".nvim.lua") == 1
@@ -22,11 +23,51 @@ if not has_local_config then
 
     require("org-roam").setup({
       directory = "~/org_roam",
+      bindings = {
+        prefix=containers.orgroam.key,
+      }
     })
+    vim.keymap.set({'i', 'n'}, containers.orgroam.key .. 'd', '', {
+      desc="daily",
+    })
+
 end
 
--- And the org roam mode
+-- https://nvim-orgmode.github.io/configuration
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'org',
+  callback = function(args)
+    vim.keymap.set({'i', 'n'}, containers.root.key .. '<S-CR>', '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
+      silent = true,
+      buffer = true,
+    })
+
+    vim.keymap.set({ 'n'}, containers.org.key .. 'i', '', {
+      desc="insert"
+    })
+
+    vim.keymap.set({ 'n'}, containers.org.key .. 'l', '', {
+      desc="link"
+    })
+
+    vim.keymap.set({ 'n'}, containers.org.key .. 'x', '', {
+      desc="set"
+    })
+      vim.keymap.set({'n'}, containers.org.key .. 'n', '', {
+      desc="note"
+    })
+    -- Map 'gd' in org buffers to open orgmode links
+    vim.keymap.set("n", containers.root.key .. "gd", function()
+      require("orgmode").action("org_mappings.open_at_point")
+    end, { buffer = args.buf, silent = true, desc = "Org Open Link" })
+
+    vim.keymap.set("n", containers.root.key .. "<CR>", function()
+      require("orgmode").action("org_mappings.open_at_point")
+    end, { buffer = args.buf, silent = true, desc = "Org Open Link" })
+  end,
+})
+-- And the org roam mode
 
 -- Experimental LSP support
 vim.lsp.enable('org')

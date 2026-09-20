@@ -22,10 +22,14 @@ vim.pack.add({
 })
 
 
-
-vim.keymap.set('n', containers.root.key .. 'gk', '<cmd>ConjureDocWord<cr>', { desc = '[g]et [k]nowledge / Doc' })
-vim.keymap.set("n", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalBuf<cr>", {desc="Evaluate buffer"})
-vim.keymap.set("v", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalVisual<cr>", {desc="Evaluate buffer"})
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = {"python", "lua", "javascript", "lisp"},
+  callback = function()
+		vim.keymap.set('n', containers.root.key .. 'gk', '<cmd>ConjureDocWord<cr>', { desc = '[g]et [k]nowledge / Doc' })
+		vim.keymap.set("n", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalBuf<cr>", {desc="Evaluate buffer"})
+		vim.keymap.set("v", containers.root.key .. "<C-Enter>", "<cmd>ConjureEvalVisual<cr>", {desc="Evaluate buffer"})
+  end,
+})
 
 -- For clojure i recommend to put this line:
 -- {:user {:plugins [[cider/cider-nrepl "0.42.1"]]}}

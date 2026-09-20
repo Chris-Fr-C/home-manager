@@ -15,14 +15,17 @@ local containers = {
   code = {key="<leader>c", desc="[c]ode", alias=true},
   evaluate = {key=local_leader.."e", desc="[e]valuate"},
   diagnostic = {key="<leader>ct", desc="[t]roubles diagnostic"},
-  open = {key="<leader>o", desc="[o]pen"},
-  build = {key="<leader>ob", desc="[b]uild"},
+  open = {key="<leader>v", desc="[v]isualize", alias=true},
+  build = {key="<leader>vb", desc="[b]uild"},
   execute = {key="<leader>x", desc="E[x]ecute"},
   debug = {key="<leader>d", desc="[d]ebug"},
   visualize = {key="<leader>v", desc="[v]isualize"}, -- just here so the linter helps us to know where it is used.
   obsidian = {key=local_leader.."o", desc="[o]bsidian"}, -- just here so the linter helps us to know where it is used.
   terminal = {key="<leader>t", desc="[t]erminal"}, -- just here so the linter helps us to know where it is used.
+  org = {key="<leader>o", desc="[o]rg"},
+  orgroam = {key=local_leader .. "n", desc="[n]otes"},
   root = {key="", desc=""}, -- just here so the linter helps us to know where it is used.
+
 }
 
 -- Automatically register the root descriptions for UI menus
