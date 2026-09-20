@@ -6,6 +6,10 @@ vim.pack.add({
 
   -- Org roam
   "https://github.com/chipsenkbeil/org-roam.nvim",
+
+
+  -- Table mode
+  "https://github.com/dhruvasagar/vim-table-mode",
 })
 
 require("headlines").setup({})
@@ -27,17 +31,28 @@ if not has_local_config then
         prefix=containers.orgroam.key,
       }
     })
-    vim.keymap.set({'i', 'n'}, containers.orgroam.key .. 'd', '', {
-      desc="daily",
-    })
 
 end
 
+vim.keymap.set({'i', 'n'}, containers.orgroam.key .. 'd', '', {
+  desc="daily",
+})
 -- https://nvim-orgmode.github.io/configuration
-
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'org',
   callback = function(args)
+
+    -- vim.g.table_mode_disable_mappings = 1
+    -- Configure vim-table-mode to use Org-compatible separators
+    vim.g.table_mode_corner = '+'
+    vim.g.table_mode_separator = '|'
+    vim.g.table_mode_fillchar = '-'
+
+    -- vim.keymap.set('n', containers.org.key..'TT', '<cmd>TableModeToggle<CR>', {
+    --   silent = true,
+    --   desc = 'Toggle Table Mode'
+    -- })
+
     vim.keymap.set({'i', 'n'}, containers.root.key .. '<S-CR>', '<cmd>lua require("orgmode").action("org_mappings.meta_return")<CR>', {
       silent = true,
       buffer = true,
@@ -65,6 +80,7 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.keymap.set("n", containers.root.key .. "<CR>", function()
       require("orgmode").action("org_mappings.open_at_point")
     end, { buffer = args.buf, silent = true, desc = "Org Open Link" })
+
   end,
 })
 -- And the org roam mode
