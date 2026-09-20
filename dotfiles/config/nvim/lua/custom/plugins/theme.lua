@@ -4,7 +4,7 @@ vim.pack.add {
   'https://github.com/ellisonleao/gruvbox.nvim',
   'https://github.com/edeneast/nightfox.nvim',
   'https://github.com/catppuccin/nvim',
-'https://github.com/scottmckendry/cyberdream.nvim',
+    'https://github.com/scottmckendry/cyberdream.nvim',
     "https://github.com/uhs-robert/oasis.nvim",
 }
 
@@ -18,7 +18,7 @@ vim.pack.add {
 --- @alias Oasis "oasis"|"oasis-desert"
 ---@type "embark"|"tokyonight" | Mini | Kanagawa | Catppuccin |"gruvbox"|Cyberdream|Oasis
 -- local selected = 'catppuccin-macchiato'
- local selected = 'cyberdream'
+ local selected = 'oasis-desert'
 if (selected == "catppuccin" or selected == "catppuccin-macchiato") then
     require("catppuccin").setup({
         flavour = "auto", -- auto, latte, frappe, macchiato, mocha
