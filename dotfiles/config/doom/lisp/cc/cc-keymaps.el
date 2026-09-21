@@ -63,7 +63,6 @@
 
 
 ;; File tree
-
 (after! treemacs
   (map! :map treemacs-mode-map
         "C-h" #'evil-window-left
@@ -161,13 +160,35 @@
       :n "C-M-r" #'evil-record-macro)
 
 
+;; And for the org mode overlap
+(after! evil-org
+  (map! :map evil-org-mode-map
+        ;; Remove C-j / C-k from org's map so global window navigation works everywhere
+        :n "C-j" nil
+        :n "C-k" nil
+        ;; Rebind org heading / item navigation to J and K
+        :n "J" #'org-forward-heading-same-level
+        :n "K" #'org-backward-heading-same-level))
+
 ;; Window navigation.
 (map! :n "C-h" #'evil-window-left
       :n "C-j" #'evil-window-down
       :n "C-k" #'evil-window-up
       :n "C-l" #'evil-window-right)
 
+;; Clear Org-mode overrides so global C-j/C-k pass through, and assign J/K
+(after! org
+  (map! :map org-mode-map
+        :n "C-j" nil
+        :n "C-k" nil))
 
+(after! evil-org
+  (map! :map evil-org-mode-map
+        :n "C-j" nil
+        :n "C-k" nil
+        ;; Rebind org heading navigation to J and K
+        :n "J" #'org-forward-heading-same-level
+        :n "K" #'org-backward-heading-same-level))
 
 ;;; Copy pasting
 ;; -- Blackhole-register delete, explicit clipboard cut --------------------
@@ -304,12 +325,12 @@
 
 ;; Inject nvim-orgmode style keybindings into Doom's SPC o leader menu
 (map! :leader
-      :desc "Ensure Org IDs for all headings" "o h" #'cc/org-id-get-create-all
 
       ;; nvim-orgmode core action mappings under SPC o
       (:prefix ("o" . "open/org")
        :desc "Agenda"                     "a" #'org-agenda
        :desc "Capture"                    "c" #'org-capture
+       :desc "Ensure Org IDs for all headings" "h" #'cc/org-id-get-create-all
 
        ;; Links (nvim-orgmode <leader>oi / <leader>oli)
        (:prefix ("l" . "links")
