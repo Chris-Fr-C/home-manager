@@ -17,7 +17,7 @@ in
       EMACS="neomacs";
       EDITOR = "nvim";
       DOOMDIR="~/.config/doom";
-
+      COLORTERM="truecolor";
     };
     shellAliases = {
       vim="nvim" ;

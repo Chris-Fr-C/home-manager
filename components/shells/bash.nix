@@ -5,6 +5,7 @@ let
     # This one is for interactive shells.
     EDITOR = "nvim";
     DOOMDIR="~/.config/doom";
+    COLORTERM="truecolor";
   };
   shellAliases = {
     cfg-nix = "nvim ~/.config/home-manager/home.nix";

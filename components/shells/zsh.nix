@@ -5,7 +5,7 @@ let
     # This one is for interactive shells.
     EDITOR = "nvim";
     DOOMDIR="~/.config/doom";
-
+    COLORTERM="truecolor";
   };
   shellAliases = {
     EMACS="neomacs";

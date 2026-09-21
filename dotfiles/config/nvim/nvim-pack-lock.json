@@ -327,6 +327,10 @@
       "rev": "005368b30cea12ececfbe27240b4269939aac6e6",
       "src": "https://github.com/nvim-orgmode/orgmode"
     },
+    "outline.nvim": {
+      "rev": "2a132953b944561d45b52e4541ebfff71934a742",
+      "src": "https://github.com/hedyhli/outline.nvim"
+    },
     "overseer.nvim": {
       "rev": "a93d9f6d6defdac4bcd6d2c8ba988650e42e0a0e",
       "src": "https://github.com/stevearc/overseer.nvim"

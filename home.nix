@@ -21,5 +21,6 @@
     nerd-fonts.victor-mono
 
     symbola # font
+
   ];
 }

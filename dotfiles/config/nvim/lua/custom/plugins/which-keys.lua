@@ -7,7 +7,7 @@ require('which-key').setup({
   -- Delay between pressing a key and opening which-key (milliseconds)
   delay = 0,
 ---@type false | "classic" | "modern" | "helix"
-  preset = "modern",
+  preset = "helix",
   icons = { mappings = vim.g.have_nerd_font },
     -- This section forces which-key to listen to the 's' key for the surround commands.
     triggers = {
