@@ -115,11 +115,11 @@
 ;; -- SPC t * (toggle/terminal) — custom bindings for Ghostel ---------------
 (map! :leader
       (:prefix ("t" . "toggle")
-       :desc "Ghostel terminal"           "t" #'ghostel
-       :desc "Ghostel split left"         "h" (cmd! (split-window-left)  (ghostel))
-       :desc "Ghostel split down"         "j" (cmd! (split-window-below) (ghostel))
-       :desc "Ghostel split up"           "k" (cmd! (split-window-above) (ghostel))
-       :desc "Ghostel split right"        "l" (cmd! (split-window-right) (ghostel))))
+       :desc "Ghostel terminal"   "t" #'ghostel
+       :desc "Ghostel split left"  "h" (cmd! (ghostel)) ; opens left if you split left first
+       :desc "Ghostel split down"  "j" (cmd! (select-window (split-window-below)) (ghostel))
+       :desc "Ghostel split up"    "k" (cmd! (split-window-below) (ghostel))
+       :desc "Ghostel split right" "l" (cmd! (select-window (split-window-right)) (ghostel))))
 
 ;; Better escape
 ;; Configure evil-escape globally for 'jk' sequence
@@ -286,3 +286,39 @@
 (map! :leader
       :desc "Ensure Org IDs for all headings"
       "o h" #'cc/org-id-get-create-all)
+
+
+
+
+;;; Custom functions & nvim-orgmode bindings
+(defun cc/org-id-get-create-all ()
+  "Ensure all headings in the current buffer have an Org ID."
+  (interactive)
+  (require 'org-id)
+  (save-excursion
+    (goto-char (point-max))
+    (when (or (org-at-heading-p) (outline-previous-heading))
+      (org-id-get-create)
+      (while (outline-previous-heading)
+        (org-id-get-create)))))
+
+;; Inject nvim-orgmode style keybindings into Doom's SPC o leader menu
+(map! :leader
+      :desc "Ensure Org IDs for all headings" "o h" #'cc/org-id-get-create-all
+
+      ;; nvim-orgmode core action mappings under SPC o
+      (:prefix ("o" . "open/org")
+       :desc "Agenda"                     "a" #'org-agenda
+       :desc "Capture"                    "c" #'org-capture
+
+       ;; Links (nvim-orgmode <leader>oi / <leader>oli)
+       (:prefix ("l" . "links")
+        :desc "Insert link"               "i" #'org-insert-link
+        :desc "Store link"                "s" #'org-store-link
+        :desc "Next link"                 "n" #'org-next-link
+        :desc "Previous link"             "p" #'org-previous-link)
+
+       ;; Refile / Archive / Tags
+       :desc "Refile heading"             "r" #'org-refile
+       :desc "Archive heading"            "A" #'org-archive-subtree
+       :desc "Set tags"                   "t" #'org-set-tags-command))
