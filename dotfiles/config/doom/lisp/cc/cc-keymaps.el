@@ -79,6 +79,28 @@
 (map! :leader
       :desc "Toggle Treemacs" "e" #'+treemacs/toggle)
 
+;; File tree
+(after! treemacs
+  (map! :map treemacs-mode-map
+        "C-h" #'evil-window-left
+        "C-j" #'evil-window-down
+        "C-k" #'evil-window-up
+        "C-l" #'evil-window-right
+
+        ;; Neo-tree style file operations
+        "a"         #'treemacs-create-file
+        "d"         #'treemacs-delete-file
+        "x"         #'treemacs-move-file           ; Cut / move
+        "p"         #'treemacs-copy-file           ; Paste / copy to target
+        "r"         #'treemacs-rename-file         ; Rename
+        "c"         #'treemacs-copy-file           ; Duplicate / copy
+        "."         #'treemacs-root-up             ; Set root to current / go up
+        "<backspace>" #'treemacs-root-up)          ; Go up a directory level
+
+  ;; Treemacs window-picker on open (NvChad style)
+  (treemacs-define-RET-action 'file-node-closed #'treemacs-visit-node-ace)
+  (treemacs-define-RET-action 'file-node-open   #'treemacs-visit-node-ace))
+
 ;; "Treesitter scope jump" has no built-in Emacs equivalent. Pick ONE:
 ;;   combobulate   -- structural/treesit navigation, closest analog, not
 ;;                     on MELPA, install manually from
