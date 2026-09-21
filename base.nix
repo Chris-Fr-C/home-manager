@@ -122,6 +122,7 @@ in
     glow # markdown renderer
     bat # cat but with syntax highlight
     pandoc
+    emacs # used for export of org files mostly
 
   ];
 

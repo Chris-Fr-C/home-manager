@@ -265,3 +265,24 @@
 ;; in a specific mode, find that mode's Tab binding with `SPC h k <tab>`
 ;; and decide there whether to unbind it.
 ;; Map SPC f w to fuzzy find/grep text across project files
+
+
+
+
+;;; Custom functions
+;;; Custom functions
+(defun cc/org-id-get-create-all ()
+  "Ensure all headings in the current buffer have an Org ID."
+  (interactive)
+  (require 'org-id)
+  (save-excursion
+    (goto-char (point-max))
+    (when (or (org-at-heading-p) (outline-previous-heading))
+      (org-id-get-create)
+      (while (outline-previous-heading)
+        (org-id-get-create)))))
+
+;; Hook into Doom's leader key layout
+(map! :leader
+      :desc "Ensure Org IDs for all headings"
+      "o h" #'cc/org-id-get-create-all)
