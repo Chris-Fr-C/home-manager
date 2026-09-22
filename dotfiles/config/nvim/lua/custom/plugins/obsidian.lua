@@ -1,3 +1,6 @@
+if true then
+  return {}
+end
 local containers = require("custom.config.keymap-containers")
 
 vim.pack.add({

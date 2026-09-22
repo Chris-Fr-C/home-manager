@@ -142,6 +142,10 @@
       "rev": "6325906730330105a9adc41d0ceb8499b3072e2b",
       "src": "https://github.com/hinell/lsp-timeout.nvim"
     },
+    "lua-utils.nvim": {
+      "rev": "e565749421f4bbb5d2e85e37c3cef9d56553d8bd",
+      "src": "https://github.com/nvim-neorg/lua-utils.nvim"
+    },
     "lualine.nvim": {
       "rev": "221ce6b2d999187044529f49da6554a92f740a96",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
@@ -194,6 +198,10 @@
       "rev": "f3f3bf73414e400cf9fc13fda50f00404a8f8ab1",
       "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
       "version": ">=0.0.0"
+    },
+    "neorg": {
+      "rev": "6fda795b0108c92840fd32db6d5dd54e7f997fa8",
+      "src": "https://github.com/nvim-neorg/neorg"
     },
     "neotest": {
       "rev": "27bf921498043f7ecd821d6db68d05de244bbd02",
@@ -334,6 +342,10 @@
     "overseer.nvim": {
       "rev": "a93d9f6d6defdac4bcd6d2c8ba988650e42e0a0e",
       "src": "https://github.com/stevearc/overseer.nvim"
+    },
+    "pathlib.nvim": {
+      "rev": "a0d3dbbe00ce6a546426b1aed3838a82fe6bfc42",
+      "src": "https://github.com/pysan3/pathlib.nvim"
     },
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",

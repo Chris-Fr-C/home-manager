@@ -27,7 +27,7 @@ if not has_local_config then
 	require("org-roam").setup({
 		directory = "~/org_roam",
 		bindings = {
-			prefix = containers.orgroam.key,
+			prefix = containers.org.key,
 		},
 	})
 end
@@ -36,7 +36,7 @@ vim.keymap.set("n", containers.org.key .. "f", function()
 	require("org-roam").api.find_node()
 end, { desc = "Org-Roam Find Node" })
 
-vim.keymap.set({ "i", "n" }, containers.orgroam.key .. "d", "", {
+vim.keymap.set({ "i", "n" }, containers.org.key .. "d", "", {
 	desc = "daily",
 })
 -- https://nvim-orgmode.github.io/configuration
