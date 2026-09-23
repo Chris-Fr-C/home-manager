@@ -65,3 +65,13 @@
 
 ;; Icons
 (package! nerd-icons)
+
+;; Python virtualenv selection (`pyvenv-workon' / `pyvenv-activate').
+;; Used by lisp/cc/cc-python.el; run `doom sync' after adding.
+(package! pyvenv)
+
+;; Debug Adapter Protocol client (sessions, breakpoints, stepping).
+;; Used by lisp/cc/cc-lsp.el (`SPC d'); run `doom sync' after adding.
+;; NOTE: Doom's :tools debugger module ships `dape' (a different DAP
+;; client); our bindings target dap-mode only, the two don't interact.
+(package! dap-mode)

@@ -26,12 +26,12 @@ in
     #   # executable=true;
     # };
 
-    # ".config/doom" = {
-    #   source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/doom";
-    #   force = true;
-    #   # recursive = true;
-    #   # executable=true;
-    # };
+    ".config/doom" = {
+      source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/doom";
+      force = true;
+      # recursive = true;
+      # executable=true;
+    };
 
     ".config/zellij" = {
       source = config.lib.file.mkOutOfStoreSymlink "${dotfilesDir}/zellij";

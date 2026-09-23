@@ -1,36 +1,71 @@
+-- https://nvim-orgmode.github.io/plugins.html
 vim.pack.add({
 	"https://github.com/nvim-orgmode/orgmode",
 
-	-- Colors highlight:
-	"https://github.com/lukas-reineke/headlines.nvim",
+	-- bullets
+	"https://github.com/nvim-orgmode/org-bullets.nvim",
 
 	-- Org roam
 	"https://github.com/chipsenkbeil/org-roam.nvim",
 
 	-- Table mode
 	"https://github.com/dhruvasagar/vim-table-mode",
+
+	-- For agenda
+	"https://github.com/danilshvalov/org-modern.nvim",
+
+	-- Super agenda
+	"https://github.com/hamidi-dev/org-super-agenda.nvim",
+
+	-- Org telescope
+	"https://github.com/nvim-orgmode/telescope-orgmode.nvim",
 })
 
-require("headlines").setup({})
-
 local containers = require("custom.config.keymap-containers")
+require("org-bullets").setup()
+require("org-super-agenda").setup({})
+
+local Menu = require("org-modern.menu")
 
 -- Check if a local project config exists in the current directory
 local has_local_config = vim.fn.filereadable(".nvim.lua") == 1
 
-if not has_local_config then
-	require("orgmode").setup({
-		org_agenda_files = "~/orgfiles/**/*",
-		org_default_notes_file = "~/orgfiles/refile.org",
-	})
+-- if not has_local_config then
+require("orgmode").setup({
+	org_agenda_files = "~/orgfiles/**/*",
+	org_default_notes_file = "~/orgfiles/refile.org",
 
-	require("org-roam").setup({
-		directory = "~/org_roam",
-		bindings = {
-			prefix = containers.org.key,
+	ui = {
+		menu = {
+			handler = function(data)
+				Menu:new({
+					window = {
+						margin = { 1, 0, 1, 0 },
+						padding = { 0, 1, 0, 1 },
+						title_pos = "center",
+						border = "single",
+						zindex = 1000,
+					},
+					icons = {
+						separator = "➜",
+					},
+				}):open(data)
+			end,
 		},
-	})
-end
+	},
+})
+
+require("org-roam").setup({
+	directory = "~/org_roam",
+	-- Additional directories.
+	org_files = {
+		vim.fn.expand("./**/*.org"),
+	},
+	bindings = {
+		prefix = containers.org.key,
+	},
+})
+-- end
 -- Keymap: <Leader>of to find nodes using Telescope
 vim.keymap.set("n", containers.org.key .. "f", function()
 	require("org-roam").api.find_node()
@@ -39,6 +74,9 @@ end, { desc = "Org-Roam Find Node" })
 vim.keymap.set({ "i", "n" }, containers.org.key .. "d", "", {
 	desc = "daily",
 })
+
+vim.keymap.set("n", containers.org.key .. "o", "<cmd>OrgSuperAgenda<cr>", { silent = true, desc = "Super agenda" })
+
 -- https://nvim-orgmode.github.io/configuration
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "org",
@@ -98,8 +136,14 @@ vim.api.nvim_create_autocmd("FileType", {
 		end, { buffer = args.buf, silent = true, desc = "Org Open Link" })
 	end,
 })
--- And the org roam mode
 
+-- Those dont need to be only for org files as they are accessible everywhere.
+local tom = require("telescope-orgmode")
+tom.setup({ adapter = "fzf-lua" })
+vim.keymap.set("n", containers.org.key .. "fh", tom.search_headings, { desc = "Org headlines" })
+vim.keymap.set("n", containers.org.key .. "ft", tom.search_tags, { desc = "Org tags" })
+vim.keymap.set("n", containers.org.key .. "r", tom.refile_heading, { desc = "Org refile" })
+vim.keymap.set("n", containers.org.key .. "li", tom.insert_link, { desc = "Org insert link" })
 -- Experimental LSP support
 vim.lsp.enable("org")
 return {}

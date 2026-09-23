@@ -20,9 +20,8 @@
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
-       :completion
-       ;;company           ; the ultimate code completion backend
-       (corfu +orderless)  ; complete with cap(f), cape and a flying feather!
+        :completion
+        (company +childframe) ; complete with company-box childframes (docs in-frame)
        ;;helm              ; the *other* search engine for love and life
        ;;ido               ; the other *other* search engine...
        ;;ivy               ; a search engine for love and life
@@ -102,7 +101,7 @@
        (eval +overlay)     ; run code, run (also, repls)
        lookup              ; navigate your code and its documentation
        llm               ; when I said you needed friends, I didn't mean...
-       (lsp +eglot)      ; M-x vscode
+        (lsp)               ; M-x vscode (lsp-mode; DAP via cc-lsp.el)
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
        ;;pass              ; password manager for nerds
