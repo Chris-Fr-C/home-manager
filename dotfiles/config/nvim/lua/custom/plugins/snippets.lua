@@ -12,4 +12,5 @@ require("luasnip").setup({})
 --    https://github.com/rafamadriz/friendly-snippets
 --
 require("luasnip.loaders.from_vscode").lazy_load()
+require("luasnip.loaders.from_snipmate").lazy_load({paths={vim.fn.stdpath("config") .. "/lua/custom/snippets"}})
 return {}
