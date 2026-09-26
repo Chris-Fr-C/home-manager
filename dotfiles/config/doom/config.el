@@ -12,7 +12,6 @@
 
 
 
-
 (setq doom-font (font-spec :family "VictorMono Nerd Font" :size 12 :weight 'semi-light)
       doom-variable-pitch-font (font-spec :family "VictorMono Nerd Font" :size 13))
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
