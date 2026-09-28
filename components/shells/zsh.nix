@@ -1,32 +1,6 @@
 { pkgs, ... }:
 
 let
-  sessionVariables = {
-    # This one is for interactive shells.
-    EDITOR = "nvim";
-    DOOMDIR="~/.config/doom";
-    COLORTERM="truecolor";
-  };
-  shellAliases = {
-    EMACS="neomacs";
-    cfg-nix = "nvim ~/.config/home-manager/home.nix";
-    find = "fd";
-    cd = "z";
-    c = "y"; # instead of yazi so we can leave and set the dir.
-    ls = "eza --icons=always";
-    lsl = "ls -l";
-    lsls = "lsl --total-size";
-    bench = "hyperfine";
-    vim = "nvim";
-    lg = "lazygit";
-    hm = "home-manager";
-    hme = "nvim ~/.config/home-manager/home.nix";
-    cz = "commitizen";
-    zz = "zellij";
-    # Order is important
-    em = "emacs -nw";
-  };
-
   sharedShellInit = '''';
     # builtins.readFile ./scripts/yazi-shortcut.sh;
 in
@@ -44,7 +18,7 @@ in
     syntaxHighlighting.enable = true;
 
     history.size = 10000;
-    inherit shellAliases sessionVariables;
+    # shellAliases and sessionVariables are set in ./profile.nix.
 
     oh-my-zsh = {
       enable = true;

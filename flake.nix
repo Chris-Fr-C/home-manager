@@ -35,6 +35,7 @@
             ./base.nix
             ./home.nix
             ./components/dotfiles.nix
+            ./components/shells/profile.nix
             ./components/shells/bash.nix
             ./components/shells/zsh.nix
             ./components/shells/nushell.nix
@@ -51,6 +52,7 @@
             ./base.nix
             ./axpo-wsl.nix
             ./components/dotfiles.nix
+            ./components/shells/profile.nix
             ./components/shells/bash.nix
             ./components/shells/nushell.nix
             ./components/shells/zsh.nix

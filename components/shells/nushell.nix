@@ -1,11 +1,5 @@
 { pkgs, ... }:
 
-let
-  sessionVariables = {
-    # This one is for interactive shells.
-  };
-
-in
 {
   home.packages = with pkgs; [
     nushell
@@ -13,29 +7,7 @@ in
 
   programs.nushell = {
     enable = true;
-    environmentVariables = {
-      EMACS="neomacs";
-      EDITOR = "nvim";
-      DOOMDIR="~/.config/doom";
-      COLORTERM="truecolor";
-    };
-    shellAliases = {
-      vim="nvim" ;
-      cfg="cd ~/.config/home-manager";
-      cfgvim="cd ~/.config/home-manager/dotfiles/config/nvim/lua/custom";
-      lg="lazygit";
-      lsql="lazysql";
-      cd="z"; # Zoxide
-      hm = "home-manager";
-      hme = "nvim ~/.config/home-manager/home.nix";
-      c="yazi";
-      zz="zellij";
-      em = "neomacs -nw";
-      emacs = "neomacs";
-      cat = "bat";
-      doom="~/.config/emacs/bin/doom";
-
-    };
+    # environmentVariables and shellAliases are set in ./profile.nix.
 
     # if i want to add some custom funcs.
     # configFile.text = '' '';

@@ -1,29 +1,7 @@
 { config, pkgs, lib, inputs, ... }:
-let
-  shellAliases = {
-    cfg-nix = "nvim ~/.config/home-manager/home.nix";
-    find = "fd";
-    cd = "z";
-    c = "y"; # instead of yazi so we can leave and set the dir.
-    ls = "eza --icons=always";
-    lsl = "ls -l";
-    lsls = "lsl --total-size";
-    vim = "nvim";
-    lg = "lazygit";
-    hm = "home-manager";
-    hme = "nvim ~/.config/home-manager/home.nix";
-    zz = "zellij";
-    # Order is important
-    em = "neomacs -nw";
-    emacs = "neomacs";
-    cat = "bat";
-  };
-  sessionVariables = {
-    # This one is for interactive shells.
-    EDITOR = "nvim";
-  };
-in
 {
+  # Note: shell env vars and aliases live in components/shells/profile.nix
+  # (single source of truth), not here.
 
   # Target non-NixOS Linux distributions
   targets.genericLinux.enable = true;
@@ -43,10 +21,8 @@ in
     # Git related tools
     gh
     lazygit
-    commitizen
 
     # CLI tools
-    htop
     entr # Exec on file changes.
     lazysql # Database viewer.
     k9s # Kubernetes viewer.

@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "git": "^0.1.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git"
+    }
+  }
+}
