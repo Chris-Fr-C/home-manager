@@ -40,6 +40,7 @@
             ./components/shells/zsh.nix
             ./components/shells/nushell.nix
             ./components/science.nix
+            ./components/services.nix
           ];
         };
 

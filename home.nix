@@ -2,6 +2,10 @@
 
 {
   nixpkgs.config.allowUnfree = true;
+  # Here i can activate the services i want locally.
+  myServices.enable = true;
+  myServices.trilium.enable = true;
+
 
   home.packages = with pkgs; [
     (vivaldi.override {
